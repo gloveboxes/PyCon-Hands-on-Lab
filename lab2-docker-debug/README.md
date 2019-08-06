@@ -234,15 +234,17 @@ Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off,
 
 ![vs code debugger controls](resources/vs-code-debug-controls.png)
 
-1. Use **Device Explorer** to navigate to the **Measurements** page for the real MXChip device you added:
+## Exploring Device Telemetry in Azure IoT Central
+
+1. Use **Device Explorer** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
 
     ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
 
-1. On the **Measurements** page, you can see the telemetry coming from the MXChip device:
+1. On the **Measurements** page, you can see the telemetry coming from the Raspberry Pi device:
 
     ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
 
-### Finished
+## Finished
 
  ![Complete. Congratulations](resources/congratulations.jpg)
 
