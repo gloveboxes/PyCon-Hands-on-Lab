@@ -140,12 +140,6 @@ Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentra
 
 ## Step 1: Create a New IoT Central Application
 
-Watch this 5-minute [screencast](https://youtu.be/D26rJmHyZcA) on how to create the Azure IoT Central Application to chart telemetry and send commands to your Particle Photon.
-
-[![screencast](resources/iot-central-youtube.jpg)](https://www.youtube.com/watch?v=D26rJmHyZcA&t=5s)
-
-To summarize the screencast:
-
 1. Create a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
 ![Azure IoT Central Create Application page](resources/iot-central-new-application.png)
@@ -183,9 +177,6 @@ To summarize the screencast:
     You will need these credentials for the next step.
 
     ![Device Connection](resources/iot-central-device-connection.png)
-
-
-
 
 ## Next steps
 
@@ -237,6 +228,10 @@ docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 --device /dev/i2c-0 --device /dev
 
 ## Attach the Debugger to the Docker Container
 
+1. From the Visual Studio Code Taskbar, click and select **Python Raspberry Pi: Attach"
+2. Select **Python Raspberry Pi: Attach**
+3. Set a break point in the while True loop. Line 52 is good.
+
 ![Attached debugger](resources/vs-code-start-debugger.png)
 
 ## Debugger Controls
@@ -247,13 +242,13 @@ Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off,
 
 ## Exploring Device Telemetry in Azure IoT Central
 
-1. Use **Device Explorer** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
+1. Use **Device** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
 
-    ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
+    ![Navigate to real device](resources/iot-central-select-device.png)
 
 1. On the **Measurements** page, you can see the telemetry streaming from the Raspberry Pi device:
 
-    ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
+    ![View telemetry from real device](resources/iot-central-view-telemetry.png)
 
 ## Finished
 
