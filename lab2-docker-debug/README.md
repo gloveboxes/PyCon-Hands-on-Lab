@@ -192,7 +192,7 @@ To summarize the screencast:
 
 Hold the control key down and click the following link [Connection String Generator](https://dpsgen.z8.web.core.windows.net/) to open in a new tab.
 
-Copy and paste the "Scope Id", "Device Id", and the "Primary Key" from the Azure IoT Central Device Connection panel to the Connection String Generator page and click "Get Connection String".
+Copy and paste the **Scope Id**, **Device Id**, and the **Primary Key** from the Azure IoT Central Device Connection panel to the Connection String Generator page and click "Get Connection String".
 
 ![connection string example](resources/iot-central-connection-string-generator-example.png)
 
