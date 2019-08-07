@@ -1,4 +1,4 @@
-# Lab 2 IoT Central, Raspberry Pi and Docker Container Debugging with Visual Studio Code
+# Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging
 
 In this hands-on lab you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/), run it in a Docker Container on a Raspberry Pi, and attach and debug the code running in the container.
 
