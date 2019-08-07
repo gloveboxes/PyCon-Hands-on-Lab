@@ -95,7 +95,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
 1. Start Visual Studio Code Insiders Edition
 
-2. Click the **Open Remote Windows** button. You will find this button on the bottom lefthand corner of the Visual Studio Code window.
+2. Click the **Open Remote Windows** button. You will find this button in the bottom left-hand corner of the Visual Studio Code window.
 
     ![select the user config file](resources/vs-code-open-remote-window.png)
 
