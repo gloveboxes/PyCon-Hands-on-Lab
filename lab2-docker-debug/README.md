@@ -15,8 +15,8 @@ In this hands-on lab, you will learn how to create an Internet of Things (IoT) P
 
 You need the following information for the Hands-on Lab.
 
-1. The IP Address of the Raspberry Pi
-1. Your login name. The default password is **raspberry**.
+1. The **IP Address** of the Raspberry Pi
+1. Your **Raspberry user name**. The default password is **raspberry**.
 
 ## Hand-on Lab Overview
 
@@ -72,7 +72,7 @@ ssh-keygen -t rsa
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh <Your user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
 ### From Linux, macOS, and the Windows Subsystem for Linux
@@ -86,7 +86,7 @@ ssh-keygen -t rsa
 2. Copy the public key to your Raspberry Pi. From Linux and macOS.
 
 ```bash
-ssh-copy-id <Your user name>@<Raspberry IP Address>
+ssh-copy-id <Raspberry user name>@<Raspberry IP Address>
 ```
 
 ## Configure Visual Studio Code Remote SSH Development
@@ -107,7 +107,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     ![select the user .ssh file](resources/vs-code-open-config-file.png)
 
-5. Set the SSH connection configuration. You will need the IP Address of the Raspberry Pi and the user name assigned to you for the hands-on lab. Make the changes then save.
+5. Set the SSH connection configuration. You will need the IP Address of the Raspberry Pi and the **Raspberry user name** assigned to you for the hands-on lab. Make the changes then save.
 
     ![configure host details](resources/vs-code-config-host-details.png)
 
