@@ -209,19 +209,21 @@ Switch back to the project you opened with Visual Studio Code. Ensure the **app.
 
     ![docker base image name](resources/docker-build-name.png)
 
-4. When your Docker image has built then start the docker container from the VS Code terminal window.
+5. Generate a random IP Port number Use this [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will pass port mapping for the Docker Run command and must be the same used to attach the Visual Studio Code debugger.
 
-    ![docker run](resources/docker-run.png)
-
-5. Click [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will use to attach the Visual Studio Code debugger.
-
-Copy and Paste the following command and update the **YOUR_RANDOM_PORT_NUMBER** with the random port number you generates, and update the **YOUR_IMAGE_NAME** with unique name you choose when you created the Docker Image.
+    Copy and Paste the following command to a text editor (eg Notepad) and update the **YOUR_RANDOM_PORT_NUMBER** with the random port number you generates, and update the **YOUR_IMAGE_NAME** with unique name you choose when you created the Docker Image.
 
 ```bash
 docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 \
 --device /dev/i2c-0 --device /dev/i2c-1 \
 --rm --privileged YOUR_IMAGE_NAME:latest
 ```
+
+6. Then paste the updated Docker Command into the Visual Studio Code Terminal Window and press **Enter** to start the Docker Container.
+
+4. When your Docker image has built then start the docker container from the VS Code terminal window.
+
+    ![docker run](resources/docker-run.png)
 
 ## Configure the Visual Studio Debugger
 
