@@ -15,7 +15,7 @@ In this hands-on lab, you will learn how to create a simple Flask or Bottle Web 
 You need the following information for the Hands-on Lab.
 
 1. The IP Address of the Raspberry Pi
-1. Your login name. The default password is **raspberry**.
+1. Your **Raspberry user name**. The default password is **raspberry**.
 
 ## Hand-on Lab Overview
 
@@ -68,7 +68,7 @@ ssh-keygen -t rsa
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh <Your user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
 ### From Linux, macOS, and the Windows Subsystem for Linux

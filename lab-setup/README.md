@@ -37,3 +37,6 @@ sudo reboot
 ```bash
 sudo visudo -f /etc/sudoers.d/010_pi-nopasswd
 ```
+
+
+
