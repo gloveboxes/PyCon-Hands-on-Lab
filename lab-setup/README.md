@@ -4,76 +4,32 @@
 
 [Setting I2C permissions for non-root users](https://lexruee.ch/setting-i2c-permissions-for-non-root-users.html)
 
+## Installing Docker on Raspbian Buster
+
+![](resources/dockeronrapi.png)
+
+The Azure IoT Edge recommended container runtime is the Moby based engine. For now, Moby doesn't install on Buster, so instead, install Docker-ce.
+
+You need to download the latest versions of **containerd.io**, **docker-ce-cli**, and **docker-ce** from [Docker (armhf) on Buster](https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf).
+
+An easy way to download the files to the Raspberry Pi is from your browser right mouse click the file and copy the link address and then in an SSH session to the Raspberry Pi **wget** each file.
+
 ```bash
-sudo apt update && sudo apt install -y git python3-pip nmap && \
-sudo -H pip3 install flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 autopep8
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/containerd.io_<LATEST VERSION>_armhf.deb
 
-sudo groupadd i2c && \
-sudo chown :i2c /dev/i2c-1 && \
-sudo chmod g+rw /dev/i2c-1
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce-cli_<LATEST VERSION>~debian-buster_armhf.deb
 
-for i in {01..35}
-do
-    sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users -m
-    echo "dev$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd
-    sudo cp -R /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
-    sudo chown -R dev$i:dev$i /home/dev$i/.vscode-server-insiders
-    sudo mkdir -p /home/dev$i/github/mywebapp
-    sudo cp /home/pi/source/bottle-app.py /home/dev$i/github/mywebapp/
-    sudo cp /home/pi/source/flask-app.py /home/dev$i/github/mywebapp/
-    sudo chown -R dev$i:dev$i /home/dev$i
-done
-
-
-for i in 'windows' 'macos' 'linux'
-do
-    # sudo useradd  -p $(openssl passwd -1 raspberry) $i -G i2c,users -m
-    # echo "$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd
-    # sudo cp -R /home/pi/.vscode-server-insiders /home/$i/.vscode-server-insiders
-    # sudo chown -R $i:$i /home/$i/.vscode-server-insiders
-
-    # sudo cp -R /home/pi/.vscode-server-insiders /home/windows/.vscode-server-insiders
-    # sudo chown -R windows:windows /home/windows/.vscode-server-insiders
-
-
-    for u in {01..35}
-    do
-        sudo mkdir -p /home/$i/github/dev-$u
-        sudo cp /home/pi/github/main.py /home/$i/github/dev-$u
-        sudo chown -R $i:$i /home/$i/github/dev-$u
-    done
-    # sudo mkdir -p /home/$i/github/mywebapp
-    # sudo cp /home/pi/source/main.py /home/$i/github/mywebapp/
-    # sudo chown -R $i:$i /home/$i
-done
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce_<LATEST VERSION>~debian-buster_armhf.deb
 ```
 
-### Global Pip install required lab packages
+Install the debian packages in the same order you downloaded, add the current user to the docker group, and reboot.
 
 ```bash
-sudo apt update && sudo apt install -y git python3-pip nmap && \
-sudo -H pip3 install flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280
-```
-
-## Clean up Lab Resources
-
-```bash
-
-for i in 'windows' 'macos' 'linux'
-do
-    sudo deluser $i
-    sudo rm -r /home/$i
-done
-
-
-for i in {01..40}
-do
-    sudo deluser dev$i
-done
-
-sudo rm -r /home/dev*
-
-echo "pi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_pi-nopasswd
+sudo dpkg -i containerd.io* && \
+sudo dpkg -i docker-ce-cli* && \
+sudo dpkg -i docker-ce_* && \
+sudo usermod -aG docker $USER && \
+sudo reboot
 ```
 
 ### Review No Passwords File
