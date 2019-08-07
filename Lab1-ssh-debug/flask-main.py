@@ -24,4 +24,4 @@ def hello_world():
 
 if __name__ == '__main__':
     # Run the server
-    app.run(host='192.168.0.198', port=port)
+    app.run(host='<Raspberry PI IP Address>', port=port)

@@ -9,13 +9,11 @@ import adafruit_bme280
 
 port = random.randrange(8000, 9000)
 
+# Open I2C Bus and I2C Sensor
 i2c = busio.I2C(board.SCL, board.SDA)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, address=0x76)
 
-now = datetime.now()
-current_time = now.strftime("%H:%M:%S")
-
-# Note, deliberately not using templates to reduce memory footprint
+# Note, deliberately not using templates so to reduce memory footprint
 @route('/')
 def telemetry():
     title = "Environment Data"
