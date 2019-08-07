@@ -171,6 +171,8 @@ To summarize the screencast:
 
     ![create a real device](resources/iot-central-add-real-device.png)
 
+    Give your device a sensible **Device Id**, then click **Create**.
+
     ![](resources/iot-central-create-new-device.png)
 
 7. When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
