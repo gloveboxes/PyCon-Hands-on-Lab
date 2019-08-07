@@ -124,5 +124,27 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 1. From VS Code: File -> Open Folder
 2. Navigate to github/Lab1-ssh-debug directory
 3. Open the **bottle-main.py** file
+4. Scroll to the end of the file and update the **Raspberry Pi IP Address** with the IP Address allocated to you for the lab
 
+```python
+if __name__ == '__main__':
+    # Run the server
+    app.run(host='<Raspberry PI IP Address>', port=port)
+```
+5. Save the file (Ctrl+S)
+6. Set a Visual Studio Code breakpoint with a single click in the code gutter. Right where the red dot is in the image below. See [Visual Studio Code Debugging](https://code.visualstudio.com/docs/editor/debugging) for more information.
+![Start the flask web application](resources/vs-code-flash-app.png)
+7. Press F5 to start the Web Application
 
+## Debug actions
+
+Once a debug session starts, the **Debug toolbar** will appear on the top of the editor.
+
+![Debug Actions](resources/toolbar.png)
+
+- Continue / Pause `kb(workbench.action.debug.continue)`
+- Step Over `kb(workbench.action.debug.stepOver)`
+- Step Into `kb(workbench.action.debug.stepInto)`
+- Step Out `kb(workbench.action.debug.stepOut)`
+- Restart `kb(workbench.action.debug.restart)`
+- Stop `kb(workbench.action.debug.stop)`
