@@ -47,11 +47,9 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ![ssh login](resources/ssh-login.jpg)
 
-Setting up public/private keys for SSH login and authentication is a secure and fast way to authenticate with the Raspberry Pi and required for this hands-on lab.
+Setting up public/private keys for SSH login and authentication is a secure and fast way to authenticate with the Raspberry Pi and is required for this hands-on lab.
 
-The following creates a new SSH key, copies the public key to the Raspberry Pi. 
-
-**Take the default options**.
+The following creates a new SSH key, copies the public key to the Raspberry Pi.
 
 ### From Windows
 
@@ -63,7 +61,7 @@ The following creates a new SSH key, copies the public key to the Raspberry Pi.
 Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
 
-2. From PowerShell, create a key pair.
+2. From PowerShell, Create your key pair, this is typically a one-time operation. **Take the default options**.
 
 ```bash
 ssh-keygen -t rsa
@@ -77,7 +75,7 @@ cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir 
 
 ### From Linux, macOS, and the Windows Subsystem for Linux
 
-1. Create your key. Typically a one-time operation.
+1. Create your key pair, this is typically a one-time operation. **Take the default options**.
 
 ```bash
 ssh-keygen -t rsa
