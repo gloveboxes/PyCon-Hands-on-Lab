@@ -215,8 +215,12 @@ Switch back to the project you opened with Visual Studio Code. Ensure the **app.
 
 5. Click [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will use to attach the Visual Studio Code debugger.
 
+Copy and Paste the following command and update the **YOUR_RANDOM_PORT_NUMBER** with the random port number you generates, and update the **YOUR_IMAGE_NAME** with unique name you choose when you created the Docker Image.
+
 ```bash
-docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 --device /dev/i2c-0 --device /dev/i2c-1 --rm --privileged YOUR_IMAGE_NAME:latest
+docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 \
+--device /dev/i2c-0 --device /dev/i2c-1 \
+--rm --privileged YOUR_IMAGE_NAME:latest
 ```
 
 ## Configure the Visual Studio Debugger
