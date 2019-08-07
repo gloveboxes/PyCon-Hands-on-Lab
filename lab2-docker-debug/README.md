@@ -1,6 +1,6 @@
 # Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging
 
-In this hands-on lab you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/), run it in a Docker Container on a Raspberry Pi, and attach and debug the code running in the container.
+In this hands-on lab, you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/), run it in a Docker Container on a Raspberry Pi, and attach and debug the code running in the container.
 
 ## References
 
@@ -34,9 +34,9 @@ This is the flow of the Hands-on Lab:
 
 ![set up requirements](resources/setup.jpg)
 
-As at August 2019 **Visual Studio Code Insiders Edition** is required as it has early support for Remote Development over SSH.
+As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Remote Development over SSH.
 
-Visual Studio Code is a source code editor and is an one of the most popular Open Source projects on GitHub. It is supported on Linux, macOS, and Windows.
+Visual Studio Code is a source code editor and is one of the most popular Open Source projects on GitHub. It is supported on Linux, macOS, and Windows.
 
 For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). The documentation is also Open Source, you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
@@ -54,7 +54,7 @@ The following creates a new SSH key, copies the public key to the Raspberry Pi. 
 
 ### From Windows
 
-1. Use the built-in Windows 10 (1809+) OpenSSH client. First install the OpenSSH Client for Windows (one time only operation).
+1. Use the built-in Windows 10 (1809+) OpenSSH client. First, install the OpenSSH Client for Windows (one time only operation).
 
     From **PowerShell as Administrator**.
 
@@ -76,7 +76,7 @@ cat ~/.ssh/id_rsa.pub | ssh <Your user name>@<Raspberry IP Address> "mkdir -p ~/
 
 ### From Linux, macOS, and the Windows Subsystem for Linux
 
-1. Create your key. Typically a one time operation.
+1. Create your key. Typically a one-time operation.
 
 ```bash
 ssh-keygen -t rsa
@@ -94,7 +94,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
 1. Start Visual Studio Code Insiders Edition
 
-2. Click the **Open Remote Windows** button. You will find this button on the bottom left hand corner of the Visual Studio Code window.
+2. Click the **Open Remote Windows** button. You will find this button on the bottom lefthand corner of the Visual Studio Code window.
 
     ![select the user config file](resources/vs-code-open-remote-window.png)
 
@@ -137,7 +137,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You will need to sign in with a Microsoft personal or work or school account.
 
-## Step 1: Create New IoT Central Application
+## Step 1: Create a New IoT Central Application
 
 Watch this 5-minute [screencast](https://youtu.be/D26rJmHyZcA) on how to create the Azure IoT Central Application to chart telemetry and send commands to your Particle Photon.
 
@@ -213,7 +213,7 @@ Switch back to the project you opened with Visual Studio Code. Ensure the **app.
     ![iot hub connection string](resources/iot-hub-connection-string.png)
 
 1. Right mouse click the Dockerfile and select **Build Image**
-1. Give your docker build image a **unique name** - eg the first part of your email address, your nick name, something memorable. The name needs to be unique otherwise it will clash with others users.
+1. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable. The name needs to be unique otherwise it will clash with other users.
 
     ![docker base image name](resources/docker-build-name.png)
 
