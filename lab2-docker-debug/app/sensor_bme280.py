@@ -16,7 +16,7 @@ class Sensor():
             self.i2c, address=0x76)
 
     def measure(self):
-        msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"hPa\":%d,\"Celsius\": %.2f,\"Light\":%d,\"Id\":%d}"
+        msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"Pressure\":%d,\"Temperature\": %.2f,\"Light\":%d,\"Id\":%d}"
 
         temperature = round(self.bme280.temperature, 1)
         pressure = round(self.bme280.pressure)

@@ -150,11 +150,13 @@ To summarize the screencast:
 ![Azure IoT Central Create Application page](resources/iot-central-new-application.png)
 
 
-1. Click Create Device Templates, name your template, for example, "Raspberry". Then click Create
+1. Click **Create Device Templates**, then select **Custom** template, name your template, for example, "Raspberry". Then click Create
 
     ![](resources/iot-central-welcome-dashboard.png)
 
 5. Edit the Template, add **Measurements** for **Temperature**, **Humidity**, and **Pressure** telemetry. You need to click **Save** after each measurement is defined.
+
+    ![](resources/iot-central-new-telemetry.png)
 
     |Display Name| Field name     | Units  | Minimum | Maximum | Decimals |
     |------------| -------------- | ------ | ------- | ------- | -------- |
@@ -162,38 +164,101 @@ To summarize the screencast:
     |Temperature | Temperature    | degC   | -10     | 60      | 0        |
     |Pressure    | Pressure       | hPa    | 800     | 1260    | 0        |
 
-    ![new measurement](images/iot-central-edit-template-new-measurement.png)
+    ![new measurement](resources/iot-central-create-new-telemetry.png)
 
-    Then click **Done**.
 
-6. Click **Device Explorer** on the sidebar menu, select the template you created. Then add a **Real Device**
+6. Click **Device** on the sidebar menu, select the **Raspberry** template you created. Then add a **Real Device**
 
-    ![create a real device](images/iot-central-add-real-device.png)
+    ![create a real device](resources/iot-central-add-real-device.png)
+
+    ![](resources/iot-central-create-new-device.png)
 
 7. When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
 
-    ![connect device](images/iot-central-device-connect.png)
+    ![connect device](resources/iot-central-connect-device.png)
 
     You will need these credentials for the next step.
 
-    ![Device Connection](images/device-connection.png)
+    ![Device Connection](resources/iot-central-device-connection.png)
 
 
-To create a new Azure IoT Central application:
 
-1. Choose the **Trail** payment plan:
-   - **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-   - **Pay-As-You-Go** applications are charged per device, with the first 5 devices free.
-
-     Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central?WT.mc_id=github-blog-dglover).
-
-1. Choose a friendly application name, such as **Contoso IoT**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
-
-1. Choose the **Sample Devkits** application template.
-
-1. Select **Create**.
 
 ## Next steps
+
+## Generate an Azure IoT Hub Connection String
+
+Hold the control key down and click the following link [Connection String Generator](https://dpsgen.z8.web.core.windows.net/) to open in a new tab.
+
+Copy and paste the "Scope Id", "Device Id", and the "Primary Key" from the Azure IoT Central Device Connection panel to the Connection String Generator page and click "Get Connection String".
+
+![connection string example](resources/iot-central-connection-string-generator-example.png)
+
+Copy the generated connection string to the clipboard as you will need it for the next step.
+
+## Open the Visual Studio Code Docker Debugging Lab
+
+Switch back to the project you opened with Visual Studio Code. Ensure the **app.py** file is open.
+
+1. Paste the connection string you copied in the previous step to the **connectionString** variable.
+
+    The connection string line will look similar to this.
+
+    ```python
+    connectionString = 'HostName=saas-iothub-812327b-f33a-7878-a44a-7ca898989b6.azure-devices.net;DeviceId=dev01;SharedAccessKey=OAlZmsssIGrgjzPaxxxxxxxyI5Yi1Am9w/db4='
+    ```
+
+    ![iot hub connection string](resources/iot-hub-connection-string.png)
+
+1. Right mouse click the Dockerfile and select **Build Image**
+1. Give your docker build image a **unique name** - eg the first part of your email address, your nick name, something memorable. The name needs to be unique otherwise it will clash with others users.
+
+    ![docker base image name](resources/docker-build-name.png)
+
+4. When your Docker image has built then start the docker container from the VS Code terminal window.
+
+    ![docker run](resources/docker-run.png)
+
+5. Click [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will use to attach the Visual Studio Code debugger.
+
+```bash
+docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 --device /dev/i2c-0 --device /dev/i2c-1 --rm --privileged YOUR_IMAGE_NAME:latest
+```
+
+## Configure the Visual Studio Debugger
+
+1. Expand the .vscode folder, open the launch.json file
+2. Change the current port (3005) to the randomly generated port number you used when you started the Docker container
+
+![vs code attach debugger](resources/vs-code-attach-debugger.png)You can view the telemetry measurements and reported property values, and configure settings in Azure IoT Central:
+
+## Attach the Debugger to the Docker Container
+
+![Attached debugger](resources/vs-code-start-debugger.png)
+
+## Debugger Controls
+
+Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally disconnecting the debugger.
+
+![vs code debugger controls](resources/vs-code-debug-controls.png)
+
+## Exploring Device Telemetry in Azure IoT Central
+
+1. Use **Device Explorer** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
+
+    ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
+
+1. On the **Measurements** page, you can see the telemetry coming from the Raspberry Pi device:
+
+    ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
+
+## Finished
+
+ ![Complete. Congratulations](resources/congratulations.jpg)
+
+## Appendix
+
+### Azure IoT Central
 
 # Take a tour of the Azure IoT Central UI
 
@@ -261,148 +326,6 @@ The _device sets_ page shows device sets created by the builder. A device set is
 
 The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=github-blog-dglover) tutorial.
 
-## Next steps
-
-# Connecting a Raspberry Pi to your Azure IoT Central application
-
-This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the Python programming language.
-
-## Before you begin
-
-To complete the steps in this article, you need the following components:
-
-- An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-- A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
-
-## Sample Devkits application
-
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
-
-- Telemetry, which includes the following measurements the device will collect:
-  - Humidity
-  - Temperature
-  - Pressure
-  - Magnetometer (X, Y, Z)
-  - Accelerometer (X, Y, Z)
-  - Gyroscope (X, Y, Z)
-- Settings
-  - Voltage
-  - Current
-  - Fan Speed
-  - IR toggle.
-- Properties
-  - Die number device property
-  - Location cloud property
-
-For the full details of the configuration of the device template, see the [Raspberry Pi Device template details](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
-
-## Add a real device
-
-In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
-
-## Raspberry Pi Device template details
-
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
-
-### Telemetry measurements
-
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-
-## Add a real device
-
-### Get your device connection details
-
-In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection details: **Scope ID, Device ID, and Primary key**:
-
-1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
-
-    * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
-    * Enter a **Device Name**, or use the suggested name
-
-    ![Add Device](media/howto-connect-devkit/add-device.png)
-
-1. To get the device connection details, **Scope ID**, **Device ID**, and **Primary key**, select **Connect** on the device page.
-
-    ![iot central connect](resources/iot-central-connect.png)
-
-    ![Connection details](media/howto-connect-devkit/device-connect.png)
-
-## Generate an Azure IoT Hub Compatible Connection String
-
-Hold the control key down and click the following link [Connection String Generator](https://dpsgen.z8.web.core.windows.net/) to open in a new tab.
-
-Copy and paste the "Scope Id", "Device Id", and the "Primary Key" from the Azure IoT Central Device Connection panel to the Connection String Generator page and click "Get Connection String".
-
-![connection string example](resources/iot-central-connection-string-generator-example.png)
-
-Copy the generated connection string to the clipboard as you will need it for the next step.
-
-## Open Docker Debug Solution
-
-
-1. Update the connection string with the Azure IoT Hub Connection String
-
-    The connection string line will look similar to this.
-
-    ```python
-    connectionString = 'HostName=saas-iothub-816767b-f33a-7878-a44a-7ca898989b6.azure-devices.net;DeviceId=dev01;SharedAccessKey=OAlZmsssIGrgjzPaxxxxxxxyI5Yi1Am9w/db4='
-    ```
-
-    ![iot hub connection string](resources/iot-hub-connection-string.png)
-
-1. Right mouse click the Dockerfile and select **Build Image**
-1. Give your docker build image a **unique name** - eg the first part of your email address, your nick name, something memorable. The name needs to be unique otherwise it will clash with others users.
-
-    ![docker base image name](resources/docker-build-name.png)
-
-4. When your Docker image has built then start the docker container from the VS Code terminal window.
-
-    ![docker run](resources/docker-run.png)
-
-5. Click [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will use to attach the Visual Studio Code debugger.
-
-```bash
-docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 --device /dev/i2c-0 --device /dev/i2c-1 --rm --privileged YOUR_IMAGE_NAME:latest
-```
-
-## Configure the Visual Studio Debugger
-
-1. Expand the .vscode folder, open the launch.json file
-2. Change the current port (3005) to the randomly generated port number you used when you started the Docker container
-
-![vs code attach debugger](resources/vs-code-attach-debugger.png)You can view the telemetry measurements and reported property values, and configure settings in Azure IoT Central:
-
-## Attach the Debugger to the Docker Container
-
-![Attached debugger](resources/vs-code-start-debugger.png)
-
-## Debugger Controls
-
-Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally disconnecting the debugger.
-
-![vs code debugger controls](resources/vs-code-debug-controls.png)
-
-## Exploring Device Telemetry in Azure IoT Central
-
-1. Use **Device Explorer** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
-
-    ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
-
-1. On the **Measurements** page, you can see the telemetry coming from the Raspberry Pi device:
-
-    ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
-
-## Finished
-
- ![Complete. Congratulations](resources/congratulations.jpg)
-
-## Appendix
-
-### Azure IoT Central
 
 #### Analytics
 
