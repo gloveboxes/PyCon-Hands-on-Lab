@@ -50,7 +50,7 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 Setting up public/private keys for SSH login and authentication is very handy (and secure), and required for this hands-on lab.
 
-The following creates a new SSH key, copies the public key to the Raspberry Pi. Take the default options.
+The following creates a new SSH key, copies the public key to the Raspberry Pi. **Take the default options**.
 
 ### From Windows
 
@@ -71,7 +71,7 @@ ssh-keygen -t rsa
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh pi@raspberrypi.local "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh <Your user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
 ### From Linux, macOS, and the Windows Subsystem for Linux
@@ -85,7 +85,7 @@ ssh-keygen -t rsa
 2. Copy the public key to your Raspberry Pi. From Linux and macOS.
 
 ```bash
-ssh-copy-id pi@raspberrypi.local
+ssh-copy-id <Your user name>@<Raspberry IP Address>
 ```
 
 ## Configure Visual Studio Code Remote SSH Development
