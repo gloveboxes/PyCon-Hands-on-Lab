@@ -8,7 +8,7 @@ In this hands-on lab, you will learn how to create an Internet of Things (IoT) P
 - [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central)
 - [Python](https://azure.microsoft.com/en-au/services/iot-central/)
 - [Raspberry Pi](https://www.raspberrypi.org/)
-- [Docker on Raspberry Pi](https://dev.to/azure/azure-iot-edge-on-raspberry-pi-buster-plus-tips-for-raspberry-pi-4-22nn)
+- [Installing Docker on Raspberry Pi Buster](https://dev.to/azure/azure-iot-edge-on-raspberry-pi-buster-plus-tips-for-raspberry-pi-4-22nn)
 - [Understanding Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=358s)
 
 ## Lab Information
@@ -22,13 +22,12 @@ You need the following information for the Hands-on Lab.
 
 This is the flow of the Hands-on Lab:
 
-1. Installing the required software
+1. Install the required software
 2. Configuring SSH security
 3. Connecting Visual Studio Code to the Raspberry Pi over SSH
-4. [Creating an Azure IoT Central application](#creating-an-azure-iot-central-application)
-5. [Creating an IoT Connection String](#tbd)
-6. Configure, Build, and Run the Docker Container on the Raspberry Pi.
-7. Attach and debug the application running in the Docker Container on the Raspberry Pi.
+4. Create an Azure IoT Central application
+5. Configure, Build, and Run the Docker Container on the Raspberry Pi.
+6. Attach and debug the application running in the Docker Container on the Raspberry Pi.
 
 ## Software Requirements
 
@@ -48,13 +47,15 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ![ssh login](resources/ssh-login.jpg)
 
-Setting up public/private keys for SSH login and authentication is very handy (and secure), and required for this hands-on lab.
+Setting up public/private keys for SSH login and authentication is a secure and fast way to authenticate with the Raspberry Pi and required for this hands-on lab.
 
-The following creates a new SSH key, copies the public key to the Raspberry Pi. **Take the default options**.
+The following creates a new SSH key, copies the public key to the Raspberry Pi. 
+
+**Take the default options**.
 
 ### From Windows
 
-1. Use the built-in Windows 10 (1809+) OpenSSH client. First, install the OpenSSH Client for Windows (one time only operation).
+1. Use the built-in Windows 10 (1809+) OpenSSH client. First, install the **OpenSSH Client for Windows** (one time only operation).
 
     From **PowerShell as Administrator**.
 
