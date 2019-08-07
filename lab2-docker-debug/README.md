@@ -2,6 +2,15 @@
 
 In this hands-on lab you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/), run it in a Docker Container on a Raspberry Pi, and attach and debug the code running in the container.
 
+## References
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central)
+- [Python](https://azure.microsoft.com/en-au/services/iot-central/)
+- [Raspberry Pi](https://www.raspberrypi.org/)
+- [Docker on Raspberry Pi](https://dev.to/azure/azure-iot-edge-on-raspberry-pi-buster-plus-tips-for-raspberry-pi-4-22nn)
+- [Understanding Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=358s)
+
 ## Lab Information
 
 You need the following information for the Hands-on Lab.
@@ -9,7 +18,9 @@ You need the following information for the Hands-on Lab.
 1. The IP Address of the Raspberry Pi
 1. Your login name. The default password is **raspberry**.
 
-There are three main sections in this hands-on lab.
+## Hand-on Lab Overview
+
+This is the flow of the Hands-on Lab:
 
 1. Installing the required software
 2. Configuring SSH security
@@ -19,15 +30,15 @@ There are three main sections in this hands-on lab.
 6. Configure, Build, and Run the Docker Container on the Raspberry Pi.
 7. Attach and debug the application running in the Docker Container on the Raspberry Pi.
 
-## Prerequisite Software Installation
+## Software Requirements
 
-![](resources/setup.jpg)
+![set up requirements](resources/setup.jpg)
 
-As at August 2019 Visual Studio Code **Insiders Edition** is required as it has early support for Remote Development over SSH.
+As at August 2019 **Visual Studio Code Insiders Edition** is required as it has early support for Remote Development over SSH.
 
 Visual Studio Code is a source code editor and is an one of the most popular Open Source projects on GitHub. It is supported on Linux, macOS, and Windows.
 
-You can for more information on contributing or submitting issues from the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). The documentation is also Open Source, you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
+For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). The documentation is also Open Source, you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
 1. Install [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/)
 1. Install the [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
@@ -87,7 +98,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     ![select the user config file](resources/vs-code-open-remote-window.png)
 
-3. Select **Open Configuration File** and configure the SSH connection.
+3. Select **Open Configuration File**
 
     ![open configuration file](resources/vs-code-open-configuration.png)
 
@@ -95,11 +106,11 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     ![select the user .ssh file](resources/vs-code-open-config-file.png)
 
-5. Configure the ssh connection file. You will need the IP Address of the Raspberry Pi and the user name assigned to you for the hands-on lab. Make the changes then save the changes.
+5. Set the SSH connection configuration. You will need the IP Address of the Raspberry Pi and the user name assigned to you for the hands-on lab. Make the changes then save.
 
     ![configure host details](resources/vs-code-config-host-details.png)
 
-6. Select Remote SSH: Connect to Host
+6. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
 
     ![connect to host](resources/vs-code-connect-host.png)
 
@@ -111,13 +122,14 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
 ## Open the Lab2 Docker Debug Project
 
-1. From **Visual Studio Code**, select **File** from the main menu, the **Open Folder**. Navigate and open the **github/lab2-docker-debug** folder.
-2. From VS Code: File -> Open Folder, navigate to github/lab2-docker-debug
-3. Expand the App folder, and open the app.py file.
+From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/lab2-docker-debug** folder.
 
-Next we are going to create an Azure IoT Central application, then create a device, and finally create an Azure IoT Hub device connection string required for the application that will run in the Docker Container.
+1. From VS Code: File -> Open Folder, navigate to github/lab2-docker-debug
+2. Expand the App folder, and open the app.py file.
 
 ## Creating an Azure IoT Central application
+
+Next we are going to create an Azure IoT Central application, then create a device, and finally create an Azure IoT Hub device connection string required for the application that will run in the Docker Container.
 
 ![](media/azure_iot_central.png)
 
@@ -127,7 +139,7 @@ Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentra
 
 To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
-![Azure IoT Central Create Application page](media/quick-deploy-iot-central/iotcentralcreate.png)
+![Azure IoT Central Create Application page](resources/iot-central-new-application.png)
 
 To create a new Azure IoT Central application:
 
