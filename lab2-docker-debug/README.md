@@ -137,9 +137,47 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You will need to sign in with a Microsoft personal or work or school account.
 
-To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
+## Step 1: Create New IoT Central Application
+
+Watch this 5-minute [screencast](https://youtu.be/D26rJmHyZcA) on how to create the Azure IoT Central Application to chart telemetry and send commands to your Particle Photon.
+
+[![screencast](resources/iot-central-youtube.jpg)](https://www.youtube.com/watch?v=D26rJmHyZcA&t=5s)
+
+To summarize the screencast:
+
+1. Create a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
 ![Azure IoT Central Create Application page](resources/iot-central-new-application.png)
+
+
+1. Click Create Device Templates, name your template, for example, "Raspberry". Then click Create
+
+    ![](resources/iot-central-welcome-dashboard.png)
+
+5. Edit the Template, add **Measurements** for **Temperature**, **Humidity**, and **Pressure** telemetry. You need to click **Save** after each measurement is defined.
+
+    |Display Name| Field name     | Units  | Minimum | Maximum | Decimals |
+    |------------| -------------- | ------ | ------- | ------- | -------- |
+    |Humidity    | Humidity       | %      | 0       | 100     | 0        |
+    |Temperature | Temperature    | degC   | -10     | 60      | 0        |
+    |Pressure    | Pressure       | hPa    | 800     | 1260    | 0        |
+
+    ![new measurement](images/iot-central-edit-template-new-measurement.png)
+
+    Then click **Done**.
+
+6. Click **Device Explorer** on the sidebar menu, select the template you created. Then add a **Real Device**
+
+    ![create a real device](images/iot-central-add-real-device.png)
+
+7. When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
+
+    ![connect device](images/iot-central-device-connect.png)
+
+    You will need these credentials for the next step.
+
+    ![Device Connection](images/device-connection.png)
+
 
 To create a new Azure IoT Central application:
 
