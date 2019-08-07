@@ -31,4 +31,4 @@ def telemetry():
 
 if __name__ == '__main__':
     # Run the server
-    app.run(host='10.168.10.59', port=port)
+    app.run(host='<Raspberry PI IP Address>', port=port)

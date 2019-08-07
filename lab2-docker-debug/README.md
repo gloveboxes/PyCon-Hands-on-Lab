@@ -194,20 +194,16 @@ Switch back to the project you opened with Visual Studio Code. Ensure the **app.
 
 1. Paste the connection string you copied in the previous step to the **connectionString** variable.
 
-    The connection string line will look similar to this.
+```python
+    connectionString = '<Your IoT Hub Connection String>'
+```
 
-    ```python
-    connectionString = 'HostName=saas-iothub-812327b-f33a-7878-a44a-7ca898989b6.azure-devices.net;DeviceId=dev01;SharedAccessKey=OAlZmsssIGrgjzPaxxxxxxxyI5Yi1Am9w/db4='
-    ```
-
-    ![iot hub connection string](resources/iot-hub-connection-string.png)
-
-1. Right mouse click the Dockerfile and select **Build Image**
-1. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable. The name needs to be unique otherwise it will clash with other users.
+2. Right mouse click the Dockerfile and select **Build Image**
+3. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable. The name needs to be unique otherwise it will clash with other users.
 
     ![docker base image name](resources/docker-build-name.png)
 
-5. Generate a random IP Port number Use this [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will pass port mapping for the Docker Run command and must be the same used to attach the Visual Studio Code debugger.
+4. Generate a random IP Port number Use this [Random Number Generator](https://www.random.org/integers/?num=100&min=3000&max=5000&col=5&base=10&format=html&rnd=new) and pick a number (and make a note of it). This will become your IP Port number that you will pass port mapping for the Docker Run command and must be the same used to attach the Visual Studio Code debugger.
 
     Copy and Paste the following command to a text editor (eg Notepad) and update the **YOUR_RANDOM_PORT_NUMBER** with the random port number you generates, and update the **YOUR_IMAGE_NAME** with unique name you choose when you created the Docker Image.
 
@@ -217,9 +213,9 @@ docker run -it -p YOUR_RANDOM_PORT_NUMBER:3003 \
 --rm --privileged YOUR_IMAGE_NAME:latest
 ```
 
-6. Then paste the updated Docker Command into the Visual Studio Code Terminal Window and press **Enter** to start the Docker Container.
+5. Then paste the updated Docker Command into the Visual Studio Code Terminal Window and press **Enter** to start the Docker Container.
 
-4. When your Docker image has built then start the docker container from the VS Code terminal window.
+6. When your Docker image has built then start the docker container from the VS Code terminal window.
 
     ![docker run](resources/docker-run.png)
 

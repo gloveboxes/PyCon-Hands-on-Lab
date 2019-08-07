@@ -10,7 +10,7 @@ import config
 
 ptvsd.enable_attach(address=('0.0.0.0', 3000))
 
-connectionString = 'Replace with your Azure IoT Hub Connection String'
+connectionString = '<Your IoT Hub Connection String>'
 
 myconfig = config.Config(connectionString)
 
