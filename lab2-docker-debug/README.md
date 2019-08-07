@@ -250,7 +250,7 @@ Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off,
 
     ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
 
-1. On the **Measurements** page, you can see the telemetry coming from the Raspberry Pi device:
+1. On the **Measurements** page, you can see the telemetry streaming from the Raspberry Pi device:
 
     ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
 
