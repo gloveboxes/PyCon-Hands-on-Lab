@@ -1,43 +1,52 @@
 # Lab 1: Remote Debugging a Raspberry Pi Flask or Bottle Web
 
-In this hands-on lab, you will learn how to create a simple Flask or Bottle Web Application on a Raspberry Pi and debug with [Visual Studio Code](https://code.visualstudio.com/).
+Notes
 
-## References
+- [Tutorial](https://vscode-westeu.azurewebsites.net/docs/python/python-tutorial)
+- [Debugging](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
+- [Flask](https://vscode-westeu.azurewebsites.net/docs/python/debugging)
+- [Jupyter](https://vscode-westeu.azurewebsites.net/docs/python/jupyter-support)
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Python](https://azure.microsoft.com/en-au/services/iot-central/)
-- [Raspberry Pi](https://www.raspberrypi.org/)
-- [Flask](https://www.fullstackpython.com/flask.html)
-- [Bottle](https://bottlepy.org)
+In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
 
-## Lab Information
+## Remote Development using SSH
 
-You need the following information for the Hands-on Lab.
+The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-1. The IP Address of the Raspberry Pi
-1. Your **Raspberry user name**. The default password is **raspberry**.
+No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
 
-## Hand-on Lab Overview
+![](resources/architecture-ssh.png)
 
-This is the flow of the Hands-on Lab:
-
-1. Install the required software
-2. Configuring SSH security
-3. Connecting Visual Studio Code to the Raspberry Pi over SSH
-4. Start the Web Application and attach the Visual Studio Code debugger
-
-## Software Requirements
+## Software Installation
 
 ![set up requirements](resources/setup.jpg)
 
-As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Remote Development over SSH.
+This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It is supported on Linux, macOS, and Windows.
 
-Visual Studio Code is a source code editor and is one of the most popular Open Source projects on GitHub. It is supported on Linux, macOS, and Windows.
+Install:
 
-For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). The documentation is also Open Source, you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
+1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/)
 
-1. Install [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/)
-1. Install the [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+    As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
+
+2. [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+
+For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
+
+## Raspberry Pi Hardware
+
+You can complete this hands-on lab using your own network connected Raspberry Pi or if you are attending a workshop then you can use a shared network connected Raspberry Pi.
+
+### Personal Raspberry Pi
+
+If you using your own network connected Raspberry Pi, then you need the Raspberry Pi **Network IP Address**, the **login name** and **password**.
+
+### Shared Raspberry Pi
+
+If you are attending a workshop and using a shared Raspberry Pi then you will need the following information from the lab instructor.
+
+1. The **Network IP Address** of the Raspberry Pi
+2. Your assigned **login name** and **password.**.
 
 ## SSH Authentication with private/public keys
 
@@ -45,13 +54,25 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 Setting up public/private keys for SSH login and authentication is a secure and fast way to authenticate with the Raspberry Pi and required for this hands-on lab.
 
-The following creates a new SSH key, copies the public key to the Raspberry Pi. 
+The following creates a new SSH key, copies the public key to the Raspberry Pi.
 
-**Take the default options**.
+### From Linux and macOS
+
+1. Create your key. This is typically a one-time operation. **Take the default options**.
+
+```bash
+ssh-keygen -t rsa
+```
+
+2. Copy the public key to your Raspberry Pi. From Linux and macOS.
+
+```bash
+ssh-copy-id <Your user name>@<Raspberry IP Address>
+```
 
 ### From Windows
 
-1. Use the built-in Windows 10 (1809+) OpenSSH client. First, install the **OpenSSH Client for Windows** (one time only operation).
+1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one time only operation).
 
     From **PowerShell as Administrator**.
 
@@ -59,7 +80,7 @@ The following creates a new SSH key, copies the public key to the Raspberry Pi.
 Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
 
-2. From PowerShell, create a key pair.
+2. From PowerShell, create your key. This is typically a one-time operation. **Take the default options**
 
 ```bash
 ssh-keygen -t rsa
@@ -71,19 +92,7 @@ ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
-### From Linux, macOS, and the Windows Subsystem for Linux
 
-1. Create your key. Typically a one-time operation.
-
-```bash
-ssh-keygen -t rsa
-```
-
-2. Copy the public key to your Raspberry Pi. From Linux and macOS.
-
-```bash
-ssh-copy-id <Your user name>@<Raspberry IP Address>
-```
 
 ## Configure Visual Studio Code Remote SSH Development
 
@@ -117,7 +126,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     It will take a moment to connect to the Raspberry Pi.
 
-## Open the Lab2 Docker Debug Project
+## Open the Lab 1 SSH Debug Project
 
 From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/Lab1-ssh-debug** folder.
 
@@ -149,3 +158,11 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 - Step Out `kb(workbench.action.debug.stepOut)`
 - Restart `kb(workbench.action.debug.restart)`
 - Stop `kb(workbench.action.debug.stop)`
+
+## References
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Python](https://azure.microsoft.com/en-au/services/iot-central/)
+- [Raspberry Pi](https://www.raspberrypi.org/)
+- [Flask](https://www.fullstackpython.com/flask.html)
+- [Bottle](https://bottlepy.org)

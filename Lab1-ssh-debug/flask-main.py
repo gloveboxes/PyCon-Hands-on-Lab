@@ -5,8 +5,11 @@ import digitalio
 import busio
 import time
 import adafruit_bme280
+from subprocess import check_output
 
 port = random.randrange(8000, 9000)
+host = check_output(["hostname", "-I"]).decode().split(' ')[0] # get the Host IP Address
+
 app = Flask(__name__)
 
 i2c = busio.I2C(board.SCL, board.SDA)
