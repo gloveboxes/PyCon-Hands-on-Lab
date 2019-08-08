@@ -1,4 +1,4 @@
-# Debugging Python with Visual Studio Code: Tips and Tricks
+# Debug Python with Visual Studio Code: Tips and Tricks
 
 ### Visual Studio Code
 
