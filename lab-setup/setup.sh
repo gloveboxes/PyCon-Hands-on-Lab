@@ -16,6 +16,6 @@ do
     sudo cp /home/pi/source/flask-app.py /home/dev$i/github/mywebapp/
     sudo chown -R dev$i:dev$i /home/dev$i
 
-    echo echo "export LAB_PORT=\$(shuf -i 2000-5000 -n 1)" >> /home/dev$i/.bashrc 
+    echo "export LAB_PORT=\$(shuf -i 5000-8000 -n 1)" >> /home/dev$i/.bashrc 
     echo "export LAB_HOST=\$(hostname -I)" >>  /home/dev$i/.bashrc
 done

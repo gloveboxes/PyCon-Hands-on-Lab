@@ -132,19 +132,27 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 
 1. From VS Code: File -> Open Folder
 2. Navigate to github/Lab1-ssh-debug directory
-3. Open the **bottle-main.py** file
-4. Scroll to the end of the file and update the **Raspberry Pi IP Address** with the IP Address allocated to you for the lab
+3. Open the **app.py** file and review the contents
+4. Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
 
-    ```python
-    if __name__ == '__main__':
-        # Run the server
-        app.run(host='<Raspberry PI IP Address>', port=port)
-    ```
+    - With the cursor on that line, press F9, or,
+    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-5. Save the file (Ctrl+S)
-6. Set a Visual Studio Code breakpoint with a single click in the code gutter. Right where the red dot is in the image below. See [Visual Studio Code Debugging](https://code.visualstudio.com/docs/editor/debugging) for more information.
-![Start the flask web application](resources/vs-code-flash-app.png)
-7. Press F5 to start the Web Application
+    ![Start the flask web application](resources/vs-code-flask-app.png)
+
+5. Review the debug options.
+    1. Switch to Debug view in Visual Studio Code (using the left-side activity bar). Along the top of the Debug view.
+
+        ![open launch json file](resources/vs-code-open-launch-json.png)
+
+    2. Click the **Settings** button which will open the **launch.json** file.
+    3. The **launch.json** file defines how the the Flask app will be started, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters will passed on start up.
+
+        There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
+
+6. Press F5 (or click the Run icon) to launch the **Python: Flash** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
+
+    ![](resources/vs-code-launch-debugger.png)
 
 ## Debug actions
 
