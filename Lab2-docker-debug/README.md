@@ -169,7 +169,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ## Create a New IoT Central Application
 
-1. Open the the [Azure IoT Central](https://aka.ms/iotcentral) in a new browser tab (left click the link).
+1. Open the [Azure IoT Central](https://aka.ms/iotcentral) in a new browser tab.
 
 2. Next, you'll need to sign with your Microsoft personal or work or school account. If you don't have one, you can create one for free using the Create one! link.
 
@@ -177,11 +177,11 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 3. Create a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
-4. Select **Trail**, **Custom application**, name your IoT Central application, and complete the sign up information.
+4. Select **Trail**, **Custom application**, name your IoT Central application and complete the sign-up information.
 
 ![Azure IoT Central Create Application page](resources/iot-central-new-application.png)
 
-4. Click **Create Device Templates**, then select **Custom** template, name your template, for example, **Raspberry**. Then click Create
+4. Click **Create Device Templates**, then select the **Custom** template, name your template, for example, **Raspberry**. Then click Create
 
     ![](resources/iot-central-welcome-dashboard.png)
 
@@ -218,7 +218,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
     ![create a real device](resources/iot-central-add-real-device.png)
 
-    Name your **Device Id** so you can easily identified the device in the IoT Central portal, then click **Create**.
+    Name your **Device Id** so you can easily identify the device in the IoT Central portal, then click **Create**.
 
     ![](resources/iot-central-create-new-device.png)
 
@@ -301,7 +301,7 @@ docker run -it -p $LAB_PORT:3000 \
 
 1. From the Visual Studio Code Taskbar, click and select **Python Raspberry Pi: Attach**
 2. Select **Python Raspberry Pi: Attach**
-3. Set a break point in the while True loop. Line 52 is good.
+3. Set a breakpoint in the while True loop. Line 52 is good.
 
     Ensure the **app.py** file is open, set a breakpoint at line 52, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
 
