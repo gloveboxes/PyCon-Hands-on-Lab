@@ -203,6 +203,8 @@ Next, we are going to **Step Into** (F11) the code using the debugging toolbox. 
 
 3. Press F5 to resume the Flask App, then switch back to your web browser and you will see that the temperature, humidity, and pressure Sensor data has been returned in the web page.
 
+    ![](resources/flask-web-page.png)
+
 4. Press the **Refresh** button on your web browsers and the breakpoint in your code will be hit again.
 
 ## Experiment with Debugger Options
