@@ -1,4 +1,4 @@
-# Lab 1: Remote Debugging a Raspberry Pi Flask Internet of Things Web Application
+# Lab 1: Debugging a Raspberry Pi Internet of Things Flask Application
 
 In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
 
