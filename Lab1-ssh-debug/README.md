@@ -1,12 +1,5 @@
 # Lab 1: Remote Debugging a Raspberry Pi Flask or Bottle Web
 
-Notes
-
-- [Tutorial](https://vscode-westeu.azurewebsites.net/docs/python/python-tutorial)
-- [Debugging](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
-- [Flask](https://vscode-westeu.azurewebsites.net/docs/python/debugging)
-- [Jupyter](https://vscode-westeu.azurewebsites.net/docs/python/jupyter-support)
-
 In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
 
 ## Remote Development using SSH
@@ -174,3 +167,11 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 - [Raspberry Pi](https://www.raspberrypi.org/)
 - [Flask](https://www.fullstackpython.com/flask.html)
 - [Bottle](https://bottlepy.org)
+
+
+## Notes
+
+- [Tutorial](https://vscode-westeu.azurewebsites.net/docs/python/python-tutorial)
+- [Debugging](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
+- [Flask](https://vscode-westeu.azurewebsites.net/docs/python/debugging)
+- [Jupyter](https://vscode-westeu.azurewebsites.net/docs/python/jupyter-support)

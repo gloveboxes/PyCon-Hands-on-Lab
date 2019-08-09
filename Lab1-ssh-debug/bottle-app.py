@@ -1,4 +1,5 @@
 from bottle import route, run
+from datetime import datetime, date
 import random
 import board
 import digitalio
@@ -7,17 +8,50 @@ import time
 import adafruit_bme280
 
 port = random.randrange(8000, 9000)
-# app = Flask(_name_)
 
+# Open I2C Bus and I2C Sensor
 i2c = busio.I2C(board.SCL, board.SDA)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, address=0x76)
 
+# Note, deliberately not using templates so to reduce memory footprint
 @route('/')
-def hello():
-    data = 'Temperature {}C, Humidity {}%, Pressure {} hPa'.format(
-        round(bme280.temperature, 1), round(bme280.humidity), round(bme280.pressure))
-    # return 'hello'
+def telemetry():
+    title = "Environment Data"
+    temperature = round(bme280.temperature, 1)
+    pressure = round(bme280.pressure)
+    humidity = round(bme280.humidity)
 
-    return data
+    html_text = f'''
+<html>
+<head>
+    <title>{ title }</title>
+</head>
+<body>
+    <h1>{ title }</h1>
+    <table style="width:30%">
+        <tr>
+            <th align="left">Telemetry</th>
+            <th align="left">Value</th>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td>{ temperature } C</td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td>{ humidity } %</td>
+        </tr>
+        <tr>
+            <td>Pressure</td>
+            <td>{ pressure } hPa</td>
+        </tr>
+    </table>
+</body>
 
-run(host='192.168.5.145', port=port, debug=True)
+</html>
+'''
+
+    return html_text
+
+
+run(host='<Raspberry PI IP Address>', port=port, debug=True)
