@@ -76,6 +76,12 @@ ssh-keygen -t rsa
 ssh-copy-id <Your Raspberry Pi login name>@<Raspberry IP Address>
 ```
 
+```bash
+For example:
+
+ssh-copy-id dev99@192.168.1.99
+```
+
 ### From Windows
 
 1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one time only operation).
