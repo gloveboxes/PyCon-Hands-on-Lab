@@ -32,7 +32,7 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Raspberry Pi Hardware
 
-If you are attending a workshop then you can use a shared network-connected Raspberry Pi. You can use your own network-connected Raspberry Pi for this hands-on lab.
+If you are attending a workshop then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
 
 ### Shared Raspberry Pi
 
@@ -70,7 +70,7 @@ The following creates a new SSH key, and copies the public key to the Raspberry 
 ssh-keygen -t rsa
 ```
 
-2. Copy the public key to your Raspberry Pi. From Linux and macOS.
+2. Copy the public key to your Raspberry Pi.
 
 ```bash
 ssh-copy-id <Your Raspberry Pi login name>@<Raspberry IP Address>
