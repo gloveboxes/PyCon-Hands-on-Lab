@@ -30,16 +30,27 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 You can complete this hands-on lab using your own network connected Raspberry Pi or if you are attending a workshop then you can use a shared network connected Raspberry Pi.
 
-### Personal Raspberry Pi
-
-If you using your own network connected Raspberry Pi, then you need the Raspberry Pi **Network IP Address**, the **login name** and **password**.
-
 ### Shared Raspberry Pi
 
 If you are attending a workshop and using a shared Raspberry Pi then you will need the following information from the lab instructor.
 
 1. The **Network IP Address** of the Raspberry Pi
 2. Your assigned **login name** and **password.**.
+
+### Personal Raspberry Pi
+
+If you using your own network connected Raspberry Pi, then you need:
+
+1. The Raspberry Pi **Network IP Address**, the **login name** and **password**.
+1. You need to run the follow commands in your Raspberry Pi to set two environment variables required for the hands-on lab.
+
+```bash
+echo "export LAB_PORT=\$(shuf -i 5000-8000 -n 1)" >> ~/.bashrc
+echo "export LAB_HOST=\$(hostname -I)" >>  ~/.bashrc
+source .bashrc
+```
+
+
 
 ## SSH Authentication with private/public keys
 
@@ -84,8 +95,6 @@ ssh-keygen -t rsa
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
-
-
 
 ## Configure Visual Studio Code Remote SSH Development
 
@@ -159,6 +168,16 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 - Step Out `kb(workbench.action.debug.stepOut)`
 - Restart `kb(workbench.action.debug.restart)`
 - Stop `kb(workbench.action.debug.stop)`
+
+## Using the Debugger
+
+Exploring Variables - Graphically and Commandline
+Change Variables
+
+Expand the scenario 
+- step through code
+- update the Flash template with the current date and time
+- find a bug
 
 ## References
 
