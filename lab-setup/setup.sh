@@ -1,5 +1,5 @@
-sudo apt update && sudo apt install -y git python3-pip nmap && \
-sudo -H pip3 install flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqttautopep8
+sudo apt update && sudo apt install -y git python3-pip nmap libatlas-base-dev && \
+sudo -H pip3 install numpy pillow requests matplotlib jupyter pandas flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqttautopep8
 
 sudo groupadd i2c && \
 sudo chown :i2c /dev/i2c-1 && \

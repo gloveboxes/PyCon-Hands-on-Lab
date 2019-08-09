@@ -1,6 +1,8 @@
-# Lab 1: Remote Debugging a Raspberry Pi Flask or Bottle Web
+# Lab 1: Remote Debugging a Raspberry Pi Flask Internet of Things Web Application
 
 In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
+
+The Flask app will read a BME280 Temperature, Humidity, and air pressure sensor and return the telemetry in a web page.
 
 ## Remote Development using SSH
 
@@ -28,7 +30,7 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Raspberry Pi Hardware
 
-You can complete this hands-on lab using your own network connected Raspberry Pi or if you are attending a workshop then you can use a shared network connected Raspberry Pi.
+If you are attending a workshop then you can use a shared network connected Raspberry Pi. You can use your own network connected Raspberry Pi for this hands-on lab.
 
 ### Shared Raspberry Pi
 
@@ -50,15 +52,13 @@ echo "export LAB_HOST=\$(hostname -I)" >>  ~/.bashrc
 source .bashrc
 ```
 
-
-
 ## SSH Authentication with private/public keys
 
 ![ssh login](resources/ssh-login.jpg)
 
-Setting up public/private keys for SSH login and authentication is a secure and fast way to authenticate with the Raspberry Pi and required for this hands-on lab.
+Setting up public/private keys for SSH authentication is a secure and fast way to authenticate from your developer machine to the Raspberry Pi and is required for this hands-on lab.
 
-The following creates a new SSH key, copies the public key to the Raspberry Pi.
+The following creates a new SSH key, and copies the public key to the Raspberry Pi.
 
 ### From Linux and macOS
 
@@ -71,7 +71,7 @@ ssh-keygen -t rsa
 2. Copy the public key to your Raspberry Pi. From Linux and macOS.
 
 ```bash
-ssh-copy-id <Your user name>@<Raspberry IP Address>
+ssh-copy-id <Your Raspberry Pi login name>@<Raspberry IP Address>
 ```
 
 ### From Windows
@@ -93,7 +93,17 @@ ssh-keygen -t rsa
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh <Raspberry user name>@<Raspberry IP Address> "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh `
+<Your Raspberry Pi login name>@<Raspberry IP Address> `
+"mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+```
+
+```bash
+For example:
+
+cat ~/.ssh/id_rsa.pub | ssh `
+dev99@192.168.1.99 `
+"mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
 ## Configure Visual Studio Code Remote SSH Development
@@ -143,7 +153,7 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
     ![Start the flask web application](resources/vs-code-flask-app.png)
 
 5. Review the debug options.
-    1. Switch to Debug view in Visual Studio Code (using the left-side activity bar). Along the top of the Debug view.
+    1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
 
         ![open launch json file](resources/vs-code-open-launch-json.png)
 
@@ -152,32 +162,79 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 
         There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
 
-6. Press F5 (or click the Run icon) to launch the **Python: Flash** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
+6. Press F5 (or click the Run icon) to launch the **Python: Flask** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
 
     ![](resources/vs-code-launch-debugger.png)
 
+7. Ctrl+click the Flask Web link in the Visual Studio Terminal Window. This will launch your desktop Web Browser.
+
+    ![](resources/vs-code-start-web-browser.png)
+
+8. Next switch back to Visual Studio Code. The code execution has stopped at the breakpoint you set.
+
 ## Debug actions
 
-Once a debug session starts, the **Debug toolbar** will appear on the top of the editor.
+Once a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
 ![Debug Actions](resources/toolbar.png)
 
-- Continue / Pause `kb(workbench.action.debug.continue)`
-- Step Over `kb(workbench.action.debug.stepOver)`
-- Step Into `kb(workbench.action.debug.stepInto)`
-- Step Out `kb(workbench.action.debug.stepOut)`
-- Restart `kb(workbench.action.debug.restart)`
-- Stop `kb(workbench.action.debug.stop)`
+A debugging toolbar (shown above) will appear in VS Code. It contains the following commands:
+
+1.  Pause (or Continue, F5),
+2. Step Over (F10)
+3. Step Into (F11),
+4. Step Out (Shift+F11),
+5. Restart (Ctrl+Shift+F5),
+6. and Stop (Shift+F5).
 
 ## Using the Debugger
 
-Exploring Variables - Graphically and Commandline
-Change Variables
+Next we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the code steps into the **Telemetry** Python class and call the **render_telemetry** method.
 
-Expand the scenario 
-- step through code
-- update the Flash template with the current date and time
-- find a bug
+### Variable Explorer
+
+1. As you step through the **render_telemetry** method you will notice that Python variables are displayed in the **Varibles Window**.
+
+![Variable window](resources/vs-code-stepping-code-variable-window.png)
+
+2. Right mouse click a variable, and you will discover you can change, copy, or watch variables. Try changing values of variables.
+
+3. Press F5 to resume the Flask App and switch back you web browser and you will see that the temperature, humidity, and pressure Sensor data has been returned in the web page.
+
+4. Press the **Refresh** button on your web browsers and the breakpoint in your code will be hit again.
+
+## Experiment with Debugger Options
+
+Things to try:
+
+1. Review the [Visual Studio Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
+2. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging)
+3. Try change variable values from the Visual Studio Code **Variable Window**.
+4. Try Setting a conditional breakpoint
+
+    ![](resources/vs-code-conditional-breakpoint.png)
+5. Try the Visual Studio Code **Debug Console**. This will give you access to the Pythion REPL, try printing or setting variables, importing libraries etc.
+
+```python
+print(temperature)
+
+temperature = 24
+```
+
+![visual studio debug console](resources/vs-code-debug-console-print.png)
+
+## Closing the Visual Studio Code Remote SSH
+
+When you have completed the hands-on lab then from Visual Studio Code, **Close Remote Connection**.
+
+1. Click the **Remote SSH** button in the bottom left-hand corner and select **Close Remote Connection** from the dropdown list.
+
+![close Remote SSH](resources/vs-code-close-ssh-session.png)
+
+## Finished
+
+![finished](resources/congratulations.jpg)
 
 ## References
 
@@ -186,13 +243,3 @@ Expand the scenario
 - [Raspberry Pi](https://www.raspberrypi.org/)
 - [Flask](https://www.fullstackpython.com/flask.html)
 - [Bottle](https://bottlepy.org)
-
-
-## Notes
-
-- [Tutorial](https://vscode-westeu.azurewebsites.net/docs/python/python-tutorial)
-- [Debugging](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
-- [Flask](https://vscode-westeu.azurewebsites.net/docs/python/debugging)
-- [Jupyter](https://vscode-westeu.azurewebsites.net/docs/python/jupyter-support)
-- 
-- https://code.visualstudio.com/remote-tutorials/ssh/getting-started
