@@ -3,7 +3,7 @@
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
-|Tools| [Visual Studio Code Insider Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
 |Language| Python|
 |Date|As of August 2019|
 

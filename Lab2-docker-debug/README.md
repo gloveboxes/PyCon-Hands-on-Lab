@@ -4,7 +4,7 @@
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
 |Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
-|Tools| [Visual Studio Code Insider Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
 |Language| Python|
 |Date|As of August 2019|
 

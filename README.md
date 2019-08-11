@@ -1,10 +1,31 @@
-# Debug Python with Visual Studio Code: Tips and Tricks
+# PyCon 2019
 
-### Visual Studio Code
+## Debug Python with Visual Studio Code: Tips and Tricks Hands-on Lab
 
-Visual Studio Code is a source code editor and is one of the most popular Open Source projects on GitHub. It is supported on Linux, macOS, and Windows.
+|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
+|----|---|
+|Platforms | Linux, macOS, Windows, Raspbian Buster|
+|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Language| Python|
+|Date|As of August 2019|
 
-For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). The documentation is also Open Source, you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
+Follow me on Twitter [@dglover](https://twitter.com/dglover)
+
+## Software Installation
+
+![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/setup.jpg)
+
+This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It is supported on Linux, macOS, and Windows.
+
+Install:
+
+1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=pycon-blog-dglover)
+
+    As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
+
+2. [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)
+
+For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
 ## Debugging Web and Docker Container Apps on a Raspberry Pi
 
@@ -13,14 +34,8 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 - [Lab 1: Remote Debugging a Raspberry Pi Flask or Bottle Web](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
 - [Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/lab2-docker-debug/README.md)
 
-### Jupyter Notebook Debugging
+## Jupyter Notebook Debugging
 
 ![Jupyter Notebooks Debugging](resources/jupyter.png)
 
 - [Lab 3: Jupyter Notebook Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
-
-### Getting started with Django and Azure
-
-![](resources/django-logo-positive.png)
-
-- [Lab 4: Django and the Cloud](http://aka.ms/pycon2019-workshop)
