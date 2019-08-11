@@ -6,7 +6,7 @@
 |Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/) |
 |Tools| [Visual Studio Code Insider Edition](https://code.visualstudio.com/insiders)|
 |Language| Python|
-|Date|As at August 2019|
+|Date|As of August 2019|
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
