@@ -1,6 +1,6 @@
 # PyCon 2019
 
-## Debug Python with Visual Studio Code: Tips and Tricks Hands-on Lab
+## Debug Python with Visual Studio Code: Tips and Tricks Tutorial
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
