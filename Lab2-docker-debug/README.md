@@ -1,5 +1,17 @@
 # Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging
 
+|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=devto-blog-dglover), Microsoft Cloud Developer Advocate |
+|----|---|
+|Platforms | Linux, macOS, Windows, Raspbian Buster|
+|Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/) |
+|Tools| [Visual Studio Code Insider Edition](https://code.visualstudio.com/insiders)|
+|Language| Python|
+|Date|As at August 2019|
+
+Follow me on Twitter [@dglover](https://twitter.com/dglover)
+
+## Introduction
+
 In this hands-on lab, you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/), run it in a Docker Container on a Raspberry Pi, read the temperature, humidity, and air pressure telemetry from a BME280 sensor, then attach, and debug the Python code running in the container.
 
 ![](resources/rpi-bme280.jpg)

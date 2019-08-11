@@ -1,5 +1,16 @@
 # Lab 1: Debugging a Raspberry Pi Internet of Things Flask Application
 
+|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=devto-blog-dglover), Microsoft Cloud Developer Advocate |
+|----|---|
+|Platforms | Linux, macOS, Windows, Raspbian Buster|
+|Tools| [Visual Studio Code Insider Edition](https://code.visualstudio.com/insiders)|
+|Language| Python|
+|Date|As at August 2019|
+
+Follow me on Twitter [@dglover](https://twitter.com/dglover)
+
+## Introduction
+
 In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
 
 The web app will read the temperature, humidity, and air pressure telemetry from a BME280 sensor connected to the Raspberry Pi.
