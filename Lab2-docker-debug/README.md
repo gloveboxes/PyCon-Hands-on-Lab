@@ -181,7 +181,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ## Create a New IoT Central Application
 
-1. Open the [Azure IoT Central](https://aka.ms/iotcentral) in a new browser tab.
+1. Open the [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central/) in a new browser tab, then click **Getting Started**.
 
 2. Next, you'll need to sign with your Microsoft personal or work or school account. If you don't have one, you can create one for free using the Create one! link.
 
