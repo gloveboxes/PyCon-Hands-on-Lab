@@ -11,6 +11,22 @@
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
+## Hardware Requirements
+
+1. Bring your own laptop running one of the follow Operating Systems:
+
+    - Linux
+        - See [Installing Visual Studio Code on Linux](https://code.visualstudio.com/docs/setup/linux)
+    - macOS
+    - Windows 10 (1809+).
+        - Install the OpenSSH Client from PowerShell as Administrator.
+
+        ```bash
+        Add-WindowsCapability -Online -Name OpenSSH.Client
+        ```
+
+2. You will have access to a network shared Raspberry Pi. Feel free to bring your own Raspberry Pi (model with WiFi required), must have a unique network/host name.
+
 ## Software Installation
 
 ![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/setup.jpg)
