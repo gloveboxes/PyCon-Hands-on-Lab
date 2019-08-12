@@ -86,7 +86,7 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
 
 ```bash
 sudo iptables -t nat -A POSTROUTING -s 192.168.2.0/24 -o wlan0 -j MASQUERADE && \
-sudo apt install iptables-persistent && \
+sudo apt install -y iptables-persistent && \
 sudo systemctl restart isc-dhcp-server.service
 ```
 
