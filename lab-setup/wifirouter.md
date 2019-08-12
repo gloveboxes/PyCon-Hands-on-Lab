@@ -49,7 +49,7 @@ sudo service isc-dhcp-server stop
 We only want the DHCP Server to serve IP Addresses on the Ethernet adapter (not the wifi)
 
 ```bash
-sed -i 's/INTERFACESv4=""/INTERFACESv4="eth0"/g' /etc/default/isc-dhcp-server
+sudo sed -i 's/INTERFACESv4=""/INTERFACESv4="eth0"/g' /etc/default/isc-dhcp-server
 ```
 
 
