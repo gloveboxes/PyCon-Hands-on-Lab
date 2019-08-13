@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort
 from datetime import datetime
 import telemetry
 
@@ -15,4 +15,7 @@ def show_telemetry():
 
     html = myTelemetry.render_telemetry()
 
-    return html
+    if html is None:
+        return abort(500)
+    else:
+        return html

@@ -21,8 +21,12 @@ class Telemetry():
         pressure = round(self.bme280.pressure)
         humidity = round(self.bme280.humidity)
 
-        html = render_template('index.html', title=title,
-                               temperature=temperature, pressure=pressure,
-                               humidity=humidity)
+        # Do sensible range checking for sensor data
+        if -10 <= temperature <= 60 and 800 <= pressure <= 1500 and 0 <= humidity <= 100:
+            html = render_template('index.html', title=title,
+                                temperature=temperature, pressure=pressure,
+                                humidity=humidity)
+        else:
+            html = None
 
         return html

@@ -1,6 +1,6 @@
-#Raspberry Pi Developer
+# Python Hands-on Labs Set Up
 
-## Visual Stduio Code Remote Extensions
+## Visual Studio Code Remote Extensions
 
 Start VS Code Insiders
 
@@ -9,7 +9,7 @@ SSH in as user **pi**
 Install:
 
 1. remote SSH
-2. Python
+2. Python (on remote SSH)
 
 ## Update Raspberry Pi
 
@@ -17,12 +17,29 @@ Install:
 sudo apt update && sudo apt upgrade -y && sudo reboot
 ```
 
-## Install Core Libaries
+## Change Raspberry Pi Default Password for pi
+
+```bash
+passwd
+```
+
+## Set Raspberry Pi Interface Options
+
+Enable:
+
+1. I2C
+1. VNV
+
+```bash
+sudo raspi-config
+```
+
+## Install Core Libraries
 
 ```bash
 sudo apt install -y git python3-pip nmap libatlas-base-dev && \
-sudo -H  pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt autopep8
+sudo pip3 install --upgrade pip && \
+sudo -H pip3 install numpy pillow requests pandas flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt autopep8 pylint
 
 # Install Docker
 # Links valid as of August 2019
@@ -47,28 +64,59 @@ sudo /etc/init.d/dphys-swapfile stop && \
 sudo /etc/init.d/dphys-swapfile start
 
 sudo reboot
-
 ```
 
-## login as user pi
-
-Install Solution Templates
+## Create Users
 
 ```bash
-git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git github
-
 for i in {01..25}
 do
     sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users,docker -m
     echo "dev$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd
-    sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
-    # sudo chown -R dev$i:dev$i /home/dev$i/.vscode-server-insiders
-    sudo cp -r /home/pi/github /home/dev$i/github
-    sudo chown -R dev$i:dev$i /home/dev$i
 
     echo 'export LAB_PORT=$(shuf -i 5000-8000 -n 1)' | sudo tee -a /home/dev$i/.bashrc
     echo 'export LAB_HOST=$(hostname -I | cut -d" " -f 1)' | sudo tee -a /home/dev$i/.bashrc
 done
+```
+
+## Deploy Lab Solution to all users
+
+```bash
+rm -r ~/github
+git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git github
+
+for i in {01..25}
+do
+    echo "Set up lab content for user dev$i"
+    sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
+    sudo cp -r /home/pi/github /home/dev$i/github
+    sudo chown -R dev$i:dev$i /home/dev$i
+done
+```
+
+## Delete Existing Lab Content
+
+```bash
+for d in /home/dev*/ ; do
+    echo "$d"
+    cd $d
+    sudo rm -r *
+    cd ..
+done
+```
+
+## Clean Up Lab
+
+Delete all devNN users and remove files and reset nopasswd
+
+```bash
+for i in {01..25}
+do
+    sudo deluser dev$i
+done
+
+echo "pi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_pi-nopasswd && \
+sudo rm -r /home/dev*
 ```
 
 ## Useful Commands
