@@ -1,4 +1,4 @@
-for i in {01..40}
+for i in {01..25}
 do
     sudo deluser dev$i
 done
