@@ -1,5 +1,7 @@
 # Python Hands-on Labs Set Up
 
+[Setting up Ethernet Access Point](wifirouter.md)
+
 ## Visual Studio Code Remote Extensions
 
 Start VS Code Insiders
@@ -82,8 +84,8 @@ done
 ## Deploy Lab Solution to all users
 
 ```bash
-rm -r ~/github
-git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git github
+sudo rm -r ~/github
+git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github
 
 for i in {01..25}
 do
