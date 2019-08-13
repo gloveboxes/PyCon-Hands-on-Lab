@@ -81,6 +81,7 @@ do
     echo 'export LAB_PORT=$(shuf -i 5000-8000 -n 1)' | sudo tee -a /home/dev$i/.bashrc
     echo 'export LAB_HOST=$(hostname -I | cut -d" " -f 1)' | sudo tee -a /home/dev$i/.bashrc
 done
+
 ```
 
 ## Delete Existing Lab Content
@@ -92,6 +93,7 @@ for d in /home/dev*/ ; do
     sudo rm -r *
     cd ..
 done
+
 ```
 
 ## Deploy Lab Content to all users
@@ -107,6 +109,7 @@ do
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
 done
+
 ```
 
 ## Clean Up Lab
@@ -121,6 +124,7 @@ done
 
 echo "pi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_pi-nopasswd && \
 sudo rm -r /home/dev*
+
 ```
 
 ## Useful Commands
@@ -129,4 +133,5 @@ sudo rm -r /home/dev*
 
 ```bash
 watch vcgencmd measure_temp
+
 ```
