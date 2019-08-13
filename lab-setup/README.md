@@ -2,6 +2,10 @@
 
 ## Create up Lab Resources
 
+## Device Naming
+
+I follow [Nato Phonetic Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet)
+
 [Setting I2C permissions for non-root users](https://lexruee.ch/setting-i2c-permissions-for-non-root-users.html)
 
 ## Installing Docker on Raspbian Buster
