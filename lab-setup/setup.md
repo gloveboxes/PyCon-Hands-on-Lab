@@ -2,6 +2,10 @@
 
 ## Visual Stduio Code Remote Extensions
 
+Start VS Code Insiders
+
+SSH in as user **pi**
+
 Install:
 
 1. remote SSH
