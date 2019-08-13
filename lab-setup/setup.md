@@ -70,6 +70,8 @@ sudo reboot
 
 ## Create Users
 
+**This should be a one time operation**
+
 ```bash
 for i in {01..25}
 do
@@ -81,7 +83,18 @@ do
 done
 ```
 
-## Deploy Lab Solution to all users
+## Delete Existing Lab Content
+
+```bash
+for d in /home/dev*/ ; do
+    echo "$d"
+    cd $d
+    sudo rm -r *
+    cd ..
+done
+```
+
+## Deploy Lab Content to all users
 
 ```bash
 sudo rm -r ~/github
@@ -93,17 +106,6 @@ do
     sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-done
-```
-
-## Delete Existing Lab Content
-
-```bash
-for d in /home/dev*/ ; do
-    echo "$d"
-    cd $d
-    sudo rm -r *
-    cd ..
 done
 ```
 
