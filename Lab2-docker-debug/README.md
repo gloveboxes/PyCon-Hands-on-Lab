@@ -313,7 +313,7 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
 1. Click **Debug** on the Visual Studio activity bar.
 1. Clicking **Settings**
 1. Update the **port** value to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
-1. Update the **host** to the your Raspberry Pi IP Address.
+1. Update the **host** to match your Raspberry Pi IP Address.
 
 ![vs code attach debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-attach-debugger.png)
 
@@ -332,12 +332,16 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
     - With the cursor on that line, press F9, or,
     - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-
 ## Debugger Controls
 
-Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally disconnecting the debugger.
+Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally Disconnecting the debugger.
 
 ![vs code debugger controls](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-controls.png)
+
+1. Explore the **Debug Console** (Ctrl+Shift+Y)
+    1. With debugger stopped at the breakpoint in the **publish** function, explore the **Variables Window** and try typing **print(telemetry** into the debug prompt.
+1. Explore the **Terminal**
+1. Disconnect the debugger so the application continues to stream telemetry to **Azure IoT Central**.
 
 ## Exploring Device Telemetry in Azure IoT Central
 
