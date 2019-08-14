@@ -319,16 +319,19 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
 
 ## Attach the Debugger to the Docker Container
 
-1. From the Visual Studio Code Taskbar, click and select **Python Raspberry Pi: Attach**
-2. Select **Python Raspberry Pi: Attach**
-3. Set a breakpoint in the while True loop. Line 52 is good.
+1. Click **Debug** on the Visual Studio activity bar.
+2. Click the **Debug Selection** dropdown, and ensure **Python Raspberry Pi: Attach** is selected.
+3. Click the **Run** button to attach the debugger.
+![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-run-debugger.png)
+1. Open the **app.py** file
+1. Set a breakpoint in the while True loop.
+![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
 
     Ensure the **app.py** file is open, set a breakpoint at line **64**, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
 
     - With the cursor on that line, press F9, or,
     - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-run-debugger.png)
 
 ## Debugger Controls
 
