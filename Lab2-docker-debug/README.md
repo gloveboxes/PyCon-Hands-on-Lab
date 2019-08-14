@@ -312,7 +312,7 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
 
 1. Expand the .vscode folder, open the launch.json file
 2. Set the **port** value to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
-1. Set the **host** to the your Raspberry Pi IP Address.
+3. Set the **host** to the your Raspberry Pi IP Address.
 
 ![vs code attach debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-attach-debugger.png)
 
