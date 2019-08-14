@@ -254,55 +254,61 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ## Open the Visual Studio Code Docker Debugging Lab
 
-Switch back to the project you opened with Visual Studio Code. Ensure the **app.py** file is open.
+### Build the Docker Image
 
-1. Paste the connection string you copied in the previous step to the **connectionString** variable.
+1. Switch back to the project you opened with Visual Studio Code. Open the **env-file** (environment file). This file will contain environment variables that will be passed into the Docker container.
 
-```python
-    connectionString = '<Your IoT Hub Connection String>'
-```
+2. Paste the connection string you copied in the previous step into the env-file on the same line, and after  **CONNECTION_STRING=**.
 
-2. Ensure **Explorer** selected in the activity bar, right mouse click file named **Dockerfile** and select **Build Image**.
+    For example:
+
+    ```text
+    CONNECTION_STRING=HostName=saas-iothub-8135cd3b....
+    ```
+
+3. Save the env-file file (Ctrl+S)
+
+4. Ensure **Explorer** selected in the activity bar, right mouse click file named **Dockerfile** and select **Build Image**.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-docker-build.png)
 
-1. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable, followed by **:latest**. The name needs to be unique otherwise it will clash with other users.
+5. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable, followed by **:latest**. The name needs to be unique otherwise it will clash with other users.
 
     For example **glovebox:latest**
 
 ![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/docker-build-name.png)
 
-2. Copy and Paste the following commands to your preferred desktop text editor.
+### Run the Docker Image
+
+Paste these commands into the Visual Studio Code Terminal Window. You can open a new Terminal Window with **Ctrl+Shift+`**
+
+![](resources/vs-code-open-terminal.png)
+
+1. Set the IMAGE_NAME environment variable. This is the unique name you used when you built the Docker Image.
+
 
 ```bash
-IMAGE_NAME=Your-Unique-Image-Name:latest
+export IMAGE_NAME=<YOUR-UNIQUE-NAME>:latest
+```
+2. Display and make a note of your $LAB_PORT environment variable. This is set in the .bashrc file. You will need this for the debugger step.
+
+```bash
 echo -e "\e[7mYour Lab Port is $LAB_PORT\e[0m"
-docker run -it -p $LAB_PORT:3000 \
---device /dev/i2c-0 --device /dev/i2c-1 \
---rm --privileged $IMAGE_NAME:latest
 ```
 
-3. Update **IMAGE_NAME** with the unique name you choose when you created the Docker Image.
-
-    For example:
+3. Start the Docker Container
 
 ```bash
-IMAGE_NAME=glovebox:latest
-echo -e "\e[7mYour Lab Port is $LAB_PORT\e[0m"
-docker run -it -p $LAB_PORT:3000 \
+docker run -it \
+-p $LAB_PORT:3000 \
+--env-file ~/github/Lab2-docker-debug/env-list \
 --device /dev/i2c-0 --device /dev/i2c-1 \
 --rm --privileged $IMAGE_NAME
 ```
 
-- The **Docker run** will start your container in interactive mode (**--it**), will map the **$LAB_PORT** to port 3000 in the container (**-p**), the BME280 sensor is connected to the host [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) bus, (**--device**) maps the host I2C bus into the container, (**--rm**) removes the container when you stop it, (**--privileged**) grants elevated permissions to the container so that is can access the host I2C bus from within the container, and finally Docker starts the image you built/named.
+The **Docker run** will start your container in interactive mode (**--it**), will map the **$LAB_PORT** to port 3000 in the container (**-p**), the BME280 sensor is connected to the host [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) bus, (**--device**) maps the host I2C bus into the container, (**--rm**) removes the container when you stop it, (**--privileged**) grants elevated permissions to the container so that is can access the host I2C bus from within the container, and finally Docker starts the image you built/named.
 
-5. Paste these commands into the Visual Studio Code Terminal Window.
-
-    Make a note of the **Lab Port Number**, you will need this for the next step then press **Enter** to start the Docker Container.
-
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/docker-run-command.png)
-
-## Configure the Visual Studio Debugger
+## Configure the Visual Studio Code Debugger
 
 1. Expand the .vscode folder, open the launch.json file
 2. Change the current port (3005) to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
@@ -315,7 +321,7 @@ docker run -it -p $LAB_PORT:3000 \
 2. Select **Python Raspberry Pi: Attach**
 3. Set a breakpoint in the while True loop. Line 52 is good.
 
-    Ensure the **app.py** file is open, set a breakpoint at line 52, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
+    Ensure the **app.py** file is open, set a breakpoint at line **64**, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
 
     - With the cursor on that line, press F9, or,
     - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:

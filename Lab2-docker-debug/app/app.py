@@ -7,10 +7,22 @@ import json
 import ptvsd
 import sensor_bme280
 import config
+import os
+import sys
+
 
 ptvsd.enable_attach(address=('0.0.0.0', 3000))
 
-connectionString = '<Your IoT Hub Connection String>'
+try:
+    connectionString = os.environ['CONNECTION_STRING']
+except:
+    print("Missing Connection String")
+    sys.exit(1)
+
+if connectionString == '':
+    print("Missing Connection String")
+    sys.exit(1)
+
 
 myconfig = config.Config(connectionString)
 

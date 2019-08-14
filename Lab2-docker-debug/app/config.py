@@ -8,7 +8,7 @@ class Config():
         # self.deviceId = None
         # self.key = None
         # self.connectionString = connectionString
-        self.config = dict(map(lambda x: x.split('=', 1), connectionString.split(';',1)))
+        self.config = dict(map(lambda x: x.split('=', 1), connectionString.split(';',2)))
 
     @property
     def hostname(self):
