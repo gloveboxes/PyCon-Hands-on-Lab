@@ -310,9 +310,10 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
 
 ## Configure the Visual Studio Code Debugger
 
-1. Expand the .vscode folder, open the launch.json file
-2. Set the **port** value to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
-3. Set the **host** to the your Raspberry Pi IP Address.
+1. Click **Debug** on the Visual Studio activity bar.
+1. Clicking **Settings**
+1. Update the **port** value to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
+1. Update the **host** to the your Raspberry Pi IP Address.
 
 ![vs code attach debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-attach-debugger.png)
 
@@ -327,7 +328,7 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
     - With the cursor on that line, press F9, or,
     - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-start-debugger.png)
+![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-run-debugger.png)
 
 ## Debugger Controls
 
