@@ -323,7 +323,7 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
 2. Click the **Debug Selection** dropdown, and ensure **Python Raspberry Pi: Attach** is selected.
 3. Click the **Run** button to attach the debugger.
 ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-run-debugger.png)
-1. Open the **app.py** file
+1. From **Explorer** on the Visual Studio Code activity bar, open the **app.py** file
 1. Set a breakpoint in the while True loop.
 ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
 
