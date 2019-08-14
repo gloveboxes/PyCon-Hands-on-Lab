@@ -84,23 +84,11 @@ done
 
 ```
 
-## Delete Existing Lab Content
-
-```bash
-for d in /home/dev*/ ; do
-    echo "$d"
-    cd $d
-    sudo rm -r *
-    cd ..
-done
-
-```
-
 ## Deploy Lab Content to all users
 
 ```bash
 sudo rm -r ~/github
-git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github
+git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github
 
 for i in {01..25}
 do

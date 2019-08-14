@@ -5,13 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        },
-        {
             "name": "Python Raspberry Pi: Attach",
             "type": "python",
             "request": "attach",
@@ -19,8 +12,8 @@
                 "localRoot":"${workspaceRoot}/app",
                 "remoteRoot":"/app"}
             ],
-            "port": 3000,
-            "host": "192.168.0.198"
+            "port": <Port Number>,
+            "host": "<Raspberry Pi IP Address>"
         },
     ]
 }
