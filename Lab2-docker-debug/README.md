@@ -187,7 +187,7 @@ We need to tell Visual Studio Code the IP Address and login name we will be usin
 
 From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/lab2-docker-debug** folder.
 
-1. From VS Code: File -> Open Folder, navigate to github/lab2-docker-debug
+1. From VS Code: File -> Open Folder, navigate to **github/lab2-docker-debug**.
 2. Expand the App folder and open the app.py file.
 
 ## Creating an Azure IoT Central application
@@ -237,7 +237,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
     |Temperature | Temperature    | degC   | -10     | 60      | 0        |
     |Pressure    | Pressure       | hPa    | 800     | 1260    | 0        |
 
-    The following is an example of setting up the Temperature telemetry measurement.
+    The following is an example of setting up the **Temperature** telemetry measurement.
 
     ![new measurement](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-create-new-telemetry.png)
 
@@ -249,7 +249,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
     ![create a real device](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-add-real-device.png)
 
-    Name your **Device Id** so you can easily identify the device in the IoT Central portal, then click **Create**.
+    Name your **Device ID** so you can easily identify the device in the IoT Central portal, then click **Create**.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-create-new-device.png)
 
@@ -265,8 +265,8 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 1. Hold the control key down and click the following link [Connection String Generator](https://dpsgen.z8.web.core.windows.net/) to open in a new tab.
 
-    Copy and paste the **Scope Id**, **Device Id**, and the **Primary Key** from the Azure IoT Central Device Connection panel to the Connection String Generator page and click "Get Connection String".
-    
+    Copy and paste the **Scope Id**, **Device Id**, and the **Primary Key** from the Azure IoT Central Device Connection panel to the Connection String Generator page and click **Get Connection String**.
+
     ![connection string example](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-connection-string-generator-example.png)
 
 2. Copy the generated connection string to the clipboard as you will need it for the next step.
