@@ -5,7 +5,7 @@
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
 |Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
 |Language| Python|
-|Date|As of August 2019|
+|Date|As of August, 2019|
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
@@ -43,25 +43,26 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Raspberry Pi Hardware
 
-If you are attending a workshop then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
+If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
 
 ### Shared Raspberry Pi
 
-If you are attending a workshop and using a shared Raspberry Pi then you will need the following information from the lab instructor.
+If you are attending a workshop and using a shared Raspberry Pi, then you will need the following information from the lab instructor.
 
 1. The **Network IP Address** of the Raspberry Pi
 2. Your assigned **login name** and **password**.
 
 ### Personal Raspberry Pi
 
-If you using your own network-connected Raspberry Pi, then you need:
+If you are using your own network-connected Raspberry Pi, then you need:
 
 1. The Raspberry Pi **Network IP Address**, the **login name**, and **password**.
-1. You need to run the following commands in your Raspberry Pi to set two environment variables required for the hands-on lab.
+1. You need to run the following commands on your Raspberry Pi to set two environment variables required for the hands-on lab.
 
 ```bash
 echo "export LAB_PORT=\$(shuf -i 5000-8000 -n 1)" >> ~/.bashrc
-echo "export LAB_HOST=\$(hostname -I)" >>  ~/.bashrc
+echo "export LAB_HOST=\$(hostname -I | cut -d' ' -f 1)" >>  ~/.bashrc
+
 source .bashrc
 ```
 
@@ -69,33 +70,33 @@ source .bashrc
 
 ![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
 
-Setting up public/private keys for SSH authentication is a secure and fast way to authenticate from your developer machine to the Raspberry Pi and is required for this hands-on lab.
+Setting up a public/private key pair for SSH authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-The following creates a new SSH key, and copies the public key to the Raspberry Pi.
+The following creates a new SSH key and copies the public key to the Raspberry Pi.
 
 ### From Linux and macOS
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
 ```
 
-2. Copy the public key to your Raspberry Pi.
+2. Copy the public key to the Raspberry Pi.
 
 ```bash
-ssh-copy-id <Your Raspberry Pi login name>@<Raspberry IP Address>
+ssh-copy-id -f ~/.ssh/id_rsa_python_lab <Your Raspberry Pi login name>@<Raspberry IP Address>
 ```
 
 ```bash
 For example:
 
-ssh-copy-id dev99@192.168.1.99
+ssh-copy-id -f ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
 ```
 
 ### From Windows
 
-1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one time only operation).
+1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one-time only operation).
 
     From **PowerShell as Administrator**.
 
@@ -106,13 +107,13 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 2. From PowerShell, create your key. This is typically a one-time operation. **Take the default options**
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
 ```
 
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh `
+cat ~/.ssh/id_rsa_python_lab.pub | ssh `
 <Your Raspberry Pi login name>@<Raspberry IP Address> `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
@@ -120,14 +121,33 @@ cat ~/.ssh/id_rsa.pub | ssh `
 ```bash
 For example:
 
-cat ~/.ssh/id_rsa.pub | ssh `
-dev99@192.168.1.99 `
+cat ~/.ssh/id_rsa_python_lab.pub | ssh `
+dev99@192.168.1.200 `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
+### Test the SSH Authentication Key
+
+1. Open a Terminal/PowerShell window from your Linux, macOS, or Windows computer.
+2. Start a **ssh** session to the Raspberry Pi.
+
+    ```bash
+    ssh <Your Raspberry Pi login name>@<Raspberry IP Address>
+    ```
+
+    For example
+
+    ```bash
+    ssh dev99@192.168.1.200
+    ```
+
+    A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
+
+3. Close the SSH session. In the SSH terminal, type **exit**, followed by **ENTER**.
+
 ## Configure Visual Studio Code Remote SSH Development
 
-We need to tell Visual Studio Code the IP Address and user name we will be using to connect to the Raspberry Pi.
+We need to tell Visual Studio Code the IP Address and login name we will be using to connect to the Raspberry Pi.
 
 1. Start Visual Studio Code Insiders Edition
 
@@ -143,7 +163,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-config-file.png)
 
-5. Set the SSH connection configuration. You will need the IP Address of the Raspberry Pi and the user name assigned to you for the hands-on lab. Make the changes then save.
+5. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally set the **IdentityFile** field to **~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-config-host-details.png)
 
@@ -162,16 +182,16 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/Lab1-ssh-debug** folder.
 
 1. From Visual Studio Code: File -> Open Folder
-2. Navigate to github/Lab1-ssh-debug directory
+2. Navigate to **github/Lab1-ssh-debug** directory
 3. Open the **app.py** file and review the contents
 4. Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
 
     - With the cursor on that line, press F9, or,
-    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
+    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
-5. Review the debug options.
+5. Review the **debug** options.
     1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
 
         ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
@@ -197,9 +217,9 @@ Once a debug session starts, the **Debug toolbar** will appear at the top of the
 
 ![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
 
-A debugging toolbar (shown above) will appear in Visual Studio Code. It contains the following commands:
+A debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
 
-1.  Pause (or Continue, F5),
+1. Pause (or Continue, F5),
 2. Step Over (F10)
 3. Step Into (F11),
 4. Step Out (Shift+F11),
@@ -216,13 +236,13 @@ Next, we are going to **Step Into** (F11) the code using the debugging toolbox. 
 
 ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
-2. Right mouse click a variable, and you will discover you can change, copy, or watch variables. Try to change the value of a variable.
+2. Right mouse click a variable, and you will discover you can change, copy, or watch variables. Try to change the value of a variable. **Hint**, double click on a variable value.
 
-3. Press F5 to resume the Flask App, then switch back to your web browser and you will see that the temperature, humidity, and pressure Sensor data has been returned in the web page.
+3. Press F5 to resume the Flask App, then switch back to your web browser and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
 
-4. Press the **Refresh** button on your web browsers and the breakpoint in your code will be hit again.
+4. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code.
 
 ## Experiment with Debugger Options
 
@@ -232,15 +252,18 @@ Things to try:
 1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
 2. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=pycon-blog-dglover)
 3. Try to change the value of a variable from the Visual Studio Code **Variable Window**.
-4. Try Setting a **conditional** breakpoint
+4. Try setting a **conditional** breakpoint
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
-5. Try the Visual Studio Code **Debug Console**. This will give you access to the Pythion REPL, try printing or setting variables, importing libraries etc.
+5. Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries etc.
 
 ```python
 print(temperature)
 
 temperature = 24
+
+import random
+random.randrange(100, 1000)
 ```
 
 ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)

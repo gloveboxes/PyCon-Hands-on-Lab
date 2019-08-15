@@ -6,7 +6,7 @@
 |Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
 |Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
 |Language| Python|
-|Date|As of August 2019|
+|Date|As of August, 2019|
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
@@ -50,25 +50,25 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Raspberry Pi Hardware
 
-If you are attending a workshop then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
+If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
 
 ### Shared Raspberry Pi
 
-If you are attending a workshop and using a shared Raspberry Pi then you will need the following information from the lab instructor.
+If you are attending a workshop and using a shared Raspberry Pi, then you will need the following information from the lab instructor.
 
 1. The **Network IP Address** of the Raspberry Pi
 2. Your assigned **login name** and **password**.
 
 ### Personal Raspberry Pi
 
-If you using your own network-connected Raspberry Pi, then you need:
+If you are using your own network-connected Raspberry Pi, then you need:
 
 1. The Raspberry Pi **Network IP Address**, the **login name**, and **password**.
-1. You need to run the following commands in your Raspberry Pi to set two environment variables required for the hands-on lab.
+1. You need to run the following commands on your Raspberry Pi to set two environment variables required for the hands-on lab.
 
 ```bash
 echo "export LAB_PORT=\$(shuf -i 5000-8000 -n 1)" >> ~/.bashrc
-echo "export LAB_HOST=\$(hostname -I)" >>  ~/.bashrc
+echo "export LAB_HOST=\$(hostname -I | cut -d' ' -f 1)" >>  ~/.bashrc
 source .bashrc
 ```
 
@@ -76,33 +76,33 @@ source .bashrc
 
 ![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/ssh-login.jpg)
 
-Setting up public/private keys for SSH authentication is a secure and fast way to authenticate from your developer machine to the Raspberry Pi and is required for this hands-on lab.
+Setting up a public/private key pair for SSH authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-The following creates a new SSH key, and copies the public key to the Raspberry Pi.
+The following creates a new SSH key and copies the public key to the Raspberry Pi.
 
 ### From Linux and macOS
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
 ```
 
-2. Copy the public key to your Raspberry Pi.
+2. Copy the public key to the Raspberry Pi.
 
 ```bash
-ssh-copy-id <Your Raspberry Pi login name>@<Raspberry IP Address>
+ssh-copy-id -f ~/.ssh/id_rsa_python_lab <Your Raspberry Pi login name>@<Raspberry IP Address>
 ```
 
 ```bash
 For example:
 
-ssh-copy-id dev99@192.168.1.99
+ssh-copy-id -f ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
 ```
 
 ### From Windows
 
-1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one time only operation).
+1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one-time only operation).
 
     From **PowerShell as Administrator**.
 
@@ -113,13 +113,13 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 2. From PowerShell, create your key. This is typically a one-time operation. **Take the default options**
 
 ```bash
-ssh-keygen -t rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
 ```
 
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa.pub | ssh `
+cat ~/.ssh/id_rsa_python_lab.pub | ssh `
 <Your Raspberry Pi login name>@<Raspberry IP Address> `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
@@ -127,14 +127,33 @@ cat ~/.ssh/id_rsa.pub | ssh `
 ```bash
 For example:
 
-cat ~/.ssh/id_rsa.pub | ssh `
-dev99@192.168.1.99 `
+cat ~/.ssh/id_rsa_python_lab.pub | ssh `
+dev99@192.168.1.200 `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
+### Test the SSH Authentication Key
+
+1. Open a Terminal/PowerShell window from your Linux, macOS, or Windows computer.
+2. Start a **ssh** session to the Raspberry Pi.
+
+    ```bash
+    ssh <Your Raspberry Pi login name>@<Raspberry IP Address>
+    ```
+
+    For example
+
+    ```bash
+    ssh dev99@192.168.1.200
+    ```
+
+    A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
+
+3. Close the SSH session. In the SSH terminal, type **exit**, followed by **ENTER**.
+
 ## Configure Visual Studio Code Remote SSH Development
 
-We need to tell Visual Studio Code the IP Address and user name we will be using to connect to the Raspberry Pi.
+We need to tell Visual Studio Code the IP Address and login name we will be using to connect to the Raspberry Pi.
 
 1. Start Visual Studio Code Insiders Edition
 
@@ -150,7 +169,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-5. Set the SSH connection configuration. You will need the IP Address of the Raspberry Pi and the user name assigned to you for the hands-on lab. Make the changes then save.
+5. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally set the **IdentityFile** field to **~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
@@ -169,7 +188,7 @@ We need to tell Visual Studio Code the IP Address and user name we will be using
 From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/lab2-docker-debug** folder.
 
 1. From VS Code: File -> Open Folder, navigate to github/lab2-docker-debug
-2. Expand the App folder, and open the app.py file.
+2. Expand the App folder and open the app.py file.
 
 ## Creating an Azure IoT Central application
 
@@ -183,7 +202,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 1. Open the [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central/?WT.mc_id=pycon-blog-dglover) in a new browser tab, then click **Getting started**.
 
-2. Next, you'll need to sign with your Microsoft personal or work or school account. If you don't have one, you can create one for free using the Create one! link.
+2. Next, you'll need to sign with your **Microsoft** Personal, or Work, or School account. If you do not have a Microsoft account, then you can create one for free using the **Create one!** link.
 
     ![iot central](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-login.png)
 
@@ -330,7 +349,7 @@ The **Docker run** will start your container in interactive mode (**--it**), wil
     Ensure the **app.py** file is open, set a breakpoint at line **64**, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
 
     - With the cursor on that line, press F9, or,
-    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, Click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
+    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
 ## Debugger Controls
 
