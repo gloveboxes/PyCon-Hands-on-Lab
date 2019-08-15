@@ -153,7 +153,7 @@ dev99@192.168.1.200 `
 
 ## Configure Visual Studio Code Remote SSH Development
 
-We need to tell Visual Studio Code the IP Address and login name we will be using to connect to the Raspberry Pi.
+Configure Visual Studio Code **Remote SSH** with the Raspberry Pi **Network IP Address**, **login name**, and **SSH key file** you will be using for the hands-on lab.
 
 1. Start Visual Studio Code Insiders Edition
 
@@ -169,7 +169,7 @@ We need to tell Visual Studio Code the IP Address and login name we will be usin
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-5. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally set the **IdentityFile** field to **~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+5. Set the SSH connection configuration. You need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally set the **IdentityFile** field to **~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
@@ -227,7 +227,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-new-telemetry.png)
 
-    Use the information in the following table to set up the three telemetry measurements. The field name is case-sensitive.
+    Use the information in the following table to set up three telemetry measurements. The field name is case-sensitive.
 
     You **must** click **Save** after each measurement is defined.
 
@@ -291,7 +291,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-docker-build.png)
 
-5. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable, followed by **:latest**. The name needs to be unique otherwise it will clash with other users.
+5. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable, followed by **:latest**. The name needs to be unique otherwise it will clash with others building Docker images on the same Raspberry Pi.
 
     For example **glovebox:latest**
 
@@ -325,7 +325,7 @@ docker run -it \
 --rm --privileged $IMAGE_NAME
 ```
 
-The **Docker run** will start your container in interactive mode (**--it**), will map the **$LAB_PORT** to port 3000 in the container (**-p**), the BME280 sensor is connected to the host [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) bus, (**--device**) maps the host I2C bus into the container, (**--rm**) removes the container when you stop it, (**--privileged**) grants elevated permissions to the container so that is can access the host I2C bus from within the container, and finally Docker starts the image you built/named.
+The **Docker run** will start your container in interactive mode (**--it**), (**-p**) will map the **$LAB_PORT** to port 3000 in the container, the BME280 sensor is connected to the host [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) bus, (**--device**) maps the host I2C bus into the container, (**--rm**) removes the container when you stop it, (**--privileged**) grants elevated permissions to the container so that is can access the host I2C bus from within the container, and finally Docker starts the image you built/named.
 
 ## Configure the Visual Studio Code Debugger
 
@@ -360,7 +360,7 @@ Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off,
 1. Explore the **Debug Console** (Ctrl+Shift+Y)
     1. With debugger stopped at the breakpoint in the **publish** function, explore the **Variables Window** and try typing **print(telemetry** into the debug prompt.
 1. Explore the **Terminal**
-1. Disconnect the debugger so the application continues to stream telemetry to **Azure IoT Central**.
+1. From the Debugger Toolbar, **Disconnect** the debugger so the application in the Docker container continues to run and stream telemetry to **Azure IoT Central**.
 
 ## Exploring Device Telemetry in Azure IoT Central
 
