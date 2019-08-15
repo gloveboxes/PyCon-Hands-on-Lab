@@ -129,13 +129,13 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 2. From PowerShell, create your key. This is typically a one-time operation. **Take the default options**
 
 ```bash
-ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
+ssh-keygen -t rsa -f $env:userprofile\.ssh\id_rsa_python_lab
 ```
 
 3. From PowerShell, copy the public key to your Raspberry Pi
 
 ```bash
-cat ~/.ssh/id_rsa_python_lab.pub | ssh `
+cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
 <Your Raspberry Pi login name>@<Raspberry IP Address> `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
@@ -143,7 +143,7 @@ cat ~/.ssh/id_rsa_python_lab.pub | ssh `
 ```bash
 For example:
 
-cat ~/.ssh/id_rsa_python_lab.pub | ssh `
+cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
 dev99@192.168.1.200 `
 "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
