@@ -226,7 +226,7 @@ A debugging toolbar (shown above) will appear in Visual Studio Code. It has the 
 
 ## Using the Debugger
 
-Next, we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the code steps into the **Telemetry** Python class and call the **render_telemetry** method.
+Next, we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the debugger steps into the **Telemetry** class and calls the **render_telemetry** method.
 
 ### Variable Explorer
 
@@ -266,7 +266,10 @@ random.randrange(100, 1000)
 
 ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
 
-7. Try updating the Flask Template and adding the current date and time to the **index.html**
+## Update the Flask Template
+
+1. Update the Flask **index.html** template to display the current date and time.
+2. Rerun the Flask app.
 
 ## Closing the Visual Studio Code Remote SSH
 
