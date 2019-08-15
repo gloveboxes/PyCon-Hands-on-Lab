@@ -23,6 +23,22 @@ No source code needs to be on your local machine to gain these benefits since th
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/architecture-ssh.png)
 
+## CircuitPython
+
+[CircuitPython](www.circuitpython.org), an Adafruit initiative, is built on the amazing work of Damien George and the MicroPython community. CircuitPython adds hardware support for Microcontroller development and simplifies some aspects of MicroPython. MicroPython and by definition, CircuitPython implement version 3 of the Python language reference. So, your Python 3 skills are transferrable.
+
+CircuitPython runs on over 60 **Microcontrollers** as well as the **Raspberry Pi**. This means you build applications that access GPIO hardware on a Raspberry Pi using CircuitPython libraries.
+
+The advantage is there are powerful Python debugging tools for the Raspberry Pi. If you have ever tried debugging applications on a Microcontroller, then you will appreciate it can be painfully complex and slow. You resort to print statements, toggling the state of LEDs, and worst case, using specialized hardware.
+
+With Raspberry Pi and CircuitPython, you build and debug on the Raspberry Pi, when it is all working you transfer the app to a CircuitPython Microcontroller. You need to ensure any libraries used are copied to the Microcontroller, and pin mappings are correct. But much much simpler!
+
+This hands-on lab uses CircuitPython libraries for GPIO, I2C, and the BME280 Temperature/Pressure/Humidity sensor. The CircuitPython libraries were install on the Raspberry Pi with pip3.
+
+```bash
+pip3 install adafruit-blinka adafruit-circuitpython-bme280
+```
+
 ## Software Installation
 
 ![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/setup.jpg)
