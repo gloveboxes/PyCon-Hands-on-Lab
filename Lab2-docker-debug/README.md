@@ -35,7 +35,7 @@ No source code needs to be on your local machine to gain these benefits since th
 
 ![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/setup.jpg)
 
-This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It is supported on Linux, macOS, and Windows.
+This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
 
 Install:
 
@@ -190,9 +190,9 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 1. From VS Code: File -> Open Folder, navigate to **github/lab2-docker-debug**.
 2. Expand the App folder and open the app.py file.
 
-## Creating an Azure IoT Central application
+## Creating an Azure IoT Central Application
 
-We are going to create an Azure IoT Central application, then create a device, and finally create an Azure IoT Hub device connection string required for the application that will run in the Docker Container.
+We are going to create an Azure IoT Central application, then a device, and finally a device **connection string** needed for the application that will run in the Docker container.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/azure_iot_central.png)
 
