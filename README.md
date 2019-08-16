@@ -62,3 +62,9 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 - [Lab 1: Remote Debugging a Raspberry Pi Flask Web Application](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
 - [Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/README.md)
 
+
+## Dev.to (Works with Google Translate)
+
+- [Lab 1: Remote Debugging a Raspberry Pi Flask Web Application](https://dev.to/gloveboxes/debugging-a-raspberry-pi-internet-of-things-flask-application-en1-temp-slug-2610090?preview=71545ff5fe2f74d74aecf47c9655bc611c564aaa5826036c05e63beff19b5cb04ef913eba8b2573e55f3ab117c4013e594cb2b29c942cd4747d9d501)
+
+- [Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging](https://dev.to/azure/lab-2-raspberry-pi-python-iot-central-and-docker-container-debugging-5md-temp-slug-4277130?preview=bf9df4eb718d80f9bb17aad7c3f1a9e46782cec285f67906126bb1a8c067b784cc5caa5cb6bd4fff870732055e0aabd962893171f713f5c96cba178c)
