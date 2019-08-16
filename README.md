@@ -11,6 +11,18 @@
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
+## Tutorial Description
+
+### Python Debugging: Pro Tips and Not-So-Obvious Tricks
+
+If you are anything like me, when you started with Python 'print' was the debugger of choice. But you likely found that was slow, tedious, and didn't cut it for more complex problems.
+
+Let’s dive into methods for debugging remote python in environments such as CircuitPython, Raspberry Pi, Docker containers, remote Linux Servers, and Jupyter Notebooks.
+
+You’ll learn how to sync code to devices, attach debuggers, and step through your code. And existing (or newly forged) Jupyter fans will learn tips to debug your notebooks.
+
+This fun session covers a range of scenarios and empowers you to supercharge your debugging techniques!
+
 ## Hardware Requirements
 
 1. Bring your own laptop running one of the follow Operating Systems:
@@ -50,12 +62,3 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 - [Lab 1: Remote Debugging a Raspberry Pi Flask Web Application](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
 - [Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/README.md)
 
-## Jupyter Notebook Debugging
-
-![Jupyter Notebooks Debugging](resources/jupyter.png)
-
-- [Lab 3: Jupyter Notebook Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
-
-## Lab Set Up
-
-[Lab set up for administrators](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
