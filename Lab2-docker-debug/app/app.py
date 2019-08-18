@@ -29,7 +29,7 @@ myconfig = config.Config(connectionString)
 hubAddress = myconfig.hostname
 deviceId = myconfig.deviceId
 sharedAccessKey = myconfig.key
-sampleRateInSeconds = 2
+sampleRateInSeconds = 5
 
 mysensor = sensor_bme280.Telemetry()
 
