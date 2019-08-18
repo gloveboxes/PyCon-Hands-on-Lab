@@ -59,8 +59,13 @@ def on_publish(client, userdata, mid):
 
 
 def publish():
+    id = 0
     while True:
         try:
+            msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"Pressure\":%d,\"Temperature\": %.2f,\"Id\":%d}"
+            temperature, pressure, humidity = mysensor.measure()
+            telemetry = msg_txt % ('Sydney, AU', humidity,
+                               pressure,  temperature, id)
             telemetry = mysensor.measure()
             print(telemetry)
             client.publish(iot.hubTopicPublish, telemetry)
