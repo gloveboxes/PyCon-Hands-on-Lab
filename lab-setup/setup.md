@@ -95,10 +95,14 @@ do
     echo "Set up lab content for user dev$i"
     sudo rm -r -f /home/dev$i/.vscode-server-insiders
     sudo rm -r -f /home/dev$i/github
-    sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
+    # sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
 done
+
+# Build base docker image
+sudo systemctl start docker
+docker build -t glovebox:latest -f ~/github/Lab2-docker-debug/Dockerfile
 
 ```
 
@@ -114,6 +118,12 @@ done
 
 echo "pi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_pi-nopasswd && \
 sudo rm -r /home/dev*
+
+# clean up docker images
+sudo systemctl start docker
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+sudo systemctl stop docker
 
 ```
 
