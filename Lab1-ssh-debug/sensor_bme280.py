@@ -38,7 +38,7 @@ class Telemetry():
 
         return temperature, pressure, humidity
 
-    def render_telemetry(self):
+    def measure(self):
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
@@ -50,7 +50,10 @@ class Telemetry():
             pressure = random.randrange(1000, 1100)
             humidity = random.randrange(50, 70)
         else:
+            # When debugging, step over, not into, as method takes a system wide/global lock
             temperature, pressure, humidity = read_sensor()
+
+        return temperature, pressure, humidity
 
         # Do sensible range checking for sensor data
         if -10 <= temperature <= 60 and 800 <= pressure <= 1500 and 0 <= humidity <= 100:

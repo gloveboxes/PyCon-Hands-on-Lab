@@ -1,8 +1,8 @@
-from flask import Flask, abort
+from flask import Flask, abort, render_template
 from datetime import datetime
-import telemetry
+import sensor_bme280
 
-myTelemetry = telemetry.Telemetry()
+myTelemetry = sensor_bme280.Telemetry()
 app = Flask(__name__)
 
 
@@ -13,9 +13,13 @@ def show_telemetry():
     now = datetime.now()
     formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
-    html = myTelemetry.render_telemetry()
+    title = "Raspberry Pi Environment Data"
 
-    if html is None:
-        return abort(500)
+    temperature, pressure, humidity = myTelemetry.measure()
+
+    if -10 <= temperature <= 60 and 800 <= pressure <= 1500 and 0 <= humidity <= 100:
+        return render_template('index.html', title=title,
+                               temperature=temperature, pressure=pressure,
+                               humidity=humidity)
     else:
-        return html
+        return abort(500)
