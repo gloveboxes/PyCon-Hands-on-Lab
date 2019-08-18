@@ -94,7 +94,7 @@ git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/githu
 for i in {01..26}
 do
     echo "Set up lab content for user dev$i"
-    sudo rm -r -f /home/dev$i/.vscode-server-insiders
+    # sudo rm -r -f /home/dev$i/.vscode-server-insiders
     sudo rm -r -f /home/dev$i/github
     # sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github

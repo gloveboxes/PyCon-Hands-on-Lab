@@ -31,7 +31,7 @@ deviceId = myconfig.deviceId
 sharedAccessKey = myconfig.key
 sampleRateInSeconds = 2
 
-mysensor = sensor_bme280.Sensor()
+mysensor = sensor_bme280.Telemetry()
 
 
 def on_connect(client, userdata, flags, rc):
@@ -66,7 +66,6 @@ def publish():
             temperature, pressure, humidity = mysensor.measure()
             telemetry = msg_txt % ('Sydney, AU', humidity,
                                pressure,  temperature, id)
-            telemetry = mysensor.measure()
             print(telemetry)
             client.publish(iot.hubTopicPublish, telemetry)
             time.sleep(sampleRateInSeconds)
