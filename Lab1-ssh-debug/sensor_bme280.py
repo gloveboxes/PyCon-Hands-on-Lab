@@ -7,11 +7,11 @@ import fcntl
 import random
 import json
 import time
+import os
 
 
 class Telemetry():
     def __init__(self):
-        self.standalone = standalone
         self.temperature = self.pressure = self.humidity = self.sensorLastEpoch = 0
 
         self.sensorlock = open(
@@ -60,9 +60,9 @@ class Telemetry():
                 self.humidity = round(self.bme280.humidity)
 
                 telemetry = {
-                    "temperature": temperature,
-                    "pressure": pressure,
-                    "humidity": humidity,
+                    "temperature": self.temperature,
+                    "pressure": self.pressure,
+                    "humidity": self.humidity,
                     "epoch": int(time.time())
                 }
 
