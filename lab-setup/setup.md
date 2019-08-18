@@ -73,7 +73,7 @@ sudo reboot
 **This should be a one time operation**
 
 ```bash
-for i in {01..25}
+for i in {01..26}
 do
     sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users,docker -m
     echo "dev$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd
@@ -90,7 +90,7 @@ done
 sudo rm -r ~/github
 git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github
 
-for i in {01..25}
+for i in {01..26}
 do
     echo "Set up lab content for user dev$i"
     sudo rm -r -f /home/dev$i/.vscode-server-insiders
@@ -111,7 +111,7 @@ docker build -t glovebox:latest -f ~/github/Lab2-docker-debug/Dockerfile
 Delete all devNN users and remove files and reset nopasswd
 
 ```bash
-for i in {01..25}
+for i in {01..26}
 do
     sudo deluser dev$i
 done
