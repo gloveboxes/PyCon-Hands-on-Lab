@@ -74,3 +74,38 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         HostName host-fqdn-or-ip-goes-here
         IdentityFile C:\path\to\your\exported\private\keyfile
     ```
+
+
+## WARNING: UNPROTECTED PRIVATE KEY FILE! 
+
+if you encounter this error message
+
+```bat
+C:\>ssh dev01@rpialfa.local -i %USERPROFILE%\.ssh\id_rsa-python-lab
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions for 'id_rsa-python-lab' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "id_rsa-python-lab": bad permissions
+dev01@rpialfa.local: Permission denied (publickey).
+
+C:\>
+C:\>
+C:\>ssh dev01@rpialfa.local -i %USERPROFILE%\.ssh\id_rsa-python-lab
+Warning: Identity file private-key.ppm not accessible: No such file or directory.
+dev01@rpialfa.local: Permission denied (publickey).
+```
+
+In Windows File Explorer navigate to %USERPROFILE%\.ssh
+
+1. Locate **id_rsa-python-lab** in Windows Explorer.
+1. right-click on it then select "Properties".
+1. Navigate to the "Security" tab and click "Advanced".
+1. Change the owner to you, disable inheritance and delete all permissions.
+1. Then grant yourself "Full control" and save the permissions.
+
+Now SSH won't complain about file permission too open anymore.
+
+[Windows SSH: Permissions for 'private-key' are too open](https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open)
