@@ -19,14 +19,13 @@ class Telemetry():
                 # locking is done for lab as solution is multiuser
                 fcntl.lockf(sensorlock, fcntl.LOCK_EX)
                 try:
-                    self.bme280 = adafruit_bme280.Adafruit_BME280_I2C(self.i2c, address=0x76)
+                    self.bme280 = adafruit_bme280.Adafruit_BME280_I2C(
+                        self.i2c, address=0x76)
                 except:
                     self.bme280 = None
 
     def read_sensor(self):
-        temperature = 0
-        pressure = 0
-        humidity = 0
+        temperature = pressure = humidity = 0
 
         # minimise time here as this is a system wide global lock
         # locking is done for lab as solution is multiuser
@@ -39,11 +38,6 @@ class Telemetry():
         return temperature, pressure, humidity
 
     def measure(self):
-        now = datetime.now()
-        formatted_now = now.strftime("%A, %d %B, %Y at %X")
-
-        title = "Raspberry Pi Environment Data"
-
         if self.bme280 is None:
             # BME Sensor not found so generate random data
             temperature = random.randrange(20, 25)
@@ -54,13 +48,3 @@ class Telemetry():
             temperature, pressure, humidity = read_sensor()
 
         return temperature, pressure, humidity
-
-        # Do sensible range checking for sensor data
-        if -10 <= temperature <= 60 and 800 <= pressure <= 1500 and 0 <= humidity <= 100:
-            html = render_template('index.html', title=title,
-                                   temperature=temperature, pressure=pressure,
-                                   humidity=humidity)
-        else:
-            html = None
-
-        return html
