@@ -65,12 +65,13 @@ sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile && \
 sudo /etc/init.d/dphys-swapfile stop && \
 sudo /etc/init.d/dphys-swapfile start
 
+## sets up a file for use as a global lock for sensor
+sudo sed -i -e '$i touch /tmp/sensor.lock && chmod 777 /tmp/sensor.lock\n' /etc/rc.local
+
 sudo reboot
 ```
 
 ## Create Users
-
-**This should be a one time operation**
 
 ```bash
 for i in {01..26}
@@ -100,6 +101,8 @@ do
     sudo chown -R dev$i:dev$i /home/dev$i
 done
 
+
+
 # Build base docker image
 sudo systemctl start docker
 docker build -t glovebox:latest -f ~/github/Lab2-docker-debug/Dockerfile
@@ -122,7 +125,7 @@ sudo rm -r /home/dev*
 # clean up docker images
 sudo systemctl start docker
 docker rm $(docker ps -a -q)
-docker rmi $(docker images -q)
+docker rmi $(docker images -q) -f
 sudo systemctl stop docker
 
 ```
