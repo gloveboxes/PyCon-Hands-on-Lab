@@ -14,9 +14,9 @@ class Telemetry():
     def __init__(self):
         self.temperature = self.pressure = self.humidity = self.sensorLastEpoch = 0
 
-        self.sensorlock = open(
-            os.open("/tmp/sensor.lock", os.O_CREAT | os.O_RDWR, 0o777), 'r+')
-        # self.sensorlock = open("/tmp/sensor.lock", 'w+')
+        # self.sensorlock = open(
+        #     os.open("/tmp/sensor.lock", os.O | os.O_RDWR, 0o777), 'r+')
+        self.sensorlock = open("/tmp/sensor.lock", 'r+')
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.bme280 = None
 
@@ -51,6 +51,9 @@ class Telemetry():
             if data != '':
                 telemetry = json.loads(data)
                 delta = int(time.time()) - telemetry.get('epoch')
+                self.temperature = telemetry.get('temperature')
+                self.pressure = telemetry.get('pressure')
+                self.humidity = telemetry.get('humidity')
 
             # Was sensor read greater than 15 seconds ago?
             if data == '' or delta > 15:
@@ -69,6 +72,7 @@ class Telemetry():
                 self.sensorlock.seek(0)
                 self.sensorlock.truncate(0)
                 self.sensorlock.write(json.dumps(telemetry))
+                self.sensorlock.flush()
 
         except:
             print('Issue reading sensor')

@@ -336,6 +336,7 @@ echo -e "\e[7mYour Lab Port is $LAB_PORT\e[0m"
 ```bash
 docker run -it \
 -p $LAB_PORT:3000 \
+-v /tmp/sensor.lock:/tmp/sensor.lock
 --env-file ~/github/Lab2-docker-debug/env-list \
 --device /dev/i2c-0 --device /dev/i2c-1 \
 --rm --privileged $IMAGE_NAME

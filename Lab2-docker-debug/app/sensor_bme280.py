@@ -5,45 +5,93 @@ import busio
 import adafruit_bme280
 import fcntl
 import random
+import json
+import time
+import os
 
 
 class Telemetry():
     def __init__(self):
-        self.sensorLock = '/tmp/sensor.lock'
+        self.temperature = self.pressure = self.humidity = self.sensorLastEpoch = 0
 
+        # self.sensorlock = open(
+        #     os.open("/tmp/sensor.lock", os.O | os.O_RDWR, 0o777), 'r+')
+        self.sensorlock = open("/tmp/sensor.lock", 'r+')
         self.i2c = busio.I2C(board.SCL, board.SDA)
-        with open(self.sensorLock, 'w') as sensorlock:
-            # minimise time here as this is a system wide global lock
-            # locking is done for lab as solution is multiuser
-            fcntl.lockf(sensorlock, fcntl.LOCK_EX)
+        self.bme280 = None
+
+        # take the system wide global lock
+        # locking is done for lab as solution is multiuser
+        fcntl.lockf(self.sensorlock, fcntl.LOCK_EX)
+        retry = 0
+        while retry < 5:
             try:
                 self.bme280 = adafruit_bme280.Adafruit_BME280_I2C(
                     self.i2c, address=0x76)
+                break
             except:
-                self.bme280 = None
-            sensorlock.close()
+                retry += 1
+                time.sleep(0.5)
+                print('retrying sensor connect')
+        else:
+            print('Could not connect to sensor - check connection')
+        fcntl.lockf(self.sensorlock, fcntl.LOCK_UN)
 
-    def read_sensor(self):
-        temperature = pressure = humidity = 0
-
-        # minimise time here as this is a system wide global lock
+    def __read_sensor(self):
+        # take the system wide global lock
         # locking is done for lab as solution is multiuser
-        with open(self.sensorLock, 'w') as sensorlock:
-            fcntl.lockf(sensorlock, fcntl.LOCK_EX)
-            temperature = round(self.bme280.temperature, 1)
-            pressure = round(self.bme280.pressure)
-            humidity = round(self.bme280.humidity)
+        # Do not debug in this area
+        try:
+            fcntl.lockf(self.sensorlock, fcntl.LOCK_EX)
 
-        return temperature, pressure, humidity
+            self.sensorlock.seek(0)
+            data = self.sensorlock.read()
+            delta = 0
+
+            if data != '':
+                telemetry = json.loads(data)
+                delta = int(time.time()) - telemetry.get('epoch')
+                self.temperature = telemetry.get('temperature')
+                self.pressure = telemetry.get('pressure')
+                self.humidity = telemetry.get('humidity')
+
+            # Was sensor read greater than 15 seconds ago?
+            if data == '' or delta > 15:
+
+                self.temperature = round(self.bme280.temperature, 1)
+                self.pressure = round(self.bme280.pressure)
+                self.humidity = round(self.bme280.humidity)
+
+                telemetry = {
+                    "temperature": self.temperature,
+                    "pressure": self.pressure,
+                    "humidity": self.humidity,
+                    "epoch": int(time.time())
+                }
+
+                self.sensorlock.seek(0)
+                self.sensorlock.truncate(0)
+                self.sensorlock.write(json.dumps(telemetry))
+                self.sensorlock.flush()
+
+        except:
+            print('Issue reading sensor')
+        finally:
+            fcntl.lockf(self.sensorlock, fcntl.LOCK_UN)
 
     def measure(self):
+        # if sensor read less than 30 seconds ago then use cached data
+        if (time.time() - self.sensorLastEpoch) < 30:
+            self.sensorLastEpoch = int(time.time())
+            return
+
         if self.bme280 is None:
             # BME Sensor not found so generate random data
-            temperature = random.randrange(20, 25)
-            pressure = random.randrange(1000, 1100)
-            humidity = random.randrange(50, 70)
-        else:
-            # When debugging, step over, not into, as method takes a system wide/global lock
-            temperature, pressure, humidity = self.read_sensor()
+            self.temperature = random.randrange(20, 25)
+            self.pressure = random.randrange(1000, 1100)
+            self.humidity = random.randrange(50, 70)
+            return
 
-        return temperature, pressure, humidity
+        self.__read_sensor()
+
+        return self.temperature, self.pressure, self.humidity
