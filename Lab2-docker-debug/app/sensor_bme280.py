@@ -12,7 +12,7 @@ import os
 
 class Telemetry():
     def __init__(self):
-        self.temperature = self.pressure = self.humidity = self.sensorLastEpoch = 0
+        self.temperature = self.pressure = self.humidity = self.epoch = self.sensorLastEpoch = 0
         self.sensorlock = open("/tmp/sensor.lock", 'r+')
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.bme280 = None
@@ -46,11 +46,13 @@ class Telemetry():
             delta = 0
 
             if data != '':
-                telemetry = json.loads(data)
-                delta = int(time.time()) - telemetry.get('epoch')
+                telemetry = json.loads(data)                
+                
                 self.temperature = telemetry.get('temperature')
                 self.pressure = telemetry.get('pressure')
                 self.humidity = telemetry.get('humidity')
+                self.epoch = telemetry.get('epoch')
+                delta = int(time.time()) - self.epoch
 
             # Was sensor read greater than 15 seconds ago?
             if data == '' or delta > 15:
@@ -58,12 +60,13 @@ class Telemetry():
                 self.temperature = round(self.bme280.temperature, 1)
                 self.pressure = round(self.bme280.pressure)
                 self.humidity = round(self.bme280.humidity)
+                self.epoch = int(time.time())
 
                 telemetry = {
                     "temperature": self.temperature,
                     "pressure": self.pressure,
                     "humidity": self.humidity,
-                    "epoch": int(time.time())
+                    "epoch": self.epoch
                 }
 
                 self.sensorlock.seek(0)
@@ -91,4 +94,4 @@ class Telemetry():
 
         self.__read_sensor()
 
-        return self.temperature, self.pressure, self.humidity
+        return self.temperature, self.pressure, self.humidity, self.epoch

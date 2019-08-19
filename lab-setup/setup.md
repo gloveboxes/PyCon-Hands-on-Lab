@@ -68,6 +68,7 @@ sudo /etc/init.d/dphys-swapfile start
 ## sets up a file for use as a global lock for sensor
 sudo sed -i -e '$i touch /tmp/sensor.lock && chmod 777 /tmp/sensor.lock\n' /etc/rc.local
 
+
 sudo reboot
 ```
 
