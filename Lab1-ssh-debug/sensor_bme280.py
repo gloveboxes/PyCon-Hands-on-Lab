@@ -13,9 +13,6 @@ import os
 class Telemetry():
     def __init__(self):
         self.temperature = self.pressure = self.humidity = self.sensorLastEpoch = 0
-
-        # self.sensorlock = open(
-        #     os.open("/tmp/sensor.lock", os.O | os.O_RDWR, 0o777), 'r+')
         self.sensorlock = open("/tmp/sensor.lock", 'r+')
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.bme280 = None
