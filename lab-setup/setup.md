@@ -39,9 +39,9 @@ sudo raspi-config
 ## Install Core Libraries
 
 ```bash
-sudo apt install -y git python3-pip nmap libatlas-base-dev && \
+sudo apt install -y git python3-pip nmap libatlas-base-dev libopenjp2-7 && \
 sudo pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask bottle RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt autopep8 pylint
+sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt autopep8 pylint azure-storage
 
 # Install Docker
 # Links valid as of August 2019
@@ -68,14 +68,13 @@ sudo /etc/init.d/dphys-swapfile start
 ## sets up a file for use as a global lock for sensor
 sudo sed -i -e '$i touch /tmp/sensor.lock && chmod 777 /tmp/sensor.lock\n' /etc/rc.local
 
-
 sudo reboot
 ```
 
 ## Create Users
 
 ```bash
-for i in {01..26}
+for i in {01..25}
 do
     sudo useradd  -p $(openssl passwd -1 raspberry) dev$i -G i2c,users,docker -m
     echo "dev$i ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/010_pi-nopasswd
@@ -89,10 +88,10 @@ done
 ## Deploy Lab Content to all users
 
 ```bash
-sudo rm -r ~/github
-git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github
+sudo rm -r ~/github && \
+git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github && \
 
-for i in {01..26}
+for i in {01..25}
 do
     echo "Set up lab content for user dev$i"
     # sudo rm -r -f /home/dev$i/.vscode-server-insiders
@@ -100,13 +99,13 @@ do
     # sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-done
-
-
+done && \
 
 # Build base docker image
-sudo systemctl start docker
-docker build -t glovebox:latest -f ~/github/Lab2-docker-debug/Dockerfile
+sudo systemctl start docker && \
+cd ~/github/Lab2-docker-debug && \
+docker build -t glovebox:latest . && \
+cd
 
 ```
 
@@ -115,7 +114,7 @@ docker build -t glovebox:latest -f ~/github/Lab2-docker-debug/Dockerfile
 Delete all devNN users and remove files and reset nopasswd
 
 ```bash
-for i in {01..26}
+for i in {01..25}
 do
     sudo deluser dev$i
 done
