@@ -63,7 +63,7 @@ def publish():
     while True:
         try:
             msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"Pressure\":%d,\"Temperature\": %.2f,\"Id\":%d}"
-            temperature, pressure, humidity = mysensor.measure()
+            temperature, pressure, humidity, epoch = mysensor.measure()
             telemetry = msg_txt % ('Sydney, AU', humidity,
                                pressure,  temperature, id)
             print(telemetry)
