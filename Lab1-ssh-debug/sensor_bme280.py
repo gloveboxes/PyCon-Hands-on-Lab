@@ -90,6 +90,7 @@ class Telemetry():
             self.temperature = random.randrange(20, 25)
             self.pressure = random.randrange(1000, 1100)
             self.humidity = random.randrange(50, 70)
+            self.epoch = int(time.time())
             return
 
         self.__read_sensor()
