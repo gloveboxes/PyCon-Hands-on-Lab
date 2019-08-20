@@ -108,7 +108,7 @@ Install the **OpenSSH Client for Windows**
 
 #### Windows 10 (1809+) Users
 
-##### From PowerShell as Administrator.
+##### From PowerShell as Administrator
 
 ```bash
 Add-WindowsCapability -Online -Name OpenSSH.Client
