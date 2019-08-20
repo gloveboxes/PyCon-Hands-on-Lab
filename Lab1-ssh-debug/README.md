@@ -98,7 +98,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
     ```bash
-    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-python-lab
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_python_lab
     ```
 
 2. Copy the public key to the Raspberry Pi.
@@ -116,7 +116,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 3. Test the SSH Authentication Key
 
     ```bash
-    ssh login-name@raspberry-pi-address -i ~/.ssh/id_rsa-python-lab
+    ssh login-name@raspberry-pi-address -i ~/.ssh/id_rsa_python_lab
     ```
 
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
@@ -125,10 +125,10 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 
 ### From Windows Command Prompt
 
-1. Create your key. This is typically a one-time operation. **Take the default options**.
+1. Create your key. This is typicalid_rsa-python-lably a one-time operation. **Take the default options**.
 
     ```bat
-    ssh-keygen -t rsa -b 4096 -f %USERPROFILE%\.ssh\id_rsa-python-lab
+    ssh-keygen -t rsa -b 4096 -f %USERPROFILE%\.ssh\id_rsa_python_lab
     ```
 
 2. Copy the public key to your Raspberry Pi
@@ -136,7 +136,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
     ```bat
     SET REMOTEHOST=login-name@raspberry-ip-address
 
-    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-python-lab.pub
+    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab
 
     scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
 
@@ -146,7 +146,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 3. Test the SSH Authentication Key
 
     ```bat
-    ssh login-name@raspberry-pi-address -i %USERPROFILE%\.ssh\id_rsa-python-lab
+    ssh login-name@raspberry-pi-address -i %USERPROFILE%\.ssh\id_rsa_python_lab
     ```
 
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
