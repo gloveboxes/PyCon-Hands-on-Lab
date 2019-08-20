@@ -104,7 +104,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 2. Copy the public key to the Raspberry Pi.
 
     ```bash
-    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login>@<Raspberry IP Address>
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
     ```
 
     For example:
@@ -116,7 +116,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 3. Test the SSH Authentication Key
 
     ```bash
-    ssh login-name@raspberry-pi-address -i ~/.ssh/id_rsa_python_lab
+    ssh -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
     ```
 
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
@@ -125,7 +125,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 
 ### From Windows Command Prompt
 
-1. Create your key. This is typicalid_rsa-python-lably a one-time operation. **Take the default options**.
+1. Create your key. This is typically a one-time operation. **Take the default options**.
 
     ```bat
     ssh-keygen -t rsa -b 4096 -f %USERPROFILE%\.ssh\id_rsa_python_lab
@@ -134,7 +134,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 2. Copy the public key to your Raspberry Pi
 
     ```bat
-    SET REMOTEHOST=login-name@raspberry-ip-address
+    SET REMOTEHOST=<login@Raspberry IP Address>
 
     SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab
 
@@ -146,7 +146,7 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 3. Test the SSH Authentication Key
 
     ```bat
-    ssh login-name@raspberry-pi-address -i %USERPROFILE%\.ssh\id_rsa_python_lab
+    ssh -i %USERPROFILE%\.ssh\id_rsa_python_lab <login@Raspberry IP Address>
     ```
 
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
