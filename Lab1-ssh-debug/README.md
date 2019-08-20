@@ -114,7 +114,7 @@ Install the **OpenSSH Client for Windows**
 Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
 
-#### From Windows Settings
+##### From Windows Settings
 
 To install OpenSSH, start from **Settings** then go to **Apps** > **Apps and Features** > **Manage Optional Features**.
 
