@@ -144,7 +144,7 @@ From a Windows **Command Prompt** run the following commands:
     ```bat
     SET REMOTEHOST=<login@Raspberry IP Address>
 
-    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab
+    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
 
     scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
 
