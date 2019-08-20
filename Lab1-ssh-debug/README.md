@@ -104,13 +104,13 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 2. Copy the public key to the Raspberry Pi.
 
     ```bash
-    ssh-copy-id -f ~/.ssh/id_rsa_python_lab <login>@<Raspberry IP Address>
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login>@<Raspberry IP Address>
     ```
 
     For example:
 
     ```bash
-    ssh-copy-id -f ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
     ```
 
 3. Test the SSH Authentication Key
