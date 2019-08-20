@@ -108,11 +108,21 @@ Install the **OpenSSH Client for Windows**
 
 #### Windows 10 (1809+) Users
 
-From **PowerShell as Administrator**.
+##### From PowerShell as Administrator.
 
 ```bash
 Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
+
+#### From Windows Settings
+
+To install OpenSSH, start from **Settings** then go to **Apps** > **Apps and Features** > **Manage Optional Features**.
+
+Scan this list to see if OpenSSH client is already installed. If not, then at the top of the page select **Add a feature**, then:
+
+To install the OpenSSH client, locate "OpenSSH Client", then click "Install".
+
+Once the installation completes, return to Apps > Apps and Features > Manage Optional Features and you should see the OpenSSH component(s) listed.
 
 #### Windows 7 or older Windows 10 Systems
 
