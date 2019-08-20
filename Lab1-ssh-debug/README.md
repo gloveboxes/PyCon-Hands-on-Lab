@@ -191,7 +191,7 @@ We need to tell Visual Studio Code the IP Address and login name we will be usin
 
 ## Install the Python Visual Studio Code Extension
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-python.png)
+![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-python.png)
 
 Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
 
