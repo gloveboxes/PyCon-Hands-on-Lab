@@ -106,7 +106,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
 
-### SSH for Windows 10 (1809+) Users with PowerShell Installed
+### SSH for Windows 10 (1809+) Users with PowerShell
 
 1. Start PowerShell as Administrator and install OpenSSH.Client
 
@@ -139,6 +139,10 @@ From a Linux or macOS **Terminal Console** run the following commands:
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
 
 7. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
+
+### SSH for earlier versions of Windows
+
+[SSH for earlier versions of Windows](windows-ssh.md)
 
 ### Trouble Shooting SSH Client Installation
 

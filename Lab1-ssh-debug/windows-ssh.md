@@ -1,15 +1,9 @@
-##### From Windows Settings
 
-1. To install OpenSSH, start from **Settings** then go to **Apps** > **Apps and Features** > **Manage Optional Features**.
-2. Scan this list to see if OpenSSH client is already installed. If not, then at the top of the page select **Add a feature**, then:
-3. To install the OpenSSH client, locate "OpenSSH Client", then click "Install".
-4. Once the installation completes, return to Apps > Apps and Features > Manage Optional Features and you should see the OpenSSH component(s) listed.
+# SSH for Windows 7 or older Windows 10 Systems
 
-#### Windows 7 or older Windows 10 Systems
+Install [Git for Windows](https://git-scm.com/download/win).
 
-For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
-
-### Create an SSH Key from Windows
+## Create an SSH Key from Windows Command Prompt
 
 From a Windows **Command Prompt** run the following commands:
 
