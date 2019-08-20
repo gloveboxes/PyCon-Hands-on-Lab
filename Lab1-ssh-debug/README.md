@@ -45,8 +45,6 @@ pip3 install adafruit-blinka adafruit-circuitpython-bme280
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
 
-#### For all Computers Install
-
 1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=pycon-blog-dglover)
 
     As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
@@ -55,30 +53,9 @@ This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor a
 
 For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
-#### Windows 10 (1809+) Users
-
-Install the **OpenSSH Client for Windows** (one-time only operation).
-
-From **PowerShell as Administrator**.
-
-```bash
-Add-WindowsCapability -Online -Name OpenSSH.Client
-```
-
-#### Windows 7 or Windows 10 (older than 1809)
-
-For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
-
-#### Trouble Shooting SSH Client Installation
-
-- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
-- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
-
 ## Raspberry Pi Hardware
 
 If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
-
-### Raspberry Pi
 
 You will need the following information from the lab instructor.
 
@@ -127,7 +104,23 @@ From Linux or macOS **Terminal Console** run the following commands:
 
 ### SSH for Windows
 
+Install the **OpenSSH Client for Windows**
+
+#### Windows 10 (1809+) Users
+
+From **PowerShell as Administrator**.
+
+```bash
+Add-WindowsCapability -Online -Name OpenSSH.Client
+```
+
+#### Windows 7 or older Windows 10 Systems
+
+For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
+
 From Windows **Command Prompt** run the following commands:
+
+### Create an SSH Key from Windows
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
@@ -156,6 +149,11 @@ From Windows **Command Prompt** run the following commands:
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
 
 4. Close the SSH session. In the SSH terminal, type **exit**, followed by **ENTER**.
+
+### Trouble Shooting SSH Client Installation
+
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
+- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
 
 ## Configure Visual Studio Code Remote SSH Development
 
@@ -188,6 +186,10 @@ We need to tell Visual Studio Code the IP Address and login name we will be usin
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
+
+## Install the Python Visual Studio Code Extension
+
+From the [Python Extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover), install the Python Extension.
 
 ## Open the Lab 1 SSH Debug Project
 
