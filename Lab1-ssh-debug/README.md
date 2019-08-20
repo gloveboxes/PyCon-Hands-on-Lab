@@ -93,7 +93,9 @@ Setting up a public/private key pair for SSH authentication is a secure and fast
 
 The following creates a new SSH key and copies the public key to the Raspberry Pi.
 
-### From Linux and macOS
+### SSH for Linux and macOS
+
+From Linux or macOS **Terminal Console** run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
@@ -123,7 +125,9 @@ The following creates a new SSH key and copies the public key to the Raspberry P
 
 4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
 
-### From Windows Command Prompt
+### SSH for Windows
+
+From Windows **Command Prompt** run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
