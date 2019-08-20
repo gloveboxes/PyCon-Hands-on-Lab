@@ -67,6 +67,7 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 
 ### Windows 7 or Windows 10 (older than 1809)
 
+For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
 
 ## Raspberry Pi Hardware
 
@@ -74,7 +75,7 @@ If you are attending a workshop, then you can use a shared network-connected Ras
 
 ### Raspberry Pi
 
-If you are attending a workshop and using a shared Raspberry Pi, then you will need the following information from the lab instructor.
+You will need the following information from the lab instructor.
 
 1. The **Network IP Address** of the Raspberry Pi
 2. Your assigned **login name** and **password**.
