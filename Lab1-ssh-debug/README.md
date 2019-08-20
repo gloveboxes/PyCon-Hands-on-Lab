@@ -70,11 +70,9 @@ You will need the following information from the lab instructor.
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-The following creates a new SSH key and copies the public key to the Raspberry Pi.
-
 ### SSH for Linux and macOS
 
-From Linux or macOS **Terminal Console** run the following commands:
+From a Linux or macOS **Terminal Console** run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
@@ -120,9 +118,9 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 
 For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
 
-From Windows **Command Prompt** run the following commands:
-
 ### Create an SSH Key from Windows
+
+From a Windows **Command Prompt** run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
