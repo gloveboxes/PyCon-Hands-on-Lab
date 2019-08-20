@@ -144,7 +144,9 @@ From a Windows **Command Prompt** run the following commands:
 
     scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
 
-    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && ^
+    cat ~/tmp.pub >> ~/.ssh/authorized_keys && ^
+    chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
 3. Test the SSH Authentication Key
