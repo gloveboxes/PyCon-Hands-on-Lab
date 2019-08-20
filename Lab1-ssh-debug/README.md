@@ -25,6 +25,8 @@ No source code needs to be on your local machine to gain these benefits since th
 
 ## CircuitPython
 
+![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/circuitpython-logo.png)
+
 [CircuitPython](www.circuitpython.org), an [Adafruit](www.adafruit.com) initiative, is built on the amazing work of Damien George and the MicroPython community. CircuitPython adds hardware support for Microcontroller development and simplifies some aspects of MicroPython. MicroPython and by extension, CircuitPython implements version 3 of the Python language reference. So, your Python 3 skills are transferrable.
 
 CircuitPython runs on over 60 **Microcontrollers** as well as the **Raspberry Pi**. This means you build applications that access GPIO hardware on a Raspberry Pi using CircuitPython libraries.
@@ -189,7 +191,15 @@ We need to tell Visual Studio Code the IP Address and login name we will be usin
 
 ## Install the Python Visual Studio Code Extension
 
-From the [Python Extension page](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover), install the Python Extension.
+![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-python.png)
+
+Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
+
+```bash
+ext install ms-python.python
+```
+
+See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension.
 
 ## Open the Lab 1 SSH Debug Project
 
