@@ -69,6 +69,11 @@ Add-WindowsCapability -Online -Name OpenSSH.Client
 
 For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
 
+### Trouble Shooting
+
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
+- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client)
+
 ## Raspberry Pi Hardware
 
 If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
