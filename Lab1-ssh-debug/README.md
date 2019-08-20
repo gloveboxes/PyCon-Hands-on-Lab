@@ -45,7 +45,7 @@ pip3 install adafruit-blinka adafruit-circuitpython-bme280
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
 
-Install:
+#### For all Computers Install
 
 1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=pycon-blog-dglover)
 
@@ -55,7 +55,7 @@ Install:
 
 For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
-### Windows 10 (1809+) Users
+#### Windows 10 (1809+) Users
 
 Install the **OpenSSH Client for Windows** (one-time only operation).
 
@@ -65,7 +65,7 @@ From **PowerShell as Administrator**.
 Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
 
-### Windows 7 or Windows 10 (older than 1809)
+#### Windows 7 or Windows 10 (older than 1809)
 
 For earlier Windows, install [Git for Windows](https://git-scm.com/download/win).
 
