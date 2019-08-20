@@ -20,12 +20,13 @@ Setting up a public/private key pair for SSH authentication is a secure and fast
     ssh-keygen -t rsa -b 4096 -f %USERPROFILE%\.ssh\id_rsa-python-lab
     ```
 
-3. Add the contents of the **local** `id_rsa-python-lab.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the **SSH host**.
+2. Add the contents of the **local** `id_rsa-python-lab.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the **SSH host**.
+
 
     On **macOS / Linux**, run the following command in a **local terminal**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
     ```bash
-    ssh-copy-id -i ~/.ssh/id_rsa-python-lab.pub <Address or Raspberry Pi>
+    ssh-copy-id -i ~/.ssh/id_rsa-python-lab.pub <login-name@raspberry-ip-address>
     ```
 
     On **Windows**, run the following commands in a **local command prompt**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
