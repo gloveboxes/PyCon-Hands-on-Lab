@@ -11,7 +11,7 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 ## PDF Lab Guide
 
-You may find it easier to follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.pdf) hands-on lab guide.
+You may find it easier to download and follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.pdf) hands-on lab guide.
 
 ## Introduction
 
