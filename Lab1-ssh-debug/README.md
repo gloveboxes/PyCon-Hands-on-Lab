@@ -270,6 +270,8 @@ Things to try:
 3. Try to change the value of a variable from the Visual Studio Code **Variable Window**.
 4. Try setting a **conditional** breakpoint
 
+    - Right mouse click directly in the margin to the left of the line number 22, select **Add Conditional Breakpoint...**. The breakpoint appears as a red dot with an equals sign in the middle:
+
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 5. Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries etc.
 
