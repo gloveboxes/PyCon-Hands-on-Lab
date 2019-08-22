@@ -107,6 +107,13 @@ cd ~/github/Lab2-docker-debug && \
 docker build -t glovebox:latest . && \
 cd
 
+
+cd ~/github/Lab-Telemetry-Service && \
+docker build -t lab-telemetry-service:latest . && \
+cd
+
+Lab2-docker-debug
+
 ```
 
 ## Clean Up Lab
