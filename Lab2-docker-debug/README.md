@@ -71,27 +71,10 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Raspberry Pi Hardware
 
-If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You can also use your own network-connected Raspberry Pi for this hands-on lab.
-
-### Shared Raspberry Pi
-
-If you are attending a workshop and using a shared Raspberry Pi, then you will need the following information from the lab instructor.
+If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You will need the following information from the lab instructor.
 
 1. The **Network IP Address** of the Raspberry Pi
 2. Your assigned **login name** and **password**.
-
-### Personal Raspberry Pi
-
-If you are using your own network-connected Raspberry Pi, then you need:
-
-1. The Raspberry Pi **Network IP Address**, the **login name**, and **password**.
-1. You need to run the following commands on your Raspberry Pi to set two environment variables required for the hands-on lab.
-
-```bash
-echo "export LAB_PORT=\$(shuf -i 5000-8000 -n 1)" >> ~/.bashrc
-echo "export LAB_HOST=\$(hostname -I | cut -d' ' -f 1)" >>  ~/.bashrc
-source .bashrc
-```
 
 ## SSH Authentication with private/public keys
 
@@ -167,7 +150,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ### SSH for earlier versions of Windows
 
-[SSH for earlier versions of Windows](windows-ssh.md)
+- [SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/windows-ssh.md)
 
 ### Trouble Shooting SSH Client Installation
 
@@ -220,7 +203,7 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ## Watch Docker in 12 Minutes
 
-[Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) YouTube Video helped me make sense of Docker. I strongly recommend watching.
+[Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) YouTube video helped me make sense of Docker. I strongly recommend watching.
 
 ![](resources/docker_logo.png)
 
@@ -364,11 +347,18 @@ docker run -it \
 -p $LAB_PORT:3000 \
 -e TELEMETRY_HOST=$LAB_HOST \
 --env-file ~/github/Lab2-docker-debug/env-list \
---device /dev/i2c-0 --device /dev/i2c-1 \
---rm --privileged $IMAGE_NAME
+--rm $IMAGE_NAME
 ```
 
-The **Docker run** will start your container in interactive mode (**--it**), (**-p**) will map the **$LAB_PORT** to port 3000 in the container, the BME280 sensor is connected to the host [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) bus, (**--device**) maps the host I2C bus into the container, (**--rm**) removes the container when you stop it, (**--privileged**) grants elevated permissions to the container so that is can access the host I2C bus from within the container, and finally Docker starts the image you built/named.
+The **Docker run** will start your container as follows:
+
+- **--it** in interactive mode,
+- **-p** maps the **$LAB_PORT** to port 3000 in the container, this port is used for debugging,
+- **-e** sets an Environment Variable in the Docker Container. This is passing in the IP Address of the BME280 sensor telemetry service.
+- **--env-file** reads from a file and sets Environment Variables in the Docker Container,
+- **--rm** removes the container when you stop it, and finally Docker starts the image you built/named.
+
+For more information on the **Docker run** command then see [Docker run reference](https://docs.docker.com/engine/reference/run/).
 
 ## Configure the Visual Studio Code Debugger
 
