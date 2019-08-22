@@ -5,7 +5,8 @@ import iothub
 import sys
 import json
 import ptvsd
-import sensor_bme280
+# import sensor_bme280
+import telemetry_client
 import config
 import os
 import sys
@@ -31,7 +32,8 @@ deviceId = myconfig.deviceId
 sharedAccessKey = myconfig.key
 sampleRateInSeconds = 5
 
-mysensor = sensor_bme280.Telemetry()
+# mysensor = sensor_bme280.Telemetry()
+mysensor = telemetry_client.Telemetry()
 
 
 def on_connect(client, userdata, flags, rc):
@@ -42,7 +44,7 @@ def on_connect(client, userdata, flags, rc):
 def on_disconnect(client, userdata, rc):
     print("Disconnected with result code: %s" % rc)
     client.username_pw_set(iot.hubUser, iot.generate_sas_token(
-        iot.endpoint, iot.sharedAccessKey))
+        60 * 30))  # 60 seconds * 30 minutes
 
 
 def on_message(client, userdata, msg):
@@ -63,9 +65,9 @@ def publish():
     while True:
         try:
             msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"Pressure\":%d,\"Temperature\": %.2f,\"Id\":%d}"
-            temperature, pressure, humidity, epoch = mysensor.measure()
+            temperature, pressure, humidity, timestamp = mysensor.measure()
             telemetry = msg_txt % ('Sydney, AU', humidity,
-                               pressure,  temperature, id)
+                                   pressure,  temperature, id)
             print(telemetry)
             client.publish(iot.hubTopicPublish, telemetry)
             time.sleep(sampleRateInSeconds)
