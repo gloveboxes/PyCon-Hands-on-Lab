@@ -90,82 +90,84 @@ source .bashrc
 
 ## SSH Authentication with private/public keys
 
-![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/ssh-login.jpg)
+![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
 
-Setting up a public/private key pair for SSH authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
+Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-The following creates a new SSH key and copies the public key to the Raspberry Pi.
+### SSH for Linux and macOS
 
-### From Linux and macOS
+From a Linux or macOS **Terminal Console** run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
-```bash
-ssh-keygen -t rsa -f ~/.ssh/id_rsa_python_lab
-```
+    ```bash
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_python_lab
+    ```
 
 2. Copy the public key to the Raspberry Pi.
 
-```bash
-ssh-copy-id -f ~/.ssh/id_rsa_python_lab <Your Raspberry Pi login name>@<Raspberry IP Address>
-```
-
-```bash
-For example:
-
-ssh-copy-id -f ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
-```
-
-### From Windows
-
-1. Use the built-in Windows 10 (1809+) OpenSSH client. Install the **OpenSSH Client for Windows** (one-time only operation).
-
-    From **PowerShell as Administrator**.
-
-```bash
-Add-WindowsCapability -Online -Name OpenSSH.Client
-```
-
-2. From PowerShell, create your key. This is typically a one-time operation. **Take the default options**
-
-```bash
-ssh-keygen -t rsa -f $env:userprofile\.ssh\id_rsa_python_lab
-```
-
-3. From PowerShell, copy the public key to your Raspberry Pi
-
-```bash
-cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
-<Your Raspberry Pi login name>@<Raspberry IP Address> `
-"mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
-```
-
-```bash
-For example:
-
-cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
-dev99@192.168.1.200 `
-"mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
-```
-
-### Test the SSH Authentication Key
-
-1. Open a Terminal/PowerShell window from your Linux, macOS, or Windows computer.
-2. Start a **ssh** session to the Raspberry Pi.
-
     ```bash
-    ssh <Your Raspberry Pi login name>@<Raspberry IP Address>
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
     ```
 
-    For example
+    For example:
 
     ```bash
-    ssh dev99@192.168.1.200
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
+    ```
+
+3. Test the SSH Authentication Key
+
+    ```bash
+    ssh -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
     ```
 
     A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
 
-3. Close the SSH session. In the SSH terminal, type **exit**, followed by **ENTER**.
+4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
+
+### SSH for Windows 10 (1809+) Users with PowerShell
+
+1. Start PowerShell as Administrator and install OpenSSH.Client
+
+    ```bash
+        Add-WindowsCapability -Online -Name OpenSSH.Client
+    ```
+
+2. **Exit** PowerShell
+3. Restart PowerShell (**NOT** as Administrator)
+4. Create an SSH Key
+
+    ```bash
+    ssh-keygen -t rsa -f $env:userprofile\.ssh\id_rsa_python_lab
+    ```
+
+5. Copy SSH Key to Raspberry Pi
+
+    ```bash
+    cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
+    <login@Raspberry IP Address> `
+    "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+    ```
+
+6. Test the SSH Authentication Key
+
+    ```bash
+    ssh -i $env:userprofile\.ssh\id_rsa_python_lab <login@Raspberry IP Address>
+    ```
+
+    A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
+
+7. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
+
+### SSH for earlier versions of Windows
+
+[SSH for earlier versions of Windows](windows-ssh.md)
+
+### Trouble Shooting SSH Client Installation
+
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
+- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
 
 ## Configure Visual Studio Code Remote SSH Development
 
@@ -198,6 +200,18 @@ Configure Visual Studio Code **Remote SSH** with the Raspberry Pi **Network IP A
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
+
+## Install the Python Visual Studio Code Extension
+
+![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-ssh-debug/resources/vs-code-install-python.png)
+
+Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
+
+```bash
+ext install ms-python.python
+```
+
+See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension.
 
 ## Open the Lab2 Docker Debug Project
 
