@@ -4,7 +4,7 @@ RUN apk add --update alpine-sdk linux-headers
 
 RUN export PIP_DEFAULT_TIMEOUT=100 
 RUN pip3 install --upgrade pip && pip3 install --upgrade setuptools 
-RUN pip3 install ptvsd RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt
+RUN pip3 install ptvsd RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt requests
 
 # Add the application
 ADD app /app

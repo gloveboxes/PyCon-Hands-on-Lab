@@ -344,6 +344,7 @@ Paste these commands into the Visual Studio Code Terminal Window. You can open a
 ```bash
 export IMAGE_NAME=<YOUR-UNIQUE-NAME>:latest
 ```
+
 2. Display and make a note of your $LAB_PORT environment variable. This is set in the .bashrc file. You will need this for the debugger step.
 
 ```bash
@@ -355,7 +356,7 @@ echo -e "\e[7mYour Lab Port is $LAB_PORT\e[0m"
 ```bash
 docker run -it \
 -p $LAB_PORT:3000 \
--v /tmp/sensor.lock:/tmp/sensor.lock \
+-e TELEMETRY_HOST=$LAB_HOST \
 --env-file ~/github/Lab2-docker-debug/env-list \
 --device /dev/i2c-0 --device /dev/i2c-1 \
 --rm --privileged $IMAGE_NAME
