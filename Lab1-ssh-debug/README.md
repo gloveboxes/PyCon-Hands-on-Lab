@@ -267,13 +267,22 @@ Things to try:
 1. Review the [Visual Studio Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial?WT.mc_id=pycon-blog-dglover)
 1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
 2. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=pycon-blog-dglover)
-3. Try to change the value of a variable from the Visual Studio Code **Variable Window**.
-4. Try setting a **conditional** breakpoint
 
-    - Right mouse click directly in the margin to the left of the line number 22, select **Add Conditional Breakpoint...**. The breakpoint appears as a red dot with an equals sign in the middle:
+### Experiment with the Variable Window
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
-5. Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries etc.
+Try to change the value of a variable from the Visual Studio Code **Variable Window**.
+
+### Set a Conditional Breakpoint
+
+Try setting a **conditional** breakpoint
+
+**Right mouse click** directly in the margin to the left of the line number 22, select **Add Conditional Breakpoint...**. The breakpoint appears as a red dot with an equals sign in the middle:
+
+![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
+
+### Try the Debug Console
+
+Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries etc.
 
 ```python
 print(temperature)
