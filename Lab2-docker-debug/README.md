@@ -218,6 +218,12 @@ ext install ms-python.python
 
 See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension.
 
+## Watch Docker in 12 Minutes
+
+[Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) YouTube Video helped me make sense of Docker. I strongly recommend watching.
+
+![](resources/docker_logo.png)
+
 ## Open the Lab2 Docker Debug Project
 
 From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/lab2-docker-debug** folder.
