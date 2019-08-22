@@ -244,11 +244,11 @@ A debugging toolbar (shown above) will appear in Visual Studio Code. It has the 
 
 ## Using the Debugger
 
-Next, we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the debugger steps into the **Telemetry** class and calls the **render_telemetry** method.
+Next, we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the debugger steps into the **Telemetry** class and calls the **show_telemetry** method.
 
 ### Variable Explorer
 
-1. As you step through the **render_telemetry** method you will notice that Python variables are displayed in the **Variables Window**.
+1. As you step through the **show_telemetry** method you will notice that Python variables are displayed in the **Variables Window**.
 
 ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
