@@ -1,4 +1,4 @@
-# Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging
+# Lab 2: Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
@@ -9,6 +9,11 @@
 |Date|As of August, 2019|
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
+
+
+## PDF Lab Guide
+
+You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/README.pdf) hands-on lab guide.
 
 ## Introduction
 
