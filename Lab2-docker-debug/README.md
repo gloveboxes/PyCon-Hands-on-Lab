@@ -10,7 +10,6 @@
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
-
 ## PDF Lab Guide
 
 You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/README.pdf) hands-on lab guide.
