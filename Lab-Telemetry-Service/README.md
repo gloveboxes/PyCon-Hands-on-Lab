@@ -11,7 +11,8 @@ lab-telemetry-service:latest
 
 
 ```bash
-docker run -d \
+docker run -it \
+-p 8080:8080 \
 --device /dev/i2c-1 \
 balenalib/raspberrypi3:buster
 ```

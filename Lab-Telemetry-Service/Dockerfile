@@ -2,7 +2,7 @@ FROM balenalib/raspberrypi3:buster
 
 
 RUN apt-get update &&  apt-get install -y --no-install-recommends \
-        sense-hat \
+        python3-pip sense-hat \
         && rm -rf /var/lib/apt/lists/* \
         && apt-get -y autoremove
 

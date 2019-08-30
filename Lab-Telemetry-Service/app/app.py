@@ -28,8 +28,8 @@ class Telemetry():
 
             if self.sense is not None and delta >= 10:
                 self.temperature = round(self.sense.get_temperature(), 1)
-                self.pressure = round(self.sense.get_pressure(), 0)
-                self.humidity = round(self.sense.get_humidity(), 0)
+                self.pressure = int(self.sense.get_pressure())
+                self.humidity = int(self.sense.get_humidity())
                 self.timestamp = int(time.time())
 
             elif self.sense is None:
