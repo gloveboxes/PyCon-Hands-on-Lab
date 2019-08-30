@@ -207,7 +207,9 @@ docker run -d \
 --restart always \
 --device /dev/i2c-1 \
 --name pi-sense-hat \
-lab-telemetry-service:latest
+lab-telemetry-service:latest && \
+
+curl localhost:8080/telemetry
 
 ```
 
