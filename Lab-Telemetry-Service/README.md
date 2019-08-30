@@ -3,16 +3,9 @@
 ```bash
 docker run -d \
 -p 8080:8080 \
+--privileged \
 --restart always \
 --device /dev/i2c-1 \
---name bme280 \
+--name pi-sense-hat \
 lab-telemetry-service:latest
-```
-
-
-```bash
-docker run -it \
--p 8080:8080 \
---device /dev/i2c-1 \
-balenalib/raspberrypi3:buster
 ```

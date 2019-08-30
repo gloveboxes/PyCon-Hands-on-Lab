@@ -25,15 +25,59 @@ sudo apt update && sudo apt upgrade -y && sudo reboot
 passwd
 ```
 
-## Set Raspberry Pi Interface Options
+## Booting from a USB 3 Flash or SSD Drive
 
-Enable:
+1. Plug in your USB 3 drive, then list your drives. If you only plugged in one USB drive then it's highly likely your drive with be /dev/sda.
 
-1. I2C
-1. VNV
+    ```bash
+    sudo fdisk -l
+    ```
+
+2. Delete existing partitions and create a new primary partition on the USB drive.
+
+    ```bash
+    sudo fdisk /dev/sda
+    ```
+
+    **fdisk commands**
+
+    - p = print partitions
+    - d = delete a partition
+    - n = new partition - create a primary partition
+    - w = write the partition information to disk
+
+3. Format the newly created partition
+
+    ```bash
+    sudo mkfs.ext4 /dev/sda1
+    ```
+
+4. Create a mount point, mount the USB 3 drive, copy the Operating System files to the USB drive, and amend the cmdline.txt to enable booting from the USB 3 drive
+
+    ```bash
+    sudo mkdir /media/usbdrive && \
+    sudo mount /dev/sda1 /media/usbdrive && \
+    sudo rsync -avx / /media/usbdrive && \
+    sudo sed -i '$s/$/ root=\/dev\/sda1 rootfstype=ext4 rootwait/' /boot/cmdline.txt
+    ```
+
+5. Reboot the Raspberry Pi
+
+    ```bash
+    sudo reboot
+    ```
+
+## Install the Fan SHIM Software
+
+Check out the [Getting Started with Fan SHIM](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-fan-shim) article. In summary, install git and pip3 support, clone the Fan SHIM GitHub repo, install the dependencies, and then set up the automatic temperature monitor service that turns the fan on as required.
 
 ```bash
-sudo raspi-config
+sudo apt install -y git sudo python3-pip && \
+git clone https://github.com/pimoroni/fanshim-python && \
+cd fanshim-python && \
+sudo ./install.sh && \
+cd examples && \
+sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ```
 
 ## Install Core Libraries
@@ -41,7 +85,7 @@ sudo raspi-config
 ```bash
 sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 && \
 sudo pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 paho-mqtt autopep8 pylint azure-storage && \
+sudo -H pip3 install numpy pillow requests pandas flask jupyter autopep8 pylint azure-storage && \
 
 # Install Docker
 # Links valid as of August 2019
@@ -63,7 +107,15 @@ sudo chmod g+rw /dev/i2c-1
 
 sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile && \
 sudo /etc/init.d/dphys-swapfile stop && \
-sudo /etc/init.d/dphys-swapfile start
+sudo /etc/init.d/dphys-swapfile start && \
+
+# Patch for Raspberry Pi Sense Hat on Buster Headless/lite
+sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/g' /boot/config.txt && \
+sudo sed -i 's/#hdmi_group=1/hdmi_group=2/g' /boot/config.txt && \
+sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt && \
+
+# Enable I2C
+sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt && \
 
 sudo reboot
 ```
@@ -112,9 +164,10 @@ cd
 
 docker run -d \
 -p 8080:8080 \
+--privileged \
 --restart always \
 --device /dev/i2c-1 \
---name bme280 \
+--name pi-sense-hat \
 lab-telemetry-service:latest
 
 ```
