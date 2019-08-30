@@ -19,15 +19,25 @@ class Telemetry():
 
         try:
             self.sense = SenseHat()
+            # fix for pressure which doesn't seem to work first time
+            warmup = 0
+            while warmup < 2:
+                time.sleep(0.5)
+                self.sense.get_temperature()
+                self.sense.get_humidity()
+                self.sense.get_pressure()
+                warmup += 1
+
         except:
             print('Pi Sense HAT Not Found')
 
     def get_telemetry(self):
         try:
+            self.sense.clear((255, 0, 0))
             delta = int(time.time()) - self.timestamp
 
             if self.sense is not None and delta >= 2:
-                self.temperature = round(self.sense.get_temperature(), 1)                
+                self.temperature = round(self.sense.get_temperature(), 1)
                 self.humidity = int(self.sense.get_humidity())
                 self.pressure = int(self.sense.get_pressure())
                 self.timestamp = int(time.time())
@@ -46,11 +56,14 @@ class Telemetry():
                 "timestamp": self.timestamp
             }
 
-            return jsonify(telemetry)
+            data = jsonify(telemetry)
+            return data
 
         except Exception as e:
             print('EXCEPTION:', str(e))
             return 'Error processing image', 500
+        finally:
+            self.sense.clear()
 
 
 app = Flask(__name__)
