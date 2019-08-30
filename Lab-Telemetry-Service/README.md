@@ -8,3 +8,10 @@ docker run -d \
 --name bme280 \
 lab-telemetry-service:latest
 ```
+
+
+```bash
+docker run -d \
+--device /dev/i2c-1 \
+balenalib/raspberrypi3:buster
+```

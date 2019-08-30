@@ -39,17 +39,17 @@ sudo raspi-config
 ## Install Core Libraries
 
 ```bash
-sudo apt install -y git python3-pip nmap libatlas-base-dev libopenjp2-7 && \
+sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 && \
 sudo pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 paho-mqtt autopep8 pylint azure-storage
+sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 paho-mqtt autopep8 pylint azure-storage && \
 
 # Install Docker
 # Links valid as of August 2019
 # https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf
 
-wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/containerd.io_1.2.6-3_armhf.deb
-wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce-cli_19.03.1~3-0~debian-buster_armhf.deb
-wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce_19.03.1~3-0~debian-buster_armhf.deb
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/containerd.io_1.2.6-3_armhf.deb && \
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce-cli_19.03.1~3-0~debian-buster_armhf.deb && \
+wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce_19.03.1~3-0~debian-buster_armhf.deb && \
 
 sudo dpkg -i containerd.io* && \
 sudo dpkg -i docker-ce-cli* && \
@@ -85,7 +85,7 @@ done
 ## Deploy Lab Content to all users
 
 ```bash
-sudo rm -r ~/github && \
+sudo rm -r -f ~/github && \
 git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github && \
 # find .vscode-server-insiders -type f -name *.lock -exec rm {} \; && \
 
@@ -147,4 +147,42 @@ sudo systemctl stop docker
 ```bash
 watch vcgencmd measure_temp
 
+```
+
+### Holding back VS Code Insiders Updates
+
+[How to prevent updating of a specific package?](https://askubuntu.com/questions/18654/how-to-prevent-updating-of-a-specific-package)
+
+**apt**
+
+Hold a package:
+
+```bash
+sudo apt-mark hold code-insiders
+```
+
+Remove the hold:
+
+```bash
+sudo apt-mark unhold code-insiders
+```
+
+Show all packages on hold:
+
+```bash
+sudo apt-mark showhold
+```
+
+## Raspberry Pi Sence HAT and Raspbian Buster
+
+```
+< hdmi_force_hotplug=1
+---
+> #hdmi_force_hotplug=1
+28,29c28,29
+< hdmi_group=2
+< hdmi_mode=4
+---
+> #hdmi_group=1
+> #hdmi_mode=1
 ```
