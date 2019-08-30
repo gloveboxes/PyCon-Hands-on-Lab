@@ -138,9 +138,9 @@ sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ## Install Core Libraries
 
 ```bash
-sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 && \
+sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 && \
 sudo pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask jupyter autopep8 pylint azure-storage && \
+sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter autopep8 pylint azure-storage && \
 
 # Install Docker
 # Links valid as of August 2019
