@@ -1,12 +1,28 @@
 # Python Hands-on Labs Set Up
 
-[Setting up Ethernet Access Point](wifirouter.md)
+<!-- [Setting up Ethernet Access Point](wifirouter.md) -->
+
+[OpenWRT and the Linksys WRT 1900 ACS Router](https://github.com/gloveboxes/Linksys-WRT-1900-ACS-with-Huawei-E3372-Hi-Link-LTE-Dongle)
+
+## Raspberry Pi Sense HAT
+
+Raspbian Buster Headless/Lite will not boot with the Raspberry Pi Sense HAT Attached.
+
+Run the following to fix the issue:
+
+```bash
+# Patch for Raspberry Pi Sense Hat on Buster Headless/lite
+sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/g' /boot/config.txt && \
+sudo sed -i 's/#hdmi_group=1/hdmi_group=2/g' /boot/config.txt && \
+sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt && \
+```
 
 ## Visual Studio Code Remote Extensions
 
-Start VS Code Insiders
-
-SSH in as user **pi**
+1. Start VS Code Insiders
+2. Install Remote SSH Extension
+3. Start Remote SSH session as user Pi
+4. Install Python extension on Remote SSH
 
 ## Update Raspberry Pi
 
@@ -38,13 +54,13 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ### SSH for Windows 10 (1809+) Users with PowerShell
 
-4. Create an SSH Key
+1. Create an SSH Key
 
     ```bash
     ssh-keygen -t rsa -f $env:userprofile\.ssh\id_rsa_python_lab
     ```
 
-5. Copy SSH Key to Raspberry Pi
+2. Copy SSH Key to Raspberry Pi
 
     ```bash
     cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
@@ -52,7 +68,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
     "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
     ```
 
-6. Test the SSH Authentication Key
+3. Test the SSH Authentication Key
 
     ```bash
     ssh -i $env:userprofile\.ssh\id_rsa_python_lab <pi@Raspberry IP Address>
