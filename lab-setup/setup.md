@@ -8,16 +8,55 @@ Start VS Code Insiders
 
 SSH in as user **pi**
 
-Install:
-
-1. remote SSH
-2. Python (on remote SSH)
-
 ## Update Raspberry Pi
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo reboot
 ```
+
+### SSH for Linux and macOS
+
+From a Linux or macOS **Terminal Console** run the following commands:
+
+1. Create your key. This is typically a one-time operation. **Take the default options**.
+
+    ```bash
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_python_lab
+    ```
+
+2. Copy the public key to the Raspberry Pi.
+
+    ```bash
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <pi@Raspberry IP Address>
+    ```
+
+3. Test the SSH Authentication Key
+
+    ```bash
+    ssh -i ~/.ssh/id_rsa_python_lab <pi@Raspberry IP Address>
+    ```
+
+### SSH for Windows 10 (1809+) Users with PowerShell
+
+4. Create an SSH Key
+
+    ```bash
+    ssh-keygen -t rsa -f $env:userprofile\.ssh\id_rsa_python_lab
+    ```
+
+5. Copy SSH Key to Raspberry Pi
+
+    ```bash
+    cat $env:userprofile\.ssh\id_rsa_python_lab.pub | ssh `
+    <pi@Raspberry IP Address> `
+    "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
+    ```
+
+6. Test the SSH Authentication Key
+
+    ```bash
+    ssh -i $env:userprofile\.ssh\id_rsa_python_lab <pi@Raspberry IP Address>
+    ```
 
 ## Change Raspberry Pi Default Password for pi
 
@@ -103,7 +142,7 @@ sudo usermod -aG docker $USER && \
 
 sudo groupadd i2c && \
 sudo chown :i2c /dev/i2c-1 && \
-sudo chmod g+rw /dev/i2c-1
+sudo chmod g+rw /dev/i2c-1 && \
 
 sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile && \
 sudo /etc/init.d/dphys-swapfile stop && \
