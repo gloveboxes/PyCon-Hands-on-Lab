@@ -41,7 +41,7 @@ sudo raspi-config
 ```bash
 sudo apt install -y git python3-pip nmap libatlas-base-dev libopenjp2-7 && \
 sudo pip3 install --upgrade pip && \
-sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-sht31d paho-mqtt autopep8 pylint azure-storage
+sudo -H pip3 install numpy pillow requests pandas flask jupyter RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 paho-mqtt autopep8 pylint azure-storage
 
 # Install Docker
 # Links valid as of August 2019
@@ -65,9 +65,6 @@ sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/g' /etc/dphys-swapfile && \
 sudo /etc/init.d/dphys-swapfile stop && \
 sudo /etc/init.d/dphys-swapfile start
 
-## sets up a file for use as a global lock for sensor
-sudo sed -i -e '$i touch /tmp/sensor.lock && chmod 777 /tmp/sensor.lock\n' /etc/rc.local
-
 sudo reboot
 ```
 
@@ -90,7 +87,7 @@ done
 ```bash
 sudo rm -r ~/github && \
 git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github && \
-find .vscode-server-insiders -type f -name *.lock -exec rm {} \; && \
+# find .vscode-server-insiders -type f -name *.lock -exec rm {} \; && \
 
 for i in {01..25}
 do
@@ -100,7 +97,6 @@ do
     sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-    sudo chmod -rwx /home/dev$i
 done && \
 
 # Build base docker image
@@ -114,7 +110,12 @@ cd ~/github/Lab-Telemetry-Service && \
 docker build -t lab-telemetry-service:latest . && \
 cd
 
-Lab2-docker-debug
+docker run -d \
+-p 8080:8080 \
+--restart always \
+--device /dev/i2c-1 \
+--name bme280 \
+lab-telemetry-service:latest
 
 ```
 
