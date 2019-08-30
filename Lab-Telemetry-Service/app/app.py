@@ -27,9 +27,9 @@ class Telemetry():
             delta = int(time.time()) - self.timestamp
 
             if self.sense is not None and delta >= 2:
-                self.temperature = round(self.sense.get_temperature(), 1)
-                self.pressure = int(self.sense.get_pressure())
+                self.temperature = round(self.sense.get_temperature(), 1)                
                 self.humidity = int(self.sense.get_humidity())
+                self.pressure = int(self.sense.get_pressure())
                 self.timestamp = int(time.time())
 
             elif self.sense is None:
