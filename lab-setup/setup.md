@@ -282,17 +282,3 @@ Show all packages on hold:
 ```bash
 sudo apt-mark showhold
 ```
-
-## Raspberry Pi Sence HAT and Raspbian Buster
-
-```
-< hdmi_force_hotplug=1
----
-> #hdmi_force_hotplug=1
-28,29c28,29
-< hdmi_group=2
-< hdmi_mode=4
----
-> #hdmi_group=1
-> #hdmi_mode=1
-```
