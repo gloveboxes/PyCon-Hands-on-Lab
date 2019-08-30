@@ -55,7 +55,7 @@ class Telemetry():
                 "pressure": self.pressure,
                 "timestamp": self.timestamp
             }
-
+            time.sleep(0.05)
             data = jsonify(telemetry)
             return data
 
