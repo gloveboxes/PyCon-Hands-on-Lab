@@ -17,6 +17,10 @@ class Telemetry():
 
         self.sense = None
 
+        self.colourCount = 0
+        self.colourPalette = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+        self.colourLength = len(self.colourPalette)
+
         try:
             self.sense = SenseHat()
             # fix for pressure which doesn't seem to work first time
@@ -33,7 +37,10 @@ class Telemetry():
 
     def get_telemetry(self):
         try:
-            self.sense.clear((255, 0, 0))
+            self.sense.clear(
+                self.colourPalette[self.colourCount % self.colourLength])
+            self.colourCount += 1
+            
             delta = int(time.time()) - self.timestamp
 
             if self.sense is not None and delta >= 2:
