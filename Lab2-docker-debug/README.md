@@ -35,7 +35,7 @@ No source code needs to be on your local machine to gain these benefits since th
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/architecture-ssh.png)
 
-## CircuitPython
+<!-- ## CircuitPython
 
 [CircuitPython](www.circuitpython.org), an [Adafruit](www.adafruit.com) initiative, is built on the amazing work of Damien George and the MicroPython community. CircuitPython adds hardware support for Microcontroller development and simplifies some aspects of MicroPython. MicroPython and by extension, CircuitPython implements version 3 of the Python language reference. So, your Python 3 skills are transferrable.
 
@@ -49,7 +49,7 @@ This hands-on lab uses CircuitPython libraries for GPIO, I2C, and the BME280 Tem
 
 ```bash
 pip3 install adafruit-blinka adafruit-circuitpython-bme280
-```
+``` -->
 
 ## Software Installation
 
@@ -149,7 +149,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ### SSH for earlier versions of Windows
 
-- [SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/windows-ssh.md)
+- [SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/resources/windows-ssh.md)
 
 ### Trouble Shooting SSH Client Installation
 
@@ -310,7 +310,7 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 3. Save the env-file file (Ctrl+S)
 
-4. Ensure **Explorer** selected in the activity bar, right mouse click file named **Dockerfile** and select **Build Image**.
+<!-- 4. Ensure **Explorer** selected in the activity bar, right mouse click file named **Dockerfile** and select **Build Image**.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-docker-build.png)
 
@@ -318,35 +318,30 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
     For example **glovebox:latest**
 
-![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/docker-build-name.png)
+![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/docker-build-name.png) -->
 
-### Run the Docker Image
+### Build and Run the Docker Image
 
 Paste these commands into the Visual Studio Code Terminal Window. You can open a new Terminal Window with **Ctrl+Shift+`**
 
 ![](resources/vs-code-open-terminal.png)
 
-1. Set the IMAGE_NAME environment variable. This is the unique name you used when you built the Docker Image.
-
+1. Display and make a note of your $LAB_PORT environment variable. This is set in the .bashrc file. You will need this for the debugger step.
 
 ```bash
-export IMAGE_NAME=<YOUR-UNIQUE-NAME>:latest
+echo -e "Your Lab Port is \e[7m$LAB_PORT\e[0m"
 ```
 
-2. Display and make a note of your $LAB_PORT environment variable. This is set in the .bashrc file. You will need this for the debugger step.
+2. Build and Start the Docker Container
 
 ```bash
-echo -e "\e[7mYour Lab Port is $LAB_PORT\e[0m"
-```
+docker build -t $USER:latest . && \
 
-3. Start the Docker Container
-
-```bash
 docker run -it \
 -p $LAB_PORT:3000 \
 -e TELEMETRY_HOST=$LAB_HOST \
 --env-file ~/github/Lab2-docker-debug/env-list \
---rm $IMAGE_NAME
+--rm $USER:latest
 ```
 
 The **Docker run** will start your container as follows:
@@ -429,7 +424,6 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 - Troubleshoot and remediate issues with your devices.
 - Provision new devices.
 
-
 #### Use the left navigation menu
 
 Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
@@ -477,7 +471,6 @@ The _device sets_ page shows device sets created by the builder. A device set is
 ![Device Templates page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/templates.png)
 
 The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=pycon-blog-dglover) tutorial.
-
 
 #### Analytics
 
