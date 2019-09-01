@@ -10,6 +10,8 @@ RUN pip3 install ptvsd RPI.GPIO adafruit-blinka adafruit-circuitpython-bme280 ad
 ADD app /app
 WORKDIR /app
 
+ENV PYTHONUNBUFFERED=1
+
 CMD ["python3","app.py"]
 
 # docker run -it -p 3003:3000 --device /dev/i2c-0 --device /dev/i2c-1 --rm --privileged lab2-docker:latest 
