@@ -339,15 +339,15 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
     --rm $USER:latest
     ```
 
-    The **Docker run** will start your container as follows:
+The **Docker run** will start your container as follows:
 
-    - **--it** in interactive mode,
-    - **-p** maps the **$LAB_PORT** to port 3000 in the container, this port is used for debugging,
-    - **-e** sets an Environment Variable in the Docker Container. This is passing in the IP Address of the BME280 sensor telemetry service.
-    - **--env-file** reads from a file and sets Environment Variables in the Docker Container,
-    - **--rm** removes the container when you stop it, and finally Docker starts the image you built/named.
+- **--it** in interactive mode,
+- **-p** maps the **$LAB_PORT** to port 3000 in the container, this port is used for debugging,
+- **-e** sets an Environment Variable in the Docker Container. This is passing in the IP Address of the BME280 sensor telemetry service.
+- **--env-file** reads from a file and sets Environment Variables in the Docker Container,
+- **--rm** removes the container when you stop it, and finally Docker starts the image you built/named.
 
-    For more information on the **Docker run** command then see [Docker run reference](https://docs.docker.com/engine/reference/run/).
+For more information on the **Docker run** command then see [Docker run reference](https://docs.docker.com/engine/reference/run/).
 
 ## Configure the Visual Studio Code Debugger
 
