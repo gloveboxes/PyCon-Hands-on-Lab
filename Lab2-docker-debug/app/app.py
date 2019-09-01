@@ -78,7 +78,7 @@ def publish():
 
         except:
             print("Unexpected error")
-            time.sleep(4)
+            time.sleep(sampleRateInSeconds)
 
 
 iot = iothub.IotHub(hubAddress, deviceId, sharedAccessKey)

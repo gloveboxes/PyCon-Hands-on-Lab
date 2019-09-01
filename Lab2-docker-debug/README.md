@@ -339,6 +339,62 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
     --rm $USER:latest
     ```
 
+#### launch.json
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Raspberry Pi: Attach",
+            "preLaunchTask": "start-docker",
+            "postDebugTask": "stop-docker",
+            "type": "python",
+            "request": "attach",
+            "pathMappings": [{
+                "localRoot":"${workspaceRoot}/app",
+                "remoteRoot":"/app"}
+            ],
+            "port": "${env:LAB_PORT}",
+            "host": "127.0.0.1"
+        },
+    ]
+}
+```
+
+#### tasks.json
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start-docker",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "\"docker build -t $USER:latest .; docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-list --name $USER --rm  $USER:latest; sleep 1 \""
+            ],
+        },
+        {
+            "label": "stop-docker",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "\"docker stop $USER\""
+            ]
+        }
+    ]
+}
+```
+
 The **Docker run** will start your container as follows:
 
 - **--it** in interactive mode,

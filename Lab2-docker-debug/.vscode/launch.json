@@ -5,9 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Raspberry Pi: Attach",
+            "name": "Raspberry Pi: Python Container Attach",
             "type": "python",
             "request": "attach",
+            "preLaunchTask": "start-docker",
+            "postDebugTask": "stop-docker",
             "pathMappings": [{
                 "localRoot":"${workspaceRoot}/app",
                 "remoteRoot":"/app"}
