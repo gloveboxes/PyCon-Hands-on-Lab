@@ -12,8 +12,8 @@
                 "localRoot":"${workspaceRoot}/app",
                 "remoteRoot":"/app"}
             ],
-            "port": <Port Number>,
-            "host": "<Raspberry Pi IP Address>"
+            "port": "${env:LAB_PORT}",
+            "host": "localhost"
         },
     ]
 }
