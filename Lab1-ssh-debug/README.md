@@ -124,7 +124,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ### SSH for earlier versions of Windows
 
-[SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/windows-ssh.md)
+[SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/resources/windows-ssh.md)
 
 ### Trouble Shooting SSH Client Installation
 
