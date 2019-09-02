@@ -14,6 +14,7 @@ class Telemetry():
         self.humidity = 0
         self.pressure = 0
         self.timestamp = 0
+        self.cputemperature = 0
 
         self.sense = None
 
@@ -35,19 +36,30 @@ class Telemetry():
         except:
             print('Pi Sense HAT Not Found')
 
+    def get_cpu_temperature(self):
+        temp = 0.0
+        with open('/sys/class/thermal/thermal_zone0/temp') as temperaturefile:
+            try:
+                temp = float(temperaturefile.read()) / 1000
+            except:
+                print('Problem reading CPU Temperature')
+        return temp
+
     def get_telemetry(self):
         try:
             self.sense.clear(
                 self.colourPalette[self.colourCount % self.colourLength])
             self.colourCount += 1
-            
+
             delta = int(time.time()) - self.timestamp
 
             if self.sense is not None and delta >= 5:
-                self.temperature = round(self.sense.get_temperature_from_pressure(), 1)
+                self.temperature = round(
+                    self.sense.get_temperature_from_pressure(), 1)
                 self.humidity = int(self.sense.get_humidity())
                 self.pressure = int(self.sense.get_pressure())
                 self.timestamp = int(time.time())
+                self.cpu_temperature = round(self.get_cpu_temperature, 1)
 
             elif self.sense is None:
                 # BME Sensor not found so generate random data
@@ -55,12 +67,14 @@ class Telemetry():
                 self.pressure = random.randrange(900, 1300)
                 self.humidity = random.randrange(20, 80)
                 self.timestamp = int(time.time())
+                self.cpu_temperature = round(self.get_cpu_temperature, 1)
 
             telemetry = {
                 "temperature": self.temperature,
                 "humidity": self.humidity,
                 "pressure": self.pressure,
-                "timestamp": self.timestamp
+                "timestamp": self.timestamp,
+                "cputemperature": self.cpu_temperature
             }
             time.sleep(0.05)
             data = jsonify(telemetry)

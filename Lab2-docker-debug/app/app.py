@@ -60,15 +60,28 @@ def on_publish(client, userdata, mid):
 
 
 def publish():
-    id = 0
+    msgId = 1
     while True:
         try:
-            msg_txt = "{\"Geo\":\"%s\",\"Humidity\":%d,\"Pressure\":%d,\"Temperature\": %.2f,\"Id\":%d}"
-            temperature, pressure, humidity, timestamp = mysensor.measure()
-            telemetry = msg_txt % ('Sydney, AU', humidity,
-                                   pressure,  temperature, id)
+            temperature, pressure, humidity, timestamp, cpu_temperature = mysensor.measure()
+
+            data = {
+                "Geo": 'Sydney, AU',
+                "Humidity": humidity,
+                "Pressure": pressure,
+                "Temperature": temperature,
+                "CpuTemperature": cpu_temperature,
+                "Epoch": timestamp,
+                "Id": msgId
+            }
+
+            telemetry = json.dumps(data)
             print(telemetry)
+
             client.publish(iot.hubTopicPublish, telemetry)
+
+            msgId += 1
+
             time.sleep(sampleRateInSeconds)
 
         except KeyboardInterrupt:
