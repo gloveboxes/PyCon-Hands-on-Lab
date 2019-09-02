@@ -213,7 +213,7 @@ Once a debug session starts, the **Debug toolbar** will appear at the top of the
 
 ![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
 
-A debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
+The debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
 
 1. Pause (or Continue, F5),
 2. Step Over (F10)
