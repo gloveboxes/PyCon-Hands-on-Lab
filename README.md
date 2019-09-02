@@ -23,7 +23,7 @@ You’ll learn how to sync code to devices, attach debuggers, and step through y
 
 This fun session covers a range of scenarios and empowers you to supercharge your debugging techniques!
 
-## Hardware Requirements
+## Personal Computer Requirements
 
 1. Bring your own laptop running one of the follow Operating Systems:
 
@@ -57,7 +57,7 @@ For information on contributing or submitting issues see the [Visual Studio GitH
 
 ## Debugging Web and Docker Container Apps on a Raspberry Pi
 
-![](resources/rpi4.jpg)
+![](resources/rpi4-pi-sense-hat.jpg)
 
 - [Lab 1: Remote Debugging a Raspberry Pi Flask Web Application](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.md)
 - [Lab 2: Raspberry Pi, Python, IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/README.md)

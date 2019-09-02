@@ -19,7 +19,7 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 In this hands-on lab, you will learn how to create an Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/rpi-bme280.jpg)
+![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/rpi4-pi-sense-hat.jpg)
 
 ## References
 
