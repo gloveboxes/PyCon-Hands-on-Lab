@@ -17,7 +17,7 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 ## Introduction
 
-In this hands-on lab, you will learn how to create an Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
+In this hands-on lab, you will learn how to create a Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/rpi4-pi-sense-hat.jpg)
 
@@ -167,7 +167,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally, add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
@@ -320,7 +320,7 @@ There are two configuration files found in the .vscode folder that are responsib
 ## Set a Visual Studio Debugger Breakpoint
 
 1. From **Explorer** on the Visual Studio Code activity bar, open the **app.py** file
-1. Set a breakpoint at line 67, it reads **temperature, pressure, humidity, timestamp = mysensor.measure()** in the **publish** function.
+1. Set a breakpoint at line 67, **temperature, pressure, humidity, timestamp = mysensor.measure()** in the **publish** function.
 
     - You can set a breakpoint by doing any one of the following:
 

@@ -141,7 +141,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally, add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
@@ -256,7 +256,7 @@ Try setting a **conditional** breakpoint
 
 ### Try the Debug Console
 
-Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries etc.
+Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries, etc.
 
 ```python
 print(temperature)
