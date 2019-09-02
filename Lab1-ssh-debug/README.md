@@ -187,7 +187,7 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
         ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
 
     2. Click the **Settings** button which will open the **launch.json** file.
-    3. The **launch.json** file defines how the Flask app will be started, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters will be passed on at startup.
+    3. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
 
         There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
 
@@ -256,7 +256,7 @@ Try setting a **conditional** breakpoint
 
 ### Try the Debug Console
 
-Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL, try printing or setting variables, importing libraries, etc.
+Try the Visual Studio Code **Debug Console**. This will give you access to the Python REPL (Read, Evaluate, Print Loop), try printing or setting variables, importing libraries, etc.
 
 ```python
 print(temperature)
