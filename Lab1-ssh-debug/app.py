@@ -17,7 +17,7 @@ def show_telemetry():
 
     title = "Raspberry Pi Environment Data"
 
-    temperature, pressure, humidity, timestamp = myTelemetry.measure()
+    temperature, pressure, humidity, timestamp, cpu_temperature = myTelemetry.measure()
 
     sensor_updated = time.strftime(
         "%A, %d %B, %Y at %X", time.localtime(timestamp))
