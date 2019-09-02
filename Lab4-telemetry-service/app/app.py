@@ -27,7 +27,7 @@ class Telemetry():
             warmup = 0
             while warmup < 2:
                 time.sleep(0.5)
-                self.sense.get_temperature()
+                self.sense.get_temperature_from_pressure()
                 self.sense.get_humidity()
                 self.sense.get_pressure()
                 warmup += 1
@@ -44,7 +44,7 @@ class Telemetry():
             delta = int(time.time()) - self.timestamp
 
             if self.sense is not None and delta >= 5:
-                self.temperature = round(self.sense.get_temperature(), 1)
+                self.temperature = round(self.sense.get_temperature_from_pressure(), 1)
                 self.humidity = int(self.sense.get_humidity())
                 self.pressure = int(self.sense.get_pressure())
                 self.timestamp = int(time.time())
