@@ -59,7 +59,7 @@ class Telemetry():
                 self.humidity = int(self.sense.get_humidity())
                 self.pressure = int(self.sense.get_pressure())
                 self.timestamp = int(time.time())
-                self.cpu_temperature = round(self.get_cpu_temperature, 1)
+                self.cpu_temperature = round(self.get_cpu_temperature(), 1)
 
             elif self.sense is None:
                 # BME Sensor not found so generate random data
@@ -67,7 +67,7 @@ class Telemetry():
                 self.pressure = random.randrange(900, 1300)
                 self.humidity = random.randrange(20, 80)
                 self.timestamp = int(time.time())
-                self.cpu_temperature = round(self.get_cpu_temperature, 1)
+                self.cpu_temperature = round(self.get_cpu_temperature(), 1)
 
             telemetry = {
                 "temperature": self.temperature,
