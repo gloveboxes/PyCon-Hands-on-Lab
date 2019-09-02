@@ -323,7 +323,7 @@ There are two configuration files found in the .vscode folder that are responsib
 ## Set a Visual Studio Debugger Breakpoint
 
 1. From **Explorer** on the Visual Studio Code activity bar, open the **app.py** file
-1. Set a breakpoint at line 67, **temperature, pressure, humidity, timestamp = mysensor.measure()** in the **publish** function.
+1. Set a breakpoint at line 66, **temperature, pressure, humidity, timestamp = mysensor.measure()** in the **publish** function.
 
     - You can set a breakpoint by doing any one of the following:
 
