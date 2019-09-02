@@ -188,6 +188,23 @@ done
 
 ```
 
+## Deploy Remote SSH Server  to all users
+
+```bash
+sudo rm -r -f ~/github && \
+git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github && \
+# find .vscode-server-insiders -type f -name *.lock -exec rm {} \; && \
+
+for i in {01..25}
+do
+    echo "Deploy Remote SSH Server to user dev$i"
+    sudo rm -r -f /home/dev$i/.vscode-server-insiders
+    sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
+    sudo chown -R dev$i:dev$i /home/dev$i
+done && \
+sudo reboot
+```
+
 ## Deploy Lab Content to all users
 
 ```bash
@@ -198,13 +215,10 @@ git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/githu
 for i in {01..25}
 do
     echo "Set up lab content for user dev$i"
-    sudo rm -r -f /home/dev$i/.vscode-server-insiders
     sudo rm -r -f /home/dev$i/github
-    sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-done && \
-sudo reboot
+done
 ```
 
 ## Build Lab Docker Images
