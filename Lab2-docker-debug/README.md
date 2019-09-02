@@ -168,13 +168,17 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally, add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+4. Set the SSH connection configuration as follows:
+
+    - **Host**: Set to **RaspberryPi**
+    - **HostName**: The Raspberry Pi **IP Address**
+    - **User**: Your **login name**
+    - **IdentityFile**: Set to **~/.ssh/id_rsa_python_lab**.
+    - Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
-5. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
-
-    ![connect to host](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-connect-host.png)
+5. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
 6. Select the host **RaspberryPi** configuration
 
