@@ -343,7 +343,7 @@ Once a debug session starts, the **Debug toolbar** will appear at the top of the
 
 ![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/toolbar.png)
 
-A debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
+The debugger toolbar (shown above) will appear in Visual Studio Code. It has the following options:
 
 1. Pause (or Continue, F5),
 2. Step Over (F10)
@@ -352,14 +352,11 @@ A debugging toolbar (shown above) will appear in Visual Studio Code. It has the 
 5. Restart (Ctrl+Shift+F5),
 6. and Stop (Shift+F5).
 
-Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally Disconnecting the debugger.
+### Step through the Python code
 
-![vs code debugger controls](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-controls.png)
-
-1. Step through the Python code. Press **F10**, or from the Debugger Toolbar, click **Step Over** until you are past the **print(telemetry)** line of code.
-2. Explore the **Debug Console** (Ctrl+Shift+Y)
-    1. With debugger stopped at the breakpoint in the **publish** function, explore the **Variables Window**. Try changing variable values.
-3. Explore the **Variable Window**
+1. Press **F10**, or from the Debugger Toolbar, click **Step Over** until you are past the **print(telemetry)** line of code.
+2. Explore the **Variable Window** (Ctrl+Shift+Y). Try changing variable values.
+3. Explore the **Debug Console**. You will see sensor telemetry and the results of sending the telemetry to Azure IoT Central.
     ![vs code debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-console.png)
 4. From the **Debug** Menu -> **Disable All Breakpoints**
 5. Press **F5** or from the Debugger Toolbar, click **Continue** so the Python application runs and streams telemetry to **Azure IoT Central**.
