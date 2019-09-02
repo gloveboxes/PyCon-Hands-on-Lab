@@ -5,7 +5,7 @@
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
 |Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
 |Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
-|Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) Model required for 20 Users
+|Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) Model required for 20 Users. Raspberry Pi Sense HAT
 |Language| Python|
 |Date|As of August, 2019|
 
@@ -159,37 +159,29 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ## Configure Visual Studio Code Remote SSH Development
 
-Configure Visual Studio Code **Remote SSH** with the Raspberry Pi **Network IP Address**, **login name**, and **SSH key file** you will be using for the hands-on lab.
-
 1. Start Visual Studio Code Insiders Edition
 
-2. Click the **Open Remote Windows** button. You will find this button in the bottom left-hand corner of the Visual Studio Code window.
+2. Press F1 to open the Command Palette, type **ssh config** and select **Remote-SSH: Open Configuration**
 
-    ![select the user config file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-remote-window.png)
-
-3. Select **Open Configuration File**
-
-    ![open configuration file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-configuration.png)
-
-4. Select the user .ssh config file
+3. Select the user .ssh config file
 
     ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-5. Set the SSH connection configuration. You need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally set the **IdentityFile** field to **~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
-6. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
+5. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
 
     ![connect to host](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-connect-host.png)
 
-7. Select the host **RaspberryPi** configuration
+6. Select the host **RaspberryPi** configuration
 
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
 
-## Install the Python Visual Studio Code Extension
+<!-- ## Install the Python Visual Studio Code Extension
 
 ![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-install-python.png)
 
@@ -199,11 +191,11 @@ Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and 
 ext install ms-python.python
 ```
 
-See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension.
+See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension. -->
 
-## Watch Docker in 12 Minutes
+## Introduction to Docker
 
-[Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) YouTube video helped me make sense of Docker. I strongly recommend watching.
+[Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) is a great introduction to Docker.
 
 ![](resources/docker_logo.png)
 

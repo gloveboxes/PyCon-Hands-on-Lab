@@ -133,33 +133,25 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 ## Configure Visual Studio Code Remote SSH Development
 
-We need to tell Visual Studio Code the IP Address and login name we will be using to connect to the Raspberry Pi.
-
 1. Start Visual Studio Code Insiders Edition
 
-2. Click the **Open Remote Windows** button. You will find this button in the bottom left-hand corner of the Visual Studio Code window.
+2. Press F1 to open the Command Palette, type **ssh config** and select **Remote-SSH: Open Configuration**
 
-    ![select the user config file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-remote-window.png)
+3. Select the user .ssh config file
 
-3. Select **Open Configuration File**
+    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
 
-    ![open configuration file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-configuration.png)
+4. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, your **login name**, and finally add **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
 
-4. Select the user .ssh config file
+    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
-    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-config-file.png)
+5. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
 
-5. Set the SSH connection configuration. You will need the Raspberry Pi **IP Address**, the Raspberry Pi **login name**, and finally add  **IdentityFile ~/.ssh/id_rsa_python_lab**. Save these changes (Ctrl+S).
+    ![connect to host](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-connect-host.png)
 
-    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-config-host-details.png)
+6. Select the host **RaspberryPi** configuration
 
-6. Click the Open Remote Windows button (bottom left) then select **Remote SSH: Connect to Host**
-
-    ![connect to host](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-connect-host.png)
-
-7. Select the host **RaspberryPi** configuration
-
-    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
+    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
 
