@@ -1,17 +1,3 @@
-- https://code.visualstudio.com/remote-tutorials/ssh/getting-started
-
-
----
-Order: 5
-Area: python
-TOCTitle: Jupyter Support
-ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
-PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 08/14/2019
-MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
-MetaSocialImage: images/tutorial/social.png
----
-
 # Working with Jupyter Notebooks in Visual Studio Code
 
 [Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
@@ -147,3 +133,5 @@ In addition to opening a Jupyter notebook, you can also use one of the following
 - **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
 
 After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.
+
+## References
