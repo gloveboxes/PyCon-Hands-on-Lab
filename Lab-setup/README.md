@@ -203,7 +203,8 @@ do
     sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-done
+done && \
+sudo reboot
 ```
 
 ## Build Lab Docker Images

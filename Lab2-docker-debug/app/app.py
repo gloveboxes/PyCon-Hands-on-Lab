@@ -5,7 +5,6 @@ import iothub
 import sys
 import json
 import ptvsd
-# import sensor_bme280
 import telemetry_client
 import config
 import os
