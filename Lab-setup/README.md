@@ -14,7 +14,7 @@ Run the following to fix the issue:
 # Patch for Raspberry Pi Sense Hat on Buster Headless/lite
 sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/g' /boot/config.txt && \
 sudo sed -i 's/#hdmi_group=1/hdmi_group=2/g' /boot/config.txt && \
-sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt && \
+sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt
 ```
 
 ## Visual Studio Code Remote Extensions
@@ -156,7 +156,7 @@ sudo dpkg -i docker-ce_* && \
 sudo usermod -aG docker $USER && \
 
 
-sudo groupadd i2c && \
+# sudo groupadd i2c && \
 sudo chown :i2c /dev/i2c-1 && \
 sudo chmod g+rw /dev/i2c-1 && \
 
@@ -225,7 +225,7 @@ docker run -d \
 --restart always \
 --device /dev/i2c-1 \
 --name pi-sense-hat \
-lab-telemetry-service:latest && \
+lab-telemetry-service:latest
 ```
 
 ## Clean Up Lab
