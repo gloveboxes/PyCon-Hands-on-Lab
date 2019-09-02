@@ -22,7 +22,7 @@ def show_telemetry():
     sensor_updated = time.strftime(
         "%A, %d %B, %Y at %X", time.localtime(timestamp))
 
-    if -10 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:
+    if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:
         return render_template('index.html', title=title,
                                temperature=temperature, pressure=pressure,
                                humidity=humidity)
