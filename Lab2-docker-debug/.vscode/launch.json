@@ -5,17 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Raspberry Pi: Python Container Attach",
-            "type": "python",
-            "request": "attach",
+            "name": "Attach Debugger",
             "preLaunchTask": "start-docker",
             "postDebugTask": "stop-docker",
-            "pathMappings": [{
-                "localRoot":"${workspaceRoot}/app",
-                "remoteRoot":"/app"}
+            "type": "python",
+            "request": "attach",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceRoot}/app",
+                    "remoteRoot": "/app"
+                }
             ],
             "port": "${env:LAB_PORT}",
             "host": "localhost"
         },
+        {
+            "name": "Stop Container",
+            "preLaunchTask": "stop-docker",
+            "type": "python",
+            "request": "launch"
+        }
     ]
 }

@@ -5,6 +5,7 @@
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
 |Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
 |Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) Model required for 20 Users
 |Language| Python|
 |Date|As of August, 2019|
 
@@ -16,7 +17,7 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 ## Introduction
 
-In this hands-on lab, you will learn how to create an Internet of Things (IoT) Python application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover), run it in a Docker Container on a Raspberry Pi, read the temperature, humidity, and air pressure telemetry from a BME280 sensor, then attach, and debug the Python code running in the container.
+In this hands-on lab, you will learn how to create an Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/rpi-bme280.jpg)
 
@@ -294,11 +295,9 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 2. Copy the generated connection string to the clipboard as you will need it for the next step.
 
-## Open the Visual Studio Code Docker Debugging Lab
+## Configure the Python Application
 
-### Build the Docker Image
-
-1. Switch back to the project you opened with Visual Studio Code. Open the **env-file** (environment file). This file will contain environment variables that will be passed into the Docker container.
+1. Switch back to Visual Studio Code. Open the **env-file** (environment file). This file contains environment variables that will be passed to the Docker container.
 
 2. Paste the connection string you copied in the previous step into the env-file on the same line, and after  **CONNECTION_STRING=**.
 
@@ -322,112 +321,22 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 ### Build and Run the Docker Image
 
-1. Open a new Terminal Window from the menu. Select **Terminal** -> **New Terminal** or with the keyboard shortcut **Ctrl+Shift+`**
+Press **F5** to start debugging the Python application. The process will first build and then start the Docker Container. When the Docker Container has started the Visual Studio Code Debugger will attach to the running application.
 
-    ![terminal window](resources/vs-code-open-terminal.png)
+There are two configuration files found in the .vscode folder that are responsible for running and debugging the Python application. You can find more detail the [Debugger Configuration](#debugger-configuration) appendix.
 
-2. Build and Start the Docker Container
+## Set a Visual Studio Debugger Breakpoint
 
-    Paste these commands into the Visual Studio Code Terminal Window.
-
-    ```bash
-    docker build -t $USER:latest . && \
-    docker run -it \
-    -p $LAB_PORT:3000 \
-    -e TELEMETRY_HOST=$LAB_HOST \
-    --env-file ~/github/Lab2-docker-debug/env-list \
-    --rm $USER:latest
-    ```
-
-#### launch.json
-
-```json
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Python Raspberry Pi: Attach",
-            "preLaunchTask": "start-docker",
-            "postDebugTask": "stop-docker",
-            "type": "python",
-            "request": "attach",
-            "pathMappings": [{
-                "localRoot":"${workspaceRoot}/app",
-                "remoteRoot":"/app"}
-            ],
-            "port": "${env:LAB_PORT}",
-            "host": "127.0.0.1"
-        },
-    ]
-}
-```
-
-#### tasks.json
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "start-docker",
-            "type": "shell",
-            "command": "sh",
-            "args": [
-                "-c",
-                "\"docker build -t $USER:latest .; docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-list --name $USER --rm  $USER:latest; sleep 1 \""
-            ],
-        },
-        {
-            "label": "stop-docker",
-            "type": "shell",
-            "command": "sh",
-            "args": [
-                "-c",
-                "\"docker stop $USER\""
-            ]
-        }
-    ]
-}
-```
-
-The **Docker run** will start your container as follows:
-
-- **--it** in interactive mode,
-- **-p** maps the **$LAB_PORT** to port 3000 in the container, this port is used for debugging,
-- **-e** sets an Environment Variable in the Docker Container. This is passing in the IP Address of the BME280 sensor telemetry service.
-- **--env-file** reads from a file and sets Environment Variables in the Docker Container,
-- **--rm** removes the container when you stop it, and finally Docker starts the image you built/named.
-
-For more information on the **Docker run** command then see [Docker run reference](https://docs.docker.com/engine/reference/run/).
-
-## Configure the Visual Studio Code Debugger
-
-1. Click **Debug** on the Visual Studio activity bar.
-1. Clicking **Settings**
-1. Update the **port** value to the **Port Number** displayed when you started the Docker Container in the Visual Studio Terminal Window.
-1. Update the **host** to match your Raspberry Pi IP Address.
-
-![vs code attach debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-attach-debugger.png)
-
-## Attach the Debugger to the Docker Container
-
-1. Click **Debug** on the Visual Studio activity bar.
-2. Click the **Debug Selection** dropdown, and ensure **Python Raspberry Pi: Attach** is selected.
-3. Click the **Run** button to attach the debugger.
-![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-run-debugger.png)
 1. From **Explorer** on the Visual Studio Code activity bar, open the **app.py** file
-1. Set a breakpoint in the while True loop.
+1. Set a breakpoint at line 67, it reads **temperature, pressure, humidity, timestamp = mysensor.measure()** in the **publish** function.
+
+    - You can set a breakpoint by doing any one of the following:
+
+        - With the cursor on that line, press F9, or,
+        - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
 
-    Ensure the **app.py** file is open, set a breakpoint at line **64**, in the **publish** function (**telemetry = mysensor.measure()**) by doing any one of the following:
 
-    - With the cursor on that line, press F9, or,
-    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
 ## Debugger Controls
 
@@ -455,6 +364,90 @@ Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off,
  ![Complete. Congratulations](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/congratulations.jpg)
 
 ## Appendix
+
+### Debugger Configuration
+
+There are two files (launch.json and tasks.json) found in the .vscode folder that are responsible for the running and debugging the application.
+
+#### Launch Configuration
+
+Creating a launch configuration file is useful as it allows you to configure and save debugging setup details.
+
+**launch.json**
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach Debugger",
+            "preLaunchTask": "start-docker",
+            "postDebugTask": "stop-docker",
+            "type": "python",
+            "request": "attach",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceRoot}/app",
+                    "remoteRoot": "/app"
+                }
+            ],
+            "port": "${env:LAB_PORT}",
+            "host": "localhost"
+        },
+        {
+            "name": "Stop Container",
+            "preLaunchTask": "stop-docker",
+            "type": "python",
+            "request": "launch"
+        }
+    ]
+}
+```
+
+#### Tasks Configuration
+
+Tasks integrate external tools to automate build cycle.
+
+**tasks.json**
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start-docker",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "\"docker build -t $USER:latest . ;docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-list --name $USER --rm  $USER:latest; sleep 1 \""
+                // -d Run container in background and print container ID,
+                // -p maps the $LAB_PORT to port 3000 in the container, this port is used for debugging,
+                // -e Environment Variable. The IP Address of the telemetry service.
+                // --env-file reads from a file and sets Environment Variables in the Docker Container,
+                // --name names the Docker Container
+                // --rm removes the container when you stop it
+                // Docker run reference https://docs.docker.com/engine/reference/run/
+            ],
+        },
+        {
+            "label": "stop-docker",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "\"docker stop $USER\""
+            ]
+        }
+    ]
+}
+```
+
 
 ### Azure IoT Central
 
