@@ -203,16 +203,19 @@ do
     sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo cp -r /home/pi/github /home/dev$i/github
     sudo chown -R dev$i:dev$i /home/dev$i
-done && \
+done
+```
 
-# Build base docker image
+## Build Lab Docker Images
+
+```bash
 sudo systemctl start docker && \
 cd ~/github/Lab2-docker-debug && \
 docker build -t glovebox:latest . && \
 cd
 
 
-cd ~/github/Lab-Telemetry-Service && \
+cd ~/github/Lab4-telemetry-service && \
 docker build -t lab-telemetry-service:latest . && \
 cd
 
@@ -223,9 +226,6 @@ docker run -d \
 --device /dev/i2c-1 \
 --name pi-sense-hat \
 lab-telemetry-service:latest && \
-
-curl localhost:8080/telemetry
-
 ```
 
 ## Clean Up Lab
