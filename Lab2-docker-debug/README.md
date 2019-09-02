@@ -334,20 +334,35 @@ There are two configuration files found in the .vscode folder that are responsib
 
         - With the cursor on that line, press F9, or,
         - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
-![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
 
+    ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
 
+### Debug actions
 
-## Debugger Controls
+Once a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
+
+![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/toolbar.png)
+
+A debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
+
+1. Pause (or Continue, F5),
+2. Step Over (F10)
+3. Step Into (F11),
+4. Step Out (Shift+F11),
+5. Restart (Ctrl+Shift+F5),
+6. and Stop (Shift+F5).
 
 Debugger Controls allow for Starting, Pausing, Stepping in to, Stepping out off, restarting code, and finally Disconnecting the debugger.
 
 ![vs code debugger controls](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-controls.png)
 
-1. Explore the **Debug Console** (Ctrl+Shift+Y)
-    1. With debugger stopped at the breakpoint in the **publish** function, explore the **Variables Window** and try typing **print(telemetry** into the debug prompt.
-1. Explore the **Terminal**
-1. From the Debugger Toolbar, **Disconnect** the debugger so the application in the Docker container continues to run and stream telemetry to **Azure IoT Central**.
+1. Step through the Python code. Press **F10**, or from the Debugger Toolbar, click **Step Over** until you are past the **print(telemetry)** line of code.
+2. Explore the **Debug Console** (Ctrl+Shift+Y)
+    1. With debugger stopped at the breakpoint in the **publish** function, explore the **Variables Window**. Try changing variable values.
+3. Explore the **Variable Window**
+    ![vs code debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-console.png)
+4. From the **Debug** Menu -> **Disable All Breakpoints**
+5. Press **F5** or from the Debugger Toolbar, click **Continue** so the Python application runs and streams telemetry to **Azure IoT Central**.
 
 ## Exploring Device Telemetry in Azure IoT Central
 
