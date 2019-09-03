@@ -127,7 +127,7 @@ passwd
 Check out the [Getting Started with Fan SHIM](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-fan-shim) article. In summary, install git and pip3 support, clone the Fan SHIM GitHub repo, install the dependencies, and then set up the automatic temperature monitor service that turns the fan on as required.
 
 ```bash
-sudo apt install -y git sudo python3-pip && \
+sudo apt install -y git sudo python3-pip vsftpd && \
 git clone https://github.com/pimoroni/fanshim-python && \
 cd fanshim-python && \
 sudo ./install.sh && \
@@ -172,6 +172,35 @@ sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt && \
 # Enable I2C
 sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt && \
 
+# Set up Very Secure FTP Daemon
+mkdir -p /home/pi/ftp
+sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.backup
+echo "listen_ipv6=YES" | sudo tee -a /etc/vsftpd.conf
+echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
+echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
+echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
+
+# Download Lab software
+mkdir -p /home/pi/ftp/software
+cd /home/pi/ftp/software
+rm *
+
+echo 'download ubuntu starting'
+wget  https://go.microsoft.com/fwlink/?LinkID=760865
+mv index.html?LinkID=760865 ubuntu-code-insiders-amd64.deb 
+
+echo 'download windows starting'
+wget  https://aka.ms/win32-x64-user-insider
+mv win32-x64-user-insider windows-code-insiders-amd64.exe
+
+echo 'download macOS starting'
+wget  https://go.microsoft.com/fwlink/?LinkId=723966
+mv index.html?LinkId=723966 macOS-code-insiders-amd64.zip
+
+echo 'download Powershell 64bit'
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.2/PowerShell-6.2.2-win-x64.msi
+
+
 sudo reboot
 ```
 
@@ -185,8 +214,20 @@ do
     echo "export LAB_PORT=$(shuf -i 5000-8000 -n 1)" | sudo tee -a /home/dev$i/.bashrc
     echo 'export LAB_HOST=$(hostname -I | cut -d" " -f 1)' | sudo tee -a /home/dev$i/.bashrc
 done
-
 ```
+
+## Set up Visual Studio Code Remote Server
+
+Install the version of Visual Studio Code Insiders from the FTP Server on this Raspberry Pi that matches your operating system.
+
+It's super important to do this and to get users to install the same version of VS Code (from the FTP Server) on their developer machines. If the VS Code client and server versions do not match this will kick off about a 200MB download on the Raspberry Pi to download the matching server code. Multiply that by a lot of users and it very quickly mounts up.
+
+Install:
+
+1. Install Remote SSH
+2. From VS Code, remote SSH to the Raspberry Pi as user pi. This will deploy VS Code Remote Services
+3. Install Python Extension on Raspberry Pi
+4. Reboot the Pi to make sure all files and locks closed
 
 ## Deploy Remote SSH Server  to all users
 
