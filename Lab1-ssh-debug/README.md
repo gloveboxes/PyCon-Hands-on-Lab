@@ -153,6 +153,15 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
     - **User**: Your **login name**
     - **IdentityFile**: Set to **~/.ssh/id_rsa_python_lab**.
     - Save these changes (Ctrl+S).
+    
+    You can copy this template as a quick start:
+    
+    ```
+    Host RaspberryPi
+    HostName XXX.XXX.XXx.XXX
+    User devXX
+    IdentityFile ~/.ssh/id_rsa_python_lab
+    ```
 
     ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
 
