@@ -58,9 +58,9 @@ You will need the following information from the lab instructor.
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-### SSH for Linux and macOS
+### SSH
 
-From a Linux or macOS **Terminal Console** run the following commands:
+From a Linux or macOS **Terminal Console** or from **git bash** in windows run the following commands:
 
 1. Create your key. This is typically a one-time operation. **Take the default options**.
 
@@ -90,6 +90,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
 
+<!--
 ### SSH for Windows 10 (1809+) Users with PowerShell
 
 1. Start PowerShell as Administrator and install OpenSSH.Client
@@ -127,6 +128,8 @@ From a Linux or macOS **Terminal Console** run the following commands:
 ### SSH for earlier versions of Windows
 
 [SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/resources/windows-ssh.md)
+
+-->
 
 ### Trouble Shooting SSH Client Installation
 
