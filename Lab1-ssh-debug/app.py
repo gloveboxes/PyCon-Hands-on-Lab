@@ -25,6 +25,6 @@ def show_telemetry():
     if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:
         return render_template('index.html', title=title,
                                temperature=temperature, pressure=pressure,
-                               humidity=humidity)
+                               humidity=humidity, cputemperature=cpu_temperature)
     else:
         return abort(500)
