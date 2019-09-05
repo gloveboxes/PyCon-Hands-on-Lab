@@ -210,6 +210,7 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 
 1. From VS Code: File -> Open Folder, navigate to **github/lab2-docker-debug**.
 2. Expand the App folder and open the app.py file.
+3. If you are prompted to select a Python Interpreter then select Python 3.7
 
 ## Creating an Azure IoT Central Application
 

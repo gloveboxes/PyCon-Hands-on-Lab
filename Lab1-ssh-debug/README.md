@@ -180,6 +180,7 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 1. From Visual Studio Code: File -> Open Folder
 2. Navigate to **github/Lab1-ssh-debug** directory
 3. Open the **app.py** file and review the contents
+4. If you are prompted to select a Python Interpreter then select Python 3.7
 4. Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
 
     - With the cursor on that line, press F9, or,

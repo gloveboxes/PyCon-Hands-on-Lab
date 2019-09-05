@@ -173,32 +173,35 @@ sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt && \
 sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt && \
 
 # Set up Very Secure FTP Daemon
-mkdir -p /home/pi/ftp
-sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.backup
-echo "listen_ipv6=YES" | sudo tee -a /etc/vsftpd.conf
-echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
-echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
-echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
+mkdir -p /home/pi/ftp && \
+sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.backup && \
+echo "listen_ipv6=YES" | sudo tee -a /etc/vsftpd.conf && \
+echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf && \
+echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf && \
+echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf && \
 
 # Download Lab software
-mkdir -p /home/pi/ftp/software
-cd /home/pi/ftp/software
-rm *
+mkdir -p /home/pi/ftp/software && \
+cd /home/pi/ftp/software && \
+rm * -f && \
 
-echo 'download ubuntu starting'
-wget  https://go.microsoft.com/fwlink/?LinkID=760865
-mv index.html?LinkID=760865 ubuntu-code-insiders-amd64.deb 
+echo 'download ubuntu starting' && \
+wget  https://go.microsoft.com/fwlink/?LinkID=760865 && \
+mv index.html?LinkID=760865 ubuntu-code-insiders-amd64.deb && \
 
-echo 'download windows starting'
-wget  https://aka.ms/win32-x64-user-insider
-mv win32-x64-user-insider windows-code-insiders-amd64.exe
+echo 'download windows starting' && \
+wget  https://aka.ms/win32-x64-user-insider && \
+mv win32-x64-user-insider windows-code-insiders-amd64.exe && \
 
-echo 'download macOS starting'
-wget  https://go.microsoft.com/fwlink/?LinkId=723966
-mv index.html?LinkId=723966 macOS-code-insiders-amd64.zip
+echo 'download macOS starting' && \
+wget  https://go.microsoft.com/fwlink/?LinkId=723966 && \
+mv index.html?LinkId=723966 macOS-code-insiders-amd64.zip && \
 
-echo 'download Powershell 64bit'
-wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.2/PowerShell-6.2.2-win-x64.msi
+echo 'download Powershell 64bit' && \
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.2/PowerShell-6.2.2-win-x64.msi && \
+
+echo 'clone PyCon Project' && \
+git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git && \
 
 
 sudo reboot
@@ -232,8 +235,6 @@ Install:
 ## Deploy Remote SSH Server  to all users
 
 ```bash
-sudo rm -r -f ~/github && \
-git clone --depth 1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/github && \
 # find .vscode-server-insiders -type f -name *.lock -exec rm {} \; && \
 
 for i in {01..25}
