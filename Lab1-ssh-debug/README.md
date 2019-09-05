@@ -29,7 +29,7 @@ This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor a
 
 1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=pycon-blog-dglover)
 
-    As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
+    As at September 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
 
 2. [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)
 
@@ -57,6 +57,19 @@ You will need the following information from the lab instructor.
 ![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
+
+## Windows 10 (1809+) Users
+
+1. Press **Windows Key + R**
+2. Copy and paste **explorer f<span>tp://pyalfa.local** into the **Run** dialog, and press **ENTER**
+3. Copy the **windows-pylab** directory to your desktop
+4. Open the **windows-pylab** folder you copied to your **desktop**
+5. Double click **win10-ssh.cmd**
+    You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
+
+## Linux and macOS Users
+
+
 
 ### SSH
 
@@ -136,38 +149,12 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 - [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
 - [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
 
-## Configure Visual Studio Code Remote SSH Development
+## Start Remote SSH Connection
 
 1. Start Visual Studio Code Insiders Edition
+2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
-2. Press F1 to open the Command Palette, type **ssh config** and select **Remote-SSH: Open Configuration**
-
-3. Select the user .ssh config file
-
-    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
-
-4. Set the SSH connection configuration as follows:
-
-    - **Host**: Set to **RaspberryPi**
-    - **HostName**: The Raspberry Pi **IP Address**
-    - **User**: Your **login name**
-    - **IdentityFile**: Set to **~/.ssh/id_rsa_python_lab**.
-    - Save these changes (Ctrl+S).
-    
-    You can copy this template as a quick start:
-    
-    ```
-    Host RaspberryPi
-    HostName XXX.XXX.XXx.XXX
-    User devXX
-    IdentityFile ~/.ssh/id_rsa_python_lab
-    ```
-
-    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
-
-5. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
-
-6. Select the host **RaspberryPi** configuration
+3. Select the **pylab-dev** configuration
 
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
 
@@ -193,22 +180,28 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 1. Navigate to **github/Lab1-ssh-debug** directory
 1. Open the **app.py** file and review the contents
 1. If you are prompted to select a Python Interpreter then select Python 3.7
-1. Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
 
-    - With the cursor on that line, press F9, or,
-    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
+### Set a breakpoint
 
-    ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
+Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
 
-1. Review the **debug** options.
-    1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
+- With the cursor on that line, press F9, or,
+- With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-        ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
+![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
-    1. Click the **Settings** button which will open the **launch.json** file.
-    1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
+### Review the **debug** options.
 
-        There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
+1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
+
+    ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
+
+1. Click the **Settings** button which will open the **launch.json** file.
+1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
+
+    There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
+
+### Start the Flask App
 
 1. Press F5 (or click the Run icon) to launch the **Python: Flask** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
 
