@@ -14,7 +14,6 @@ Raspberry Pi Buster Lite will not boot with the Raspberry Pi Sense HAT attached.
 
 ```bash
 sudo apt update && sudo apt install -y git && \
-curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && \
 sudo apt upgrade -y && sudo reboot
 ```
 
@@ -66,6 +65,12 @@ cd fanshim-python && \
 sudo ./install.sh && \
 cd examples && \
 sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
+```
+
+## Install Docker
+
+```bash
+curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
 ```
 
 ## Clone PyLab to the Raspberry Pi
