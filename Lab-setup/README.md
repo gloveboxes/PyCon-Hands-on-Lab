@@ -99,22 +99,22 @@ sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 ~/PyLab/Lab-setup/setup/2-create-users.sh
 ```
 
-## Deploy Remote SSH Server  to all users
-
-```bash
-~/PyLab/Lab-setup/setup/3-copy-remote-ssh.sh
-```
-
 ## Deploy Lab Content to all users
 
 ```bash
-~/PyLab/Lab-setup/setup/4-copy-lab.sh
+~/PyLab/Lab-setup/setup/3-copy-lab.sh
 ```
 
 ## Build Lab Docker Images
 
 ```bash
-~/PyLab/Lab-setup/setup/5-build-images.sh
+~/PyLab/Lab-setup/setup/4-build-images.sh
+```
+
+## Deploy Remote SSH Server  to all users
+
+```bash
+~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
 ```
 
 ## Clean Up Lab

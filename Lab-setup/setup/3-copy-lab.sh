@@ -7,7 +7,7 @@ for i in {01..25}
 do
     echo "Set up lab content for user dev$i"
     sudo rm -r -f /home/dev$i/PyLab
-    cp -r ~/github/Lab1-ssh-debug /home/dev$i/PyLab
-    cp -r ~/github/Lab2-docker-debug /home/dev$i/PyLab
+    sudo cp -r ~/github/Lab1-ssh-debug /home/dev$i/PyLab
+    sudo cp -r ~/github/Lab2-docker-debug /home/dev$i/PyLab
     sudo chown -R dev$i:dev$i /home/dev$i
 done
