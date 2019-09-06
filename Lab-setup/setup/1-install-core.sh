@@ -16,12 +16,13 @@ sudo sed -i "s/raspberrypi/$RPI_NAME/g" /etc/hostname
 sudo sed -i "s/raspberrypi/$RPI_NAME/g" /etc/hosts
 
 # Install required libraries
-sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5
+sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5 vsftpd
 export PIP_DEFAULT_TIMEOUT=200 
 sudo pip3 install --upgrade pip
-sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter autopep8 pylint azure-cosmosdb-table
+# sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter autopep8 pylint azure-cosmosdb-table
+sudo -H pip3 install requests flask autopep8 pylint
 
-curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
+# curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
 
 ## Allow all to have access to I2C
 # sudo groupadd i2c
