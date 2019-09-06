@@ -70,7 +70,7 @@ sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ## Install Docker
 
 ```bash
-curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
+curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && sudo reboot
 ```
 
 ## Clone PyLab to the Raspberry Pi
