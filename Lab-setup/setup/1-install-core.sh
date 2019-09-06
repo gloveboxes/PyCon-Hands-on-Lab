@@ -59,7 +59,7 @@ sudo sed -i 's/gpu_mem=64/gpu_mem=16/g' /boot/config.txt
 # Set up Very Secure FTP Daemon
 mkdir -p /home/pi/ftp
 sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.backup
-echo "listen_ipv6=YES" | sudo tee -a /etc/vsftpd.conf
+echo "listen_ipv6=YES" | sudo tee /etc/vsftpd.conf
 echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
 echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
 echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
