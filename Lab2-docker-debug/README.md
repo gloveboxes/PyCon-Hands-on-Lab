@@ -433,7 +433,7 @@ Tasks integrate external tools to automate build cycle.
             "command": "sh",
             "args": [
                 "-c",
-                "\"docker build -t $USER:latest . ;docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-list --name $USER --rm  $USER:latest; sleep 1 \""
+                "\"docker build -t $USER:latest . ;docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-file --name $USER --rm  $USER:latest; sleep 1 \""
                 // -d Run container in background and print container ID,
                 // -p maps the $LAB_PORT to port 3000 in the container, this port is used for debugging,
                 // -e Environment Variable. The IP Address of the telemetry service.
