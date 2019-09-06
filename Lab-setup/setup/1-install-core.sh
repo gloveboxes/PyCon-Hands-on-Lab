@@ -5,7 +5,7 @@ while true; do
     read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? (Yes/No/Quit)" yn
     case $yn in
         [Yy]* ) break;;
-        [Qq]* ) exit;;
+        [Qq]* ) exit 1;;
         [Nn]* ) continue;;
         * ) echo "Please answer yes(y), no(n), or quit(q).";;
     esac
