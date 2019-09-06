@@ -101,7 +101,11 @@ cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
 
 echo "Copy SSH Scripts"
 cp  ~/PyLab/ssh-scripts/win* ~/ftp/windows-pylab
+
 cp  ~/PyLab/ssh-scripts/macos* ~/ftp/macos-pylab
+sudo chmod +x ~/ftp/macos-pylab/*.sh
+
 cp  ~/PyLab/ssh-scripts/ubuntu* ~/ftp/ubuntu-pylab
+sudo chmod +x ~/ftp/ubuntu-pylab/*.sh
 
 sudo reboot
