@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Download Lab software
+rm -r -f ~/ftp/*
 mkdir -p /home/pi/ftp/linux-pylab
 mkdir -p /home/pi/ftp/macos-pylab
 mkdir -p /home/pi/ftp/windows-pylab
@@ -11,7 +12,7 @@ cd /home/pi/ftp/linux-pylab
 rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=760868
-mv index.html?LinkID=760865 code_1.38.0-1567547996_amd64.deb
+mv index.html?LinkID=760868 code_1.38.0-1567547996_amd64.deb
 
 wget  https://go.microsoft.com/fwlink/?LinkID=760867
 mv index.html?LinkID=760867 code-1.38.0-1567548134.el7.x86_64.rpm
