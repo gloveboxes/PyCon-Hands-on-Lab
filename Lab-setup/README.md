@@ -13,8 +13,7 @@ Raspberry Pi Buster Lite will not boot with the Raspberry Pi Sense HAT attached.
 ## Update Raspberry Pi
 
 ```bash
-sudo apt update && sudo apt install -y git && \
-sudo apt upgrade -y && sudo reboot
+sudo apt update && sudo apt upgrade -y && sudo reboot
 ```
 
 ## Booting from a USB 3 Flash or SSD Drive
@@ -67,9 +66,10 @@ cd examples && \
 sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ```
 
-## Install Docker
+## Install Prerequisites
 
 ```bash
+sudo apt install -y git && \
 curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && sudo reboot
 ```
 
