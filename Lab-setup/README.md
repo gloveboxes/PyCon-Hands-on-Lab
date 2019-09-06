@@ -66,7 +66,7 @@ cd examples && \
 sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ```
 
-## Install Required Prerequisites
+## Install Set UP Prerequisites
 
 ```bash
 sudo apt update && \
