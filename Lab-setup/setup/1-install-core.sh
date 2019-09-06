@@ -17,9 +17,9 @@ sudo sed -i "s/raspberrypi/$RPI_NAME/g" /etc/hosts
 
 # Install required libraries
 sudo apt install -y git python3-pip nmap bmon libatlas-base-dev libopenjp2-7 libtiff5
+export PIP_DEFAULT_TIMEOUT=200 
 sudo pip3 install --upgrade pip
-sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter && \
-    autopep8 pylint azure-cosmosdb-table
+sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter autopep8 pylint azure-cosmosdb-table
 
 # Install Docker
 # Links valid as of August 2019
@@ -100,12 +100,16 @@ cp -r ~/PyLab/Lab1-ssh-debug ~/ftp/PyLab
 cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
 
 echo "Copy SSH Scripts"
-cp  ~/PyLab/ssh-scripts/win* ~/ftp/windows-pylab
+cp  ~/PyLab/Lab-setup/ssh-scripts/win* ~/ftp/windows-pylab
 
-cp  ~/PyLab/ssh-scripts/macos* ~/ftp/macos-pylab
+cp  ~/PyLab/Lab-setup/ssh-scripts/macos* ~/ftp/macos-pylab
 sudo chmod +x ~/ftp/macos-pylab/*.sh
 
-cp  ~/PyLab/ssh-scripts/ubuntu* ~/ftp/ubuntu-pylab
+cp  ~/PyLab/Lab-setup/ssh-scripts/ubuntu* ~/ftp/ubuntu-pylab
 sudo chmod +x ~/ftp/ubuntu-pylab/*.sh
+
+echo '++++++++++++++++++++++++++++++++++++'
+echo "login as ssh pi@$RPI_NAME.local"
+echo '++++++++++++++++++++++++++++++++++++'
 
 sudo reboot
