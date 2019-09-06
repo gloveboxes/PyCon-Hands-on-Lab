@@ -82,9 +82,9 @@ Install:
 ## Clone PyLab to the Raspberry Pi
 
 ```bash
+sudo rm -r -f ~/PyLab && \
 git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
-passwd
+sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 ```
 
 ## Install Core Libraries
