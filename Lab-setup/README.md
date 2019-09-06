@@ -83,38 +83,38 @@ Install:
 
 ```bash
 git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/setup/*.sh && \
+sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
 passwd
 ```
 
 ## Install Core Libraries
 
 ```bash
-~/PyLab/setup/1-install-core.sh
+~/PyLab/Lab-setup/setup/1-install-core.sh
 ```
 
 ## Create Users
 
 ```bash
-~/PyLab/setup/2-create-users.sh
+~/PyLab/Lab-setup/setup/2-create-users.sh
 ```
 
 ## Deploy Remote SSH Server  to all users
 
 ```bash
-~/PyLab/setup/3-copy-remote-ssh.sh
+~/PyLab/Lab-setup/setup/3-copy-remote-ssh.sh
 ```
 
 ## Deploy Lab Content to all users
 
 ```bash
-~/PyLab/setup/4-copy-lab.sh
+~/PyLab/Lab-setup/setup/4-copy-lab.sh
 ```
 
 ## Build Lab Docker Images
 
 ```bash
-~/PyLab/setup/5-build-images.sh
+~/PyLab/Lab-setup/setup/5-build-images.sh
 ```
 
 ## Clean Up Lab
@@ -122,7 +122,7 @@ passwd
 Delete all devNN users and remove files and reset nopasswd
 
 ```bash
-~/PyLab/setup/6-cleanup-lab.sh
+~/PyLab/Lab-setup/setup/6-cleanup-lab.sh
 ```
 
 ## Useful Commands
