@@ -87,37 +87,47 @@ git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
 sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 ```
 
-## Install Core Libraries
+## End to End Set Up
+
+Running this script will set up all the complete PyLab. Alternatively, you can run each component separately.
+
+```bash
+~/PyLab/Lab-setup/setup/0-setup.sh
+```
+
+## Install PyLab Components
+
+### Install Core Libraries
 
 ```bash
 ~/PyLab/Lab-setup/setup/1-install-core.sh
 ```
 
-## Create Users
+### Create Users
 
 ```bash
 ~/PyLab/Lab-setup/setup/2-create-users.sh
 ```
 
-## Deploy Lab Content to all users
+### Deploy Lab Content to all users
 
 ```bash
 ~/PyLab/Lab-setup/setup/3-copy-lab.sh
 ```
 
-## Build Lab Docker Images
+### Build Lab Docker Images
 
 ```bash
 ~/PyLab/Lab-setup/setup/4-build-images.sh
 ```
 
-## Deploy Remote SSH Server  to all users
+### Deploy Remote SSH Server  to all users
 
 ```bash
 ~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
 ```
 
-## Clean Up Lab
+### Clean Up Lab
 
 Delete all devNN users and remove files and reset nopasswd
 

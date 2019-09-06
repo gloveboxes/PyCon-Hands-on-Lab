@@ -112,4 +112,4 @@ echo '++++++++++++++++++++++++++++++++++++'
 echo "login as ssh pi@$RPI_NAME.local"
 echo '++++++++++++++++++++++++++++++++++++'
 
-sudo reboot
+# sudo reboot

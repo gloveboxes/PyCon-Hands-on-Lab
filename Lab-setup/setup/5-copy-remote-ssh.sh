@@ -9,5 +9,3 @@ do
     sudo cp -r /home/pi/.vscode-server-insiders /home/dev$i/.vscode-server-insiders
     sudo chown -R dev$i:dev$i /home/dev$i
 done
-
-sudo reboot
