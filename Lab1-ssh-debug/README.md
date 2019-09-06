@@ -59,7 +59,7 @@ You will need the following information from the lab instructor.
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
 
-## Windows 10 (1809+) Users
+### SSH for Windows 10 (1809+) Users
 
 1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
 
@@ -71,11 +71,7 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
-## Linux and macOS Users
-
-
-
-### SSH
+### SSH for Linux and macOS Users
 
 From a Linux or macOS **Terminal Console** or from **git bash** in windows run the following commands:
 
@@ -178,10 +174,10 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ## Open the Lab 1 SSH Debug Project
 
-From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/Lab1-ssh-debug** folder.
+From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **PyLab/Lab1-ssh-debug** folder.
 
 1. From Visual Studio Code: File -> Open Folder
-1. Navigate to **github/Lab1-ssh-debug** directory
+1. Navigate to **PyLab/Lab1-ssh-debug** directory
 1. Open the **app.py** file and review the contents
 1. If you are prompted to select a Python Interpreter then select Python 3.7
 

@@ -206,9 +206,9 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ## Open the Lab2 Docker Debug Project
 
-From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **github/lab2-docker-debug** folder.
+From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **PyLab/lab2-docker-debug** folder.
 
-1. From VS Code: File -> Open Folder, navigate to **github/lab2-docker-debug**.
+1. From VS Code: File -> Open Folder, navigate to **PyLab/lab2-docker-debug**.
 2. Expand the App folder and open the app.py file.
 3. If you are prompted to select a Python Interpreter then select Python 3.7
 

@@ -11,4 +11,4 @@ fi
 ~/PyLab/Lab-setup/setup/4-build-images.sh
 # ~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
 
-sudo reboot
+# sudo reboot
