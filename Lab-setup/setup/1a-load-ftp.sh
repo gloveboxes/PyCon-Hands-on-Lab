@@ -26,7 +26,6 @@ rm * -f
 
 wget  https://aka.ms/win32-x64-user-stable
 mv win32-x64-user-stable VSCodeUserSetup-x64-1.38.0.exe
-wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.2/PowerShell-6.2.2-win-x64.msi
 
 echo 'downloading Visual Studio Code for macOS starting'
 cd /home/pi/ftp/macos-pylab

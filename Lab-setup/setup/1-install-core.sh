@@ -40,8 +40,8 @@ sudo sed -i 's/#hdmi_mode=1/hdmi_mode=4/g' /boot/config.txt
 # Enable I2C
 sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/g' /boot/config.txt
 
-# Set GPU Memory from defaul of 64 to 16
-sudo sed -i 's/gpu_mem=64/gpu_mem=16/g' /boot/config.txt
+# Set GPU Memory from default of 64 to 16
+echo "gpu_mem=16" | sudo tee -a /boot/config.txt
 
 # Set up Very Secure FTP Daemon
 mkdir -p /home/pi/ftp
