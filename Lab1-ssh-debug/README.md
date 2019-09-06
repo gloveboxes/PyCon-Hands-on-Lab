@@ -67,7 +67,8 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
 2. Copy the **windows-pylab** directory to your desktop
 3. Open the **windows-pylab** folder you copied to your **desktop**
-4. Double click **win10-ssh.cmd**
+4. Double click **windows10-ssh.cmd**
+
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
 ## Linux and macOS Users
