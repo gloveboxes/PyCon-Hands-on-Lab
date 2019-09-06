@@ -13,7 +13,7 @@ Raspberry Pi Buster Lite will not boot with the Raspberry Pi Sense HAT attached.
 ## Update Raspberry Pi
 
 ```bash
-sudo apt update && sudo apt upgrade -y && sudo reboot
+sudo apt update && sudo apt install -y git && sudo apt upgrade -y && sudo reboot
 ```
 
 ## Booting from a USB 3 Flash or SSD Drive
