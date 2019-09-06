@@ -21,20 +21,7 @@ export PIP_DEFAULT_TIMEOUT=200
 sudo pip3 install --upgrade pip
 sudo -H pip3 install numpy pillow requests pandas matplotlib flask jupyter autopep8 pylint azure-cosmosdb-table
 
-# Install Docker
-# Links valid as of August 2019
-# https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf
-
 curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
-
-# wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/containerd.io_1.2.6-3_armhf.deb
-# wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce-cli_19.03.2~3-0~debian-buster_armhf.deb
-# wget https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce_19.03.2~3-0~debian-buster_armhf.deb
-
-# sudo dpkg -i containerd.io*
-# sudo dpkg -i docker-ce-cli*
-# sudo dpkg -i docker-ce_*
-# sudo usermod -aG docker $USER
 
 ## Allow all to have access to I2C
 # sudo groupadd i2c
@@ -63,50 +50,6 @@ echo "listen_ipv6=YES" | sudo tee /etc/vsftpd.conf
 echo "anonymous_enable=YES" | sudo tee -a /etc/vsftpd.conf
 echo "anon_root=/home/pi/ftp" | sudo tee -a /etc/vsftpd.conf
 echo "local_umask=022" | sudo tee -a /etc/vsftpd.conf
-
-# Download Lab software
-mkdir -p /home/pi/ftp/ubuntu-pylab
-mkdir -p /home/pi/ftp/macos-pylab
-mkdir -p /home/pi/ftp/windows-pylab
-mkdir -p /home/pi/ftp/PyLab
-
-echo 'downloading Visual Studio Code Insiders for Ubuntu starting'
-cd /home/pi/ftp/ubuntu-pylab
-rm * -f
-
-wget  https://go.microsoft.com/fwlink/?LinkID=760865
-mv index.html?LinkID=760865 ubuntu-code-insiders-amd64.deb
-
-echo 'downloading Visual Studio Code Insiders for Windows starting'
-cd /home/pi/ftp/windows-pylab
-rm * -f
-
-wget  https://aka.ms/win32-x64-user-insider
-mv win32-x64-user-insider windows-code-insiders-amd64.exe
-wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.2/PowerShell-6.2.2-win-x64.msi
-
-echo 'downloading Visual Studio Code Insiders for macOS starting'
-cd /home/pi/ftp/macos-pylab
-rm * -f
-
-wget  https://go.microsoft.com/fwlink/?LinkId=723966
-mv index.html?LinkId=723966 macOS-code-insiders-amd64.zip
-
-echo 'Clone of PyLab starting'
-cd /home/pi/ftp
-
-echo 'Copy Lab projects to FTP Folder'
-cp -r ~/PyLab/Lab1-ssh-debug ~/ftp/PyLab
-cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
-
-echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/ssh-scripts/win* ~/ftp/windows-pylab
-
-cp  ~/PyLab/Lab-setup/ssh-scripts/macos* ~/ftp/macos-pylab
-sudo chmod +x ~/ftp/macos-pylab/*.sh
-
-cp  ~/PyLab/Lab-setup/ssh-scripts/ubuntu* ~/ftp/ubuntu-pylab
-sudo chmod +x ~/ftp/ubuntu-pylab/*.sh
 
 echo '++++++++++++++++++++++++++++++++++++'
 echo "login as ssh pi@$RPI_NAME.local"
