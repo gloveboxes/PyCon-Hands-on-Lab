@@ -71,7 +71,7 @@ sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 Login to the Raspberry Pi and run the following commands.
 
 ```bash
-sudo rm -r -f ~/PyLab && \
+rm -r -f ~/PyLab && \
 git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
 sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 ```
@@ -90,16 +90,16 @@ It is critical that Lab attendees install the same version of VS Code (from the 
 
 From your desktop:
 
-1. From your internet browser, link to **ftp://\<raspberry pi name>.local**, download and install Visual Studio Code Insiders.
+1. From your internet browser, link to **ftp://\<raspberry pi name>.local**, download and install Visual Studio Code.
 
 2. Install Remote SSH and Python Extensions
 
     ```bash
-    code-insiders --install-extension ms-vscode-remote.remote-ssh
-    code-insiders --install-extension ms-python.python
+    code --install-extension ms-vscode-remote.remote-ssh
+    code --install-extension ms-python.python
     ```
 
-3. Start Visual Studio Code Insiders
+3. Start Visual Studio Code
 4. Start Remote SSH to the Raspberry Pi. This will install the Remote SSH Components on the Raspberry Pi. Add an SSH config:
 
     ```

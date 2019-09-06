@@ -48,5 +48,5 @@ cp  ~/PyLab/Lab-setup/ssh-scripts/win* ~/ftp/windows-pylab
 cp  ~/PyLab/Lab-setup/ssh-scripts/macos* ~/ftp/macos-pylab
 sudo chmod +x ~/ftp/macos-pylab/*.sh
 
-cp  ~/PyLab/Lab-setup/ssh-scripts/ubuntu* ~/ftp/ubuntu-pylab
-sudo chmod +x ~/ftp/ubuntu-pylab/*.sh
+cp  ~/PyLab/Lab-setup/ssh-scripts/linux* ~/ftp/linux-pylab
+sudo chmod +x ~/ftp/linux-pylab/*.sh
