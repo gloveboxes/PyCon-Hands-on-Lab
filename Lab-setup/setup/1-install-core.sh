@@ -2,7 +2,7 @@
 
 while true; do
     read -p "Name your Raspberry Pi: " RPI_NAME
-    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? (Yes/No/Quit)" yn
+    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? ([Y]es/[N]o/[Q]uit)" yn
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;

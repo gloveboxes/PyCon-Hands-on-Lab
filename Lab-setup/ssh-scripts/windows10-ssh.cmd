@@ -7,12 +7,12 @@ set PYLAB_LOGIN=%c%
 
 echo(
 
-set /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%' Correct? (Y/N): "
+set /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%' Correct? ([Y]es/[N]o): "
 if /I "%c%" EQU "Y" goto :checklogin
 goto :exit
 
 :checklogin
-set /P c="Login Name entered was '%PYLAB_LOGIN%' Correct? (Y/N): "
+set /P c="Login Name entered was '%PYLAB_LOGIN%' Correct? ([Y]es/[N]o): "
 if /I "%c%" EQU "Y" goto :updateconfig
 goto :exit
 
