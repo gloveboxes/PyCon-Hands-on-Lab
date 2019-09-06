@@ -1,8 +1,8 @@
 #!/bin/bash
 
 while true; do
-    read -p "Raspberry Pi Name?" RPI_NAME
-    read -p "You wish to set the Raspberry Pi Network Name to $RPI_NAME. Correct (Y/N/Q)" yn
+    read -p "Name your Raspberry Pi: " RPI_NAME
+    read -p "You wish to name your Raspberry Pi '$RPI_NAME'. Correct? (Yes/No/Quit)" yn
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit;;
