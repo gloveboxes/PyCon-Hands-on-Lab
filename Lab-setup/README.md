@@ -66,19 +66,6 @@ cd examples && \
 sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ```
 
-## Set up Visual Studio Code Remote Server
-
-Install the version of Visual Studio Code Insiders from the FTP Server on this Raspberry Pi that matches your operating system.
-
-It's super important to do this and to get users to install the same version of VS Code (from the FTP Server) on their developer machines. If the VS Code client and server versions do not match this will kick off about a 200MB download on the Raspberry Pi to download the matching server code. Multiply that by a lot of users and it very quickly mounts up.
-
-Install:
-
-1. Install Remote SSH
-2. From VS Code, remote SSH to the Raspberry Pi as user pi. This will deploy VS Code Remote Services
-3. Install Python Extension on Raspberry Pi
-4. Reboot the Pi to make sure all files and locks closed
-
 ## Clone PyLab to the Raspberry Pi
 
 ```bash
@@ -95,7 +82,49 @@ Running this script will set up all the complete PyLab. Alternatively, you can r
 ~/PyLab/Lab-setup/setup/0-setup.sh
 ```
 
-## Install PyLab Components
+## Install Visual Studio Code Remote Server
+
+1. Install the version of Visual Studio Code Insiders from the FTP Server on this Raspberry Pi that matches your operating system.
+
+2. It is critical that Lab attendees install the same version of VS Code (from the FTP Server) so it matches the VS Code Server Components installed on the Raspberry Pi.
+
+    If the VS Code client and server versions do not match then approx **200MB per user** will start downloading onto the Raspberry Pi. This will result in a lot of download traffic and delays.
+
+Install:
+
+1. Install Remote SSH and Python Extensions
+
+```bash
+
+code-insiders --install-extension ms-vscode-remote.remote-ssh
+code-insiders --install-extension ms-python.python
+```
+
+2. Start Visual Studio Code Insiders
+3. Start Remote SSH to the Raspberry Pi. Add an SSH config:
+
+    ```
+    Host raspberrypi
+        HostName <Raspberry Pi Name>.local
+        User pi
+    ```
+   
+4. This will install the Remote SSH Components on the Raspberry Pi
+5. Enabled the Python Extension on SSH
+6. Close Remote SSH Connection to the Raspberry Pi
+7. **Reboot the Raspberry Pi to make sure all files and locks closed**
+
+## Deploy Remote SSH Server  to all users
+
+Login to the Raspberry Pi and running the following command.
+
+```bash
+~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
+```
+
+## Installation PyLab Components
+
+You can also run each component manually.
 
 ### Install Core Libraries
 
@@ -121,11 +150,7 @@ Running this script will set up all the complete PyLab. Alternatively, you can r
 ~/PyLab/Lab-setup/setup/4-build-images.sh
 ```
 
-### Deploy Remote SSH Server  to all users
 
-```bash
-~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
-```
 
 ### Clean Up Lab
 
