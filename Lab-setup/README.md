@@ -120,7 +120,7 @@ Login to the Raspberry Pi and running the following command.
 ~/PyLab/Lab-setup/setup/5-copy-remote-ssh.sh
 ```
 
-## Installation PyLab Components
+## Installing PyLab Components Manually
 
 You can also run each component manually.
 
@@ -147,8 +147,6 @@ You can also run each component manually.
 ```bash
 ~/PyLab/Lab-setup/setup/4-build-images.sh
 ```
-
-
 
 ### Clean Up Lab
 
