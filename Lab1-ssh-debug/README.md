@@ -60,11 +60,13 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
 ## Windows 10 (1809+) Users
 
-1. Press **Windows Key + R**
-2. Copy and paste **explorer f<span>tp://pyalfa.local** into the **Run** dialog, and press **ENTER**
-3. Copy the **windows-pylab** directory to your desktop
-4. Open the **windows-pylab** folder you copied to your **desktop**
-5. Double click **win10-ssh.cmd**
+1. Copy (ctrl+c) **explorer f<span>tp://rpialfa.local** to the clipboard
+2. Press **Windows Key + R**, then **Ctrl+v** to paste, then press **ENTER**
+   ![windows run](resources/windows-run.png)
+3. This will open the PyLab directory Windows Explorer
+4. Copy the **windows-pylab** directory to your desktop
+5. Open the **windows-pylab** folder you copied to your **desktop**
+6. Double click **win10-ssh.cmd**
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
 ## Linux and macOS Users
