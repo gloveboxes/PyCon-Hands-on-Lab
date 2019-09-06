@@ -3,11 +3,11 @@
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
-|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Tools| [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=pycon-blog-dglover)|
 |Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) model required for 20 Users. Raspberry Pi [Sense HAT](https://www.raspberrypi.org/products/sense-hat/), Optional: Raspberry Pi [case](https://shop.pimoroni.com/products/pibow-coupe-4?variant=29210100138067), [active cooling fan](https://shop.pimoroni.com/products/fan-shim)
 |**USB3 SSD Drive**| To support up to 20 users per Raspberry Pi you need a **fast** USB3 SSD Drive to run Raspbian Buster Linux on. A 120 USB3 SSD drive will be more than sufficient. These are readily available from online stores.
 |Language| Python|
-|Date|As of August, 2019|
+|Date|As of September, 2019|
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
@@ -25,21 +25,22 @@ In this hands-on lab, you will learn how to create and debug a Python web applic
 
 ![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/setup.jpg)
 
-This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
+This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on [GitHub](https://github.com/microsoft/vscode). It runs on Linux, macOS, and Windows.
 
-1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=pycon-blog-dglover)
+1. Install [Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=pycon-blog-dglover)
+2. Install [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)
+3. Install [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)
 
-    As at September 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
+<!-- Install Visual Studio Code Extensions:
 
-2. [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)
+```bash
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-python.python
+``` -->
 
-For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
+## Remote SSH Development
 
-## Remote Development using SSH
-
-The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of Visual Studio Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
-
-No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
+The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of Visual Studio Code.
 
 ![Architecture Diagram](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/architecture-ssh.png)
 
@@ -56,17 +57,17 @@ You will need the following information from the lab instructor.
 
 ![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
 
-Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
+Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
 
 ## Windows 10 (1809+) Users
 
-1. Copy (ctrl+c) **explorer f<span>tp://rpialfa.local** to the clipboard
-2. Press **Windows Key + R**, then **Ctrl+v** to paste, then press **ENTER**
-   ![windows run](resources/windows-run.png)
-3. This will open the PyLab directory Windows Explorer
-4. Copy the **windows-pylab** directory to your desktop
-5. Open the **windows-pylab** folder you copied to your **desktop**
-6. Double click **win10-ssh.cmd**
+1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
+
+    ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
+
+2. Copy the **windows-pylab** directory to your desktop
+3. Open the **windows-pylab** folder you copied to your **desktop**
+4. Double click **win10-ssh.cmd**
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
 ## Linux and macOS Users
@@ -153,7 +154,7 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 
 ## Start Remote SSH Connection
 
-1. Start Visual Studio Code Insiders Edition
+1. Start Visual Studio Code
 2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
 3. Select the **pylab-dev** configuration
