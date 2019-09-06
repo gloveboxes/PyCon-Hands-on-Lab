@@ -68,6 +68,8 @@ sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 
 ## Clone PyLab to the Raspberry Pi
 
+Login to the Raspberry Pi and run the following commands.
+
 ```bash
 sudo rm -r -f ~/PyLab && \
 git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
@@ -76,45 +78,41 @@ sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 
 ## End to End Set Up
 
-Running this script will set up all the complete PyLab. Alternatively, you can run each component separately.
+Running this script will set up the PyLab lab **except** for the Remote SSH Components that must be installed separately (see next step).
 
 ```bash
 ~/PyLab/Lab-setup/setup/0-setup.sh
 ```
 
-## Install Visual Studio Code Remote Server
+## Install Remote SSH on the Raspberry Pi
 
-1. Install the version of Visual Studio Code Insiders from the FTP Server on this Raspberry Pi that matches your operating system.
+It is critical that Lab attendees install the same version of VS Code (from the FTP Server) so it matches the VS Code Server Components installed on the Raspberry Pi. Otherwise 200MB per User will be downloaded when they start a Remote SSH Session.
 
-2. It is critical that Lab attendees install the same version of VS Code (from the FTP Server) so it matches the VS Code Server Components installed on the Raspberry Pi.
+From your desktop:
 
-    If the VS Code client and server versions do not match then approx **200MB per user** will start downloading onto the Raspberry Pi. This will result in a lot of download traffic and delays.
+1. From your internet browser, link to **ftp://\<raspberry pi name>.local**, download and install Visual Studio Code Insiders.
 
-Install:
+2. Install Remote SSH and Python Extensions
 
-1. Install Remote SSH and Python Extensions
+    ```bash
+    code-insiders --install-extension ms-vscode-remote.remote-ssh
+    code-insiders --install-extension ms-python.python
+    ```
 
-```bash
-
-code-insiders --install-extension ms-vscode-remote.remote-ssh
-code-insiders --install-extension ms-python.python
-```
-
-2. Start Visual Studio Code Insiders
-3. Start Remote SSH to the Raspberry Pi. Add an SSH config:
+3. Start Visual Studio Code Insiders
+4. Start Remote SSH to the Raspberry Pi. This will install the Remote SSH Components on the Raspberry Pi. Add an SSH config:
 
     ```
     Host raspberrypi
         HostName <Raspberry Pi Name>.local
         User pi
     ```
-   
-4. This will install the Remote SSH Components on the Raspberry Pi
+
 5. Enabled the Python Extension on SSH
 6. Close Remote SSH Connection to the Raspberry Pi
 7. **Reboot the Raspberry Pi to make sure all files and locks closed**
 
-## Deploy Remote SSH Server  to all users
+### Deploy Remote SSH Server  to all users
 
 Login to the Raspberry Pi and running the following command.
 
