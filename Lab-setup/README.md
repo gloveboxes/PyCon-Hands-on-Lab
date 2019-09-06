@@ -10,11 +10,11 @@
 
 Raspberry Pi Buster Lite will not boot with the Raspberry Pi Sense HAT attached. Attach the Raspberry Pi Sense HAT after running the set up scripts.
 
-## Update Raspberry Pi
+<!-- ## Update Raspberry Pi
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo reboot
-```
+``` -->
 
 ## Booting from a USB 3 Flash or SSD Drive
 
@@ -69,8 +69,12 @@ sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 ## Install Required Prerequisites
 
 ```bash
+sudo apt update && \
+curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && \
 sudo apt install -y git && \
-curl -sSL get.docker.com | sh && sudo usermod pi -aG docker && sudo reboot
+sudo apt update && \
+sudo apt upgrade -y && \
+sudo reboot
 ```
 
 ## Clone PyLab to the Raspberry Pi
