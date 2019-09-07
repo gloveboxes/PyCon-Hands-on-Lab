@@ -12,19 +12,32 @@ IF ERRORLEVEL 1 (
 
   REM https://www.tenforums.com/tutorials/23975-find-windows-10-build-number.html
 
-  IF %version% GEQ 10 IF %build% GTR 17763 (
+  IF %version% GEQ 10 IF %build% GEQ 17763 (
 
     echo Install SSH Client
     echo https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
 
+    echo(
+    echo ===========================================================
+    echo ERROR: NO SSH SUPPORT FOUND
+    echo Version of Windows 10 1803 or better installed
+    echo Install OpenSSH Client https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
+    echo ===========================================================
+    echo(
+
+
   ) ELSE (
 
     where git /Q
 
     IF ERRORLEVEL 1 (
-
-      echo Version of Windows 10 installed is older than 1803.
+      echo(
+      echo ===========================================================
+      echo ERROR: NO SSH SUPPORT FOUND
+      echo Version of Windows installed is older than Windows 10 1803.
       echo Install Git Client from https://git-scm.com/download/win
+      echo ===========================================================
+      echo(
 
     ) ELSE (
 
@@ -33,25 +46,9 @@ IF ERRORLEVEL 1 (
 
     )
 
-  ) ELSE (
-    
-    where git /Q
-
-    IF ERRORLEVEL 1 (
-
-      echo Older version of Windows installed.
-      echo Install Git Client from https://git-scm.com/download/win
-
-    ) ELSE (
-
-      echo using installed git
-      SET usegit="true"
-      GOTO :start
-
-    )
   )
 
-  goto :end
+  goto :exit
 
 )
 
@@ -102,7 +99,7 @@ echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 echo(
 
 REM Next command does not work inside a conditional block
-FOR /F "tokens=* USEBACKQ" %%F IN (`where git`) DO ( SET gitpath=%%F )
+FOR /F "tokens=* USEBACKQ" %%F IN (where git) DO ( SET gitpath=%%F )
 
 if %usegit% == "true" (
 
