@@ -59,7 +59,7 @@ You will need the following information from the lab instructor.
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
 
-### SSH for Windows 10 (1809+) Users
+### SSH for Windows Users
 
 1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
 
@@ -67,7 +67,7 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
 2. Copy the **windows-pylab** directory to your desktop
 3. Open the **windows-pylab** folder you copied to your **desktop**
-4. Double click **windows10-ssh.cmd**
+4. Double click **windows-ssh.cmd**
 
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
