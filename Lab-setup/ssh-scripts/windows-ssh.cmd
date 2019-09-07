@@ -12,12 +12,12 @@ IF ERRORLEVEL 1 (
 
   REM https://www.tenforums.com/tutorials/23975-find-windows-10-build-number.html
 
-  IF %version% GEQ 10 IF %build% GEQ 17763 (
+  IF %version% GEQ 10 IF %build% GEQ 17134 (
 
     echo(
     echo ===========================================================
     echo ERROR: NO SSH SUPPORT FOUND
-    echo Version of Windows 10 1809 or better installed
+    echo Version of Windows 10 1803 or better is installed
     echo Install OpenSSH Client https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
     echo ===========================================================
     echo(
