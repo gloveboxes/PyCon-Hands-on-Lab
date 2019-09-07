@@ -134,4 +134,8 @@ if %usegit% == "true" (
 
 :exit
 
+echo(
+echo Finished
+echo(
+
 pause
