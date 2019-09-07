@@ -20,7 +20,7 @@ IF ERRORLEVEL 1 (
     echo(
     echo ===========================================================
     echo ERROR: NO SSH SUPPORT FOUND
-    echo Version of Windows 10 1803 or better installed
+    echo Version of Windows 10 1809 or better installed
     echo Install OpenSSH Client https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
     echo ===========================================================
     echo(
