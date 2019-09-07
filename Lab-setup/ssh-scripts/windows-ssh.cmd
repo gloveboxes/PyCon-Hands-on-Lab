@@ -14,9 +14,6 @@ IF ERRORLEVEL 1 (
 
   IF %version% GEQ 10 IF %build% GEQ 17763 (
 
-    echo Install SSH Client
-    echo https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
-
     echo(
     echo ===========================================================
     echo ERROR: NO SSH SUPPORT FOUND
