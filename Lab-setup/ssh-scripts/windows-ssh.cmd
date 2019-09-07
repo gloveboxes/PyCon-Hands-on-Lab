@@ -133,3 +133,5 @@ if %usegit% == "true" (
 )
 
 :exit
+
+pause
