@@ -131,6 +131,8 @@ echo(
 
 if %usegit% == "true" (
 
+  "%gitpath:~0,-13%\git-bash.exe" -c "ssh %REMOTEHOST% 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo %PYLAB_KEY% >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys'"
+
 ) ELSE (
 
   ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '%PYLAB_KEY%' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" 
