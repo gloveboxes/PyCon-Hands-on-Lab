@@ -102,7 +102,7 @@ echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 echo(
 
 REM Next command does not work inside a conditional block
-FOR /F "tokens=* USEBACKQ" %%F IN (where git) DO ( SET gitpath=%%F )
+FOR /F "tokens=* USEBACKQ" %%F IN (`where git`) DO ( SET gitpath=%%F )
 
 if %usegit% == "true" (
 
