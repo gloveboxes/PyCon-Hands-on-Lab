@@ -1,10 +1,10 @@
 @ECHO OFF
 
-SETlocal
+setlocal
 
-FOR /f "tokens=4-8 delims=[.] " %%i IN ('ver') DO @(if %%i==Version (SET version=%%j.%%k& SET build=%%l) else (SET version=%%i.%%j& SET build=%%k))
+for /f "tokens=4-8 delims=[.] " %%i in ('ver') do @(if %%i==Version (set version=%%j.%%k& set build=%%l) else (set version=%%i.%%j& set build=%%k))
 
-SET usegit="false"
+set usegit="false"
 
 WHERE ssh-keygen /Q
 
@@ -14,8 +14,8 @@ IF ERRORLEVEL 1 (
 
   IF %version% GEQ 10 IF %build% GTR 17763 (
 
-    ECHO Install SSH Client
-    ECHO https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
+    echo Install SSH Client
+    echo https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
 
   ) ELSE (
 
@@ -23,8 +23,8 @@ IF ERRORLEVEL 1 (
 
     IF ERRORLEVEL 1 (
 
-      ECHO Version of Windows 10 installed is older than 1803.
-      ECHO Install Git Client from https://git-scm.com/download/win
+      echo Version of Windows 10 installed is older than 1803.
+      echo Install Git Client from https://git-scm.com/download/win
 
     ) ELSE (
 
@@ -39,37 +39,37 @@ IF ERRORLEVEL 1 (
 
     IF ERRORLEVEL 1 (
 
-      ECHO Older version of Windows installed.
-      ECHO Install Git Client from https://git-scm.com/download/win
+      echo Older version of Windows installed.
+      echo Install Git Client from https://git-scm.com/download/win
 
     ) ELSE (
 
-      ECHO using installed git
+      echo using installed git
       SET usegit="true"
       GOTO :start
 
     )
   )
 
-  goto :exit
+  goto :end
 
 )
 
 :start
 
-SET /P c="Enter Raspberry Pi Network IP Address: "
-SET PYLAB_IPADDRESS=%c%
-SET /P c="Enter your login name: "
-SET PYLAB_LOGIN=%c%
+set /P c="Enter Raspberry Pi Network IP Address: "
+set PYLAB_IPADDRESS=%c%
+set /P c="Enter your login name: "
+set PYLAB_LOGIN=%c%
 
-ECHO(
+echo(
 
-SET /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%' Correct? ([Y]es/[N]o): "
+set /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%' Correct? ([Y]es/[N]o): "
 if /I "%c%" EQU "Y" goto :checklogin
 goto :exit
 
 :checklogin
-SET /P c="Login Name entered was '%PYLAB_LOGIN%' Correct? ([Y]es/[N]o): "
+set /P c="Login Name entered was '%PYLAB_LOGIN%' Correct? ([Y]es/[N]o): "
 if /I "%c%" EQU "Y" goto :updateconfig
 goto :exit
 
@@ -77,35 +77,34 @@ goto :exit
 
 IF NOT EXIST %USERPROFILE%\.ssh\NUL mkdir %USERPROFILE%\.ssh
 
-SET PYLAB_SSHCONFIG=%USERPROFILE%\.ssh\config
-SET PYLAB_TIME=time /T
+set PYLAB_SSHCONFIG=%USERPROFILE%\.ssh\config
+set PYLAB_TIME=time /T
 
-ECHO(
-ECHO +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO Updating SSH Config file %USERPROFILE%\.ssh\config
-ECHO +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO(
+echo(
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo Updating SSH Config file %USERPROFILE%\.ssh\config
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo(
 
-ECHO( >> %PYLAB_SSHCONFIG%
-ECHO #Begin-PyLab %DATE% >> %PYLAB_SSHCONFIG%
-ECHO Host pylab-%PYLAB_LOGIN% >> %PYLAB_SSHCONFIG%
-ECHO     HostName %PYLAB_IPADDRESS% >> %PYLAB_SSHCONFIG%
-ECHO     User %PYLAB_LOGIN% >> %PYLAB_SSHCONFIG%
-ECHO     IdentityFile ~/.ssh/id_rsa_python_lab >> %PYLAB_SSHCONFIG%
-ECHO #End-PyLab >> %PYLAB_SSHCONFIG%
-ECHO( >> %PYLAB_SSHCONFIG%
+echo( >> %PYLAB_SSHCONFIG%
+echo #Begin-PyLab %DATE% >> %PYLAB_SSHCONFIG%
+echo Host pylab-%PYLAB_LOGIN% >> %PYLAB_SSHCONFIG%
+echo     HostName %PYLAB_IPADDRESS% >> %PYLAB_SSHCONFIG%
+echo     User %PYLAB_LOGIN% >> %PYLAB_SSHCONFIG%
+echo     IdentityFile ~/.ssh/id_rsa_python_lab >> %PYLAB_SSHCONFIG%
+echo #End-PyLab >> %PYLAB_SSHCONFIG%
+echo( >> %PYLAB_SSHCONFIG%
 
-ECHO(
-ECHO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO Generating SSH Key file %USERPROFILE%\.ssh\id_rsa_python_lab
-ECHO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO(
+echo(
+echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo Generating SSH Key file %USERPROFILE%\.ssh\id_rsa_python_lab
+echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo(
 
-REM Build SSH Key with either the Windows OpenSSH Client or the Git Client
 REM Next command does not work inside a conditional block
 FOR /F "tokens=* USEBACKQ" %%F IN (where git) DO ( SET gitpath=%%F )
 
-IF %usegit% == "true" (
+if %usegit% == "true" (
 
   ECHO Generating SSH Key with Git SSH
 
@@ -119,26 +118,22 @@ IF %usegit% == "true" (
 
 )
 
-SET REMOTEHOST=%PYLAB_LOGIN%@%PYLAB_IPADDRESS%
-SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
-SET /p PYLAB_KEY=<%USERPROFILE%\.ssh\id_rsa_python_lab.pub
+set REMOTEHOST=%PYLAB_LOGIN%@%PYLAB_IPADDRESS%
+set PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa_python_lab.pub
+set /p PYLAB_KEY=<%USERPROFILE%\.ssh\id_rsa_python_lab.pub
 
-ECHO(
-ECHO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO You will be prompted for the Raspberry Pi password
-ECHO The password is raspberry
-ECHO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ECHO(
+echo(
+echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo You will be prompted for the Raspberry Pi password
+echo The password is raspberry
+echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo(
 
-IF %usegit% == "true" (
-
-  "%gitpath:~0,-13%\git-bash.exe" -c "mkdir -p ~/.ssh && chmod 700 ~/.ssh && ECHO '%PYLAB_KEY%' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+if %usegit% == "true" (
 
 ) ELSE (
 
-  ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && ECHO '%PYLAB_KEY%' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" 
+  ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '%PYLAB_KEY%' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" 
 )
 
 :exit
-
-endlocal
