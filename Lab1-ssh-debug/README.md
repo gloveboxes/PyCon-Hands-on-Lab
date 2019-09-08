@@ -200,7 +200,6 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 1. From Visual Studio Code: File -> Open Folder
 1. Navigate to **PyLab/Lab1-ssh-debug** directory
 1. Open the **app.py** file and review the contents
-1. If you are prompted to select a Python Interpreter then select Python 3.7
 
 ### Set a breakpoint
 
