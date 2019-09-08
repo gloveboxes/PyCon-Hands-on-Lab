@@ -220,7 +220,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. Switch back to Visual Studio Code and ensure the **app<span>.py** file is open.
 2. Put the cursor on the line that reads **now = datetime.now()**
-2. Use one of the following methods to set a breakpoint.
+3. Use one of the following methods to set a breakpoint.
     - Press **F9**
     - From the main menu, select **Debug** > **Toggle Breakpoint**
     - **Click directly** in the **margin to the left** of the line number (a faded red dot appears when hovering there)
@@ -229,8 +229,8 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
-3. Switch back to the **Web Browser** and click **Refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
-4. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
+4. Switch back to the **Web Browser** and click **Refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
+5. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
 
