@@ -37,7 +37,7 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 #### Browse for extensions
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or from the Visual Studio Code menu, select **View** >**Extensions**.
+You can search and install extensions from within Visual Studio Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or from the Visual Studio Code menu, select **View** > **Extensions**.
 
 ![Extensions view icon](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-view-icon.png)
 
@@ -47,7 +47,7 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 ### Install the Python and Remote SSH Extensions
 
-Search and install the following two extensions published by Microsoft.
+Search and install the following two Visual Studio Code Extensions published by Microsoft.
 
 1. **[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)**
 2. **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)**
@@ -196,7 +196,7 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app. Flask is a popular Web Framework, powerful, but also easy for beginners.
 
-1. From Visual Studio Code main menu: **File** >**Open Folder**
+1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
 3. Next select the **Lab1-ssh-debug** directory
@@ -222,7 +222,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 2. Put the cursor on the line that reads **now = datetime.now()**
 2. Use one of the following methods to set a **breakpoint**.
     - Press **F9**
-    - From the main menu, select **Debug** >**Toggle Breakpoint**
+    - From the main menu, select **Debug** > **Toggle Breakpoint**
     - **Click directly** in the **margin to the left** of the line number (a faded red dot appears when hovering there)
     
     **The breakpoint appears as a red dot in the left margin**
