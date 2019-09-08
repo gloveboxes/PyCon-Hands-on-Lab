@@ -170,7 +170,7 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 - [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
 - [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
 
-## Start Remote SSH Connection
+## Start a Remote SSH Connection
 
 1. Start Visual Studio Code
 2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
@@ -195,45 +195,41 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ## Open the Lab 1 SSH Debug Project
 
-From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **PyLab/Lab1-ssh-debug** folder.
+1. From Visual Studio Code main menu: **File** -> **Open Folder**
+2. Select the **PyLab** directory
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
+3. Next select the **Lab1-ssh-debug** directory
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-Lab1.png)
+4. Click **OK** to Open the directory
+5. From the **Explorer** bar, open the **app.py** file and review the contents
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-appy-py.png)
 
-1. From Visual Studio Code: File -> Open Folder
-1. Navigate to **PyLab/Lab1-ssh-debug** directory
-1. Open the **app.py** file and review the contents
+## Run the Python Flask App
 
-### Set a breakpoint
-
-Set a breakpoint at the first line of code in the **show_telemetry** function (**now = datetime.now()**) by doing any one of the following:
-
-- With the cursor on that line, press F9, or,
-- With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
-
-![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
-
-### Review the **debug** options.
-
-1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
-
-    ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
-
-1. Click the **Settings** button which will open the **launch.json** file.
-1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
-
-    There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
-
-### Start the Flask App
-
-1. Press F5 (or click the Run icon) to launch the **Python: Flask** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
-
-    ![Launch the Python: Flask Task](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-launch-debugger.png)
-
-1. Ctrl+click the Flask Web link in the Visual Studio Terminal Window. This will launch your desktop Web Browser.
+1. Press **F5** to start the Python Flask app.
+2. From the Visual Studio Code **Terminal Window**, click the **running on http://...** web link. **This will launch your desktop Web Browser**.
 
     ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
 
-1. Next switch back to Visual Studio Code. The code execution has stopped at the breakpoint you set.
+    The Flask app will read and display the temperature, air pressure, humidity from the **sensor** attached the Raspberry Pi.
 
-## Debug actions
+    ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
+
+## Set a Visual Studio Code Breakpoint
+
+1. Switch back to Visual Studio Code and ensure the **app.py** file is open.
+2. Set a **breakpoint** on the line that reads (**now = datetime.now()** using one of the following methods:
+    - With the cursor on that line, press F9, or,
+    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
+
+    ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
+
+3. Switch back to the **Web Browser** and click **Refresh**
+4. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
+
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
+
+## Stepping through code with the Debugger
 
 Once a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
@@ -248,31 +244,35 @@ The debugging toolbar (shown above) will appear in Visual Studio Code. It has th
 1. Restart (Ctrl+Shift+F5),
 1. and Stop (Shift+F5).
 
-## Using the Debugger
+## Stepping through Code with the Debugger
 
-Next, we are going to **Step Into** (F11) the code using the debugging toolbox. Observe the debugger steps into the **Telemetry** class and calls the **show_telemetry** method.
+1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar. Repeat until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
+2. You will notice that Python variables are displayed in the **Variables Window**.
 
-### Variable Explorer
+    ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
-1. As you step through the **show_telemetry** method you will notice that Python variables are displayed in the **Variables Window**.
+1. **Right mouse click** a variable, and you will discover you can change, copy, or watch variables. Try to change the value of a variable. **Hint**, double click on a variable value.
 
-![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
+1. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
 
-1. Right mouse click a variable, and you will discover you can change, copy, or watch variables. Try to change the value of a variable. **Hint**, double click on a variable value.
 
-1. Press F5 to resume the Flask App, then switch back to your web browser and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
+<!-- ### Start the Flask App
+
+1. Press F5 (or click the Run icon) to launch the **Python: Flask** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
+
+    ![Launch the Python: Flask Task](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-launch-debugger.png)
+
+1. Ctrl+click the Flask Web link in the Visual Studio Terminal Window. This will launch your desktop Web Browser.
+
+    ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
+
+1. Next switch back to Visual Studio Code. The code execution has stopped at the breakpoint you set.
+
+
 
     ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
 
-1. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code.
-
-## Experiment with Debugger Options
-
-Things to try:
-
-1. Review the [Visual Studio Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial?WT.mc_id=pycon-blog-dglover)
-1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
-1. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=pycon-blog-dglover)
+1. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code. -->
 
 ### Experiment with the Variable Window
 
@@ -306,11 +306,30 @@ random.randrange(100, 1000)
 1. Update the Flask **index.html** template to display the current date and time.
 1. Rerun the Flask app.
 
-## Closing the Visual Studio Code Remote SSH
+## Experiment with Debugger Options
+
+Things to try:
+
+1. Review the [Visual Studio Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial?WT.mc_id=pycon-blog-dglover)
+1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
+1. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=pycon-blog-dglover)
+
+### Review the **debug** options.
+
+1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
+
+    ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
+
+1. Click the **Settings** button which will open the **launch.json** file.
+1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
+
+    There are two environment variables used in the launch.json file. These are **LAB_HOST** (which is the IP Address of the Raspberry Pi), and **LAB_PORT** (a random TCP/IP Port number between 5000 and 8000). These environment variables are set by the .bashrc script which runs when you connect to the Raspberry Pi with Visual Studio Remote SSH.
+
+## Closing the Remote SSH Session
 
 From Visual Studio Code, **Close Remote Connection**.
 
-1. Click the **Remote SSH** button in the bottom left-hand corner and select **Close Remote Connection** from the dropdown list.
+1. Click the **Remote SSH** button in the **bottom left-hand corner** and select **Close Remote Connection** from the dropdown list.
 
 ![close Remote SSH](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-close-ssh-session.png)
 
