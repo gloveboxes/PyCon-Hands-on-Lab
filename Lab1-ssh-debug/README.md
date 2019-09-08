@@ -86,7 +86,7 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
     ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
 
-2. Copy the **windows-pylab** directory to your desktop
+2. Copy the **windows-pylab** directory to your **desktop**
 3. Open the **windows-pylab** folder you copied to your **desktop**
 4. Double click **windows-ssh.cmd**
 
@@ -175,7 +175,7 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 1. Start Visual Studio Code
 2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
-3. Select the **pylab-dev** configuration
+3. Select the **pylab-devnn** configuration
 
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
 
