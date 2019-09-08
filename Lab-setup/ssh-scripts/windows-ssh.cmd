@@ -38,11 +38,11 @@ if ERRORLEVEL 1 (
 
     if ERRORLEVEL 1 (
       echo(
-      echo ===========================================================
+      echo ======================================================================================
       echo ERROR: NO SSH SUPPORT FOUND
       echo Version of Windows installed is older than Windows 10 1803.
-      echo Install Git Client from https://git-scm.com/download/win
-      echo ===========================================================
+      echo Install Git Client from https://git-scm.com/download/win and rerun the windows-ssh.cmd
+      echo ======================================================================================
       echo(
 
     ) else (
