@@ -43,7 +43,9 @@ You can search and install extensions from within Visual Studio Code. Open the E
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode?WT.mc_id=pycon-blog-dglover).
 
-![popular extensions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-popular.png)
+<!-- ![popular extensions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-popular.png) -->
+
+![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-extension.png)
 
 ### Install the Python and Remote SSH Extensions
 
@@ -51,8 +53,6 @@ Search and install the following two Visual Studio Code Extensions published by 
 
 1. **[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)**
 2. **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)**
-
-![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-extension.png)
 
 <!-- Install Visual Studio Code Extensions:
 
@@ -167,9 +167,9 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 
 -->
 
-## Start a Remote SSH Connection
+## Start a Visual Studio Code Remote SSH Connection
 
-1. Start Visual Studio Code
+1. **Start Visual Studio Code**
 2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
 3. Select the **pylab-devnn** configuration
@@ -190,11 +190,11 @@ ext install ms-python.python
 
 See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension. -->
 
-## Open the Lab 1 SSH Debug Project
+## Open Lab 1 SSH Debug Project
 
 ### Python Flask Web Apps
 
-In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app. Flask is a popular Web Framework, powerful, but also easy for beginners.
+In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app. Flask is a popular Python Web Framework, powerful, but also easy for beginners.
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
@@ -220,7 +220,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. Switch back to Visual Studio Code and ensure the **app<span>.py** file is open.
 2. Put the cursor on the line that reads **now = datetime.now()**
-2. Use one of the following methods to set a **breakpoint**.
+2. Use one of the following methods to set a breakpoint.
     - Press **F9**
     - From the main menu, select **Debug** > **Toggle Breakpoint**
     - **Click directly** in the **margin to the left** of the line number (a faded red dot appears when hovering there)
@@ -229,7 +229,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
-3. Switch back to the **Web Browser** and click **Refresh**
+3. Switch back to the **Web Browser** and click **Refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
 4. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
@@ -257,10 +257,8 @@ To get started with debugging:
 
     ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
-4. **Right mouse click** a variable, and you will discover you can change, copy, or watch variables.
-5. Try to change **temperature** variable to **50**. Hint, **right mouse** click on the temperature variable and select **Set Value**, or double click on a **temperature** variable.
-6. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
-
+4. Try to change the **temperature** variable to **50**. Hint, **right mouse** click on the temperature variable and select **Set Value**, or double click on a **temperature** variable.
+5. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
 
 <!-- ### Start the Flask App
 
@@ -289,12 +287,12 @@ Try setting a **conditional** breakpoint
 3. **Right mouse click** directly in the margin to the **left** of the line number **22**.
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-add-conditional-breakpoint.png)
 4. Select **Add Conditional Breakpoint...**
-5. Set the condition to **temperature > 25**
+5. Set the condition to **temperature > 25**, then press **ENTER**
 
     ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 
     The breakpoint appears as a red dot with an equals sign in the middle:
-6. **Switch** back to your **web browsers** and **click refresh**
+6. **Switch** back to your **web browsers** and **click refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
 7. **Switch** back to **Visual Studio Code** and you will see the debugger has stopped at the **conditional breakpoint**.
 8. Press **F5** to continue running the code
 9. **Switch** back to your **web browser** to view the page.
