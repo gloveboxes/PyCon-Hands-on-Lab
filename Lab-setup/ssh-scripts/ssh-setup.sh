@@ -9,8 +9,8 @@ echo 'Licemce: MIT. Free to use, modify, no liability accepted'
 echo
 echo
 
-BC=$'\e[30;48;5;82m'
-EC=$'\e[0m'
+BC=$'\033[30;48;5;82m'
+EC=$'\033[0m'
 
 while true; do
     read -p "Enter Raspberry Pi Network IP Address: " PYLAB_IPADDRESS
@@ -57,8 +57,8 @@ echo
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo 'Copying SSH Public Key to the Raspberry Pi'
 echo
-echo -e '\e[30;48;5;82mAccept continue connecting: type yes \e[0m'
-echo -e '\e[30;48;5;82mThe Raspberry Pi Password is raspberry \e[0m'
+echo -e '\033[30;48;5;82mAccept continue connecting: type yes \033[0m'
+echo -e '\033[30;48;5;82mThe Raspberry Pi Password is raspberry \033[0m'
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo
 
