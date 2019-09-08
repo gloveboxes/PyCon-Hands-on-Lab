@@ -11,7 +11,7 @@ echo Licemce: MIT. Free to use, modify, no liability accepted
 echo(
 echo(
 
-for /f "tokens=4-8 delims=[.] " %%i IN ('ver') do @(if %%i==Version (set version=%%j.%%k& set build=%%l) else (set version=%%i.%%j& set build=%%k))
+for /f "tokens=4-8 delims=[.] " %%i in ('ver') do @(if %%i==Version (set version=%%j.%%k& set build=%%l) else (set version=%%i.%%j& set build=%%k))
 
 set usegit="false"
 
@@ -28,6 +28,7 @@ if ERRORLEVEL 1 (
     echo ERROR: NO SSH SUPPORT FOUND
     echo Version of Windows 10 1803 or better is installed
     echo Install OpenSSH Client https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
+    echo Install: From Windows 10 Settings, Search Manage optional features, Add OpenSSH Client
     echo ===========================================================
     echo(
 
