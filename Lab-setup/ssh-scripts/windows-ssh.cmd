@@ -129,7 +129,12 @@ if ERRORLEVEL 1 (
     echo Copying SSH Public Key to the Raspberry Pi
     echo(
     echo Accept continue connecting: type yes
-    echo Raspberry Pi password: raspberry
+    rem https://gist.github.com/mlocati/fdabcaeb8071d5c75a2d51712db24011
+    if %version% GEQ 10 if %build% GEQ 16257 (
+      echo [101;93mRaspberry Pi Password is raspberry [0m
+    ) else (
+      echo Raspberry Pi Password is raspberry
+    )
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     echo(
 
