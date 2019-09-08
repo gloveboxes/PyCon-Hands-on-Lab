@@ -43,9 +43,5 @@ cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
 
 echo "Copy SSH Scripts"
 cp  ~/PyLab/Lab-setup/ssh-scripts/win* ~/ftp/windows-pylab
-
-cp  ~/PyLab/Lab-setup/ssh-scripts/macos* ~/ftp/macos-pylab
-sudo chmod +x ~/ftp/macos-pylab/*.sh
-
-cp  ~/PyLab/Lab-setup/ssh-scripts/linux* ~/ftp/linux-pylab
-sudo chmod +x ~/ftp/linux-pylab/*.sh
+cp  ~/PyLab/Lab-setup/ssh-scripts/ssh-setup.sh ~/ftp/macos-pylab
+cp  ~/PyLab/Lab-setup/ssh-scripts/ssh-setup.sh ~/ftp/linux-pylab
