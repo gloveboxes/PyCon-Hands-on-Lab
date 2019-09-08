@@ -305,15 +305,14 @@ Try the Visual Studio Code **Debug Console**. This will give you access to the [
 2. **Switch** back to **Visual Studio Code**
 3. The code should have stopped at the conditional breakpoint.
 4. Select the Visual Studio **Debug Console** window.
-5. Try the following Python code at the input prompt **>**
+    ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
+5. Type the following Python code into the Input Prompt **>**
 
     ```python
     print(temperature)
     ```
 
-    ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
-
-6. Press **Enter**
+6. Press **Enter** to execute the Python code you typed.
 7. Try running the following Python code snippets from the input prompt.
 
     ```python
