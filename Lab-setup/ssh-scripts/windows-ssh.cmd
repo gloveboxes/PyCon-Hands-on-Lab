@@ -3,7 +3,7 @@
 setlocal
 
 echo(
-echo Purpose: This utility creates an SSH key pair and copies the public key to the Raspberry Pi.
+echo Purpose: This utility creates an SSH key pair, copies the public key to the Raspberry Pi, and updates the OpenSSH config file.
 echo Platform: Windows 7, 8, and 10.
 echo Version: 1.0, September 2019
 echo Author: Dave Glover, http://github.com/gloveboxes
