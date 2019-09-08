@@ -30,7 +30,6 @@ if ERRORLEVEL 1 (
     echo Install OpenSSH Client https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse
     echo Install: From Windows 10 Settings, Search Manage optional features, Add OpenSSH Client
     echo ===========================================================
-    echo(
 
   ) else (
 
@@ -59,7 +58,7 @@ if ERRORLEVEL 1 (
 )
 
 :start
-
+    echo(
     set /P c="Enter Raspberry Pi Network IP Address: "
     set PYLAB_IPADDRESS=%c%
     set /P c="Enter your login name: "
@@ -67,13 +66,20 @@ if ERRORLEVEL 1 (
 
     echo(
 
-    set /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%' Correct? ([Y]es/[N]o): "
-    if /I "%c%" EQU "Y" goto :checklogin
-    goto :exit
+    if %version% GEQ 10 if %build% GEQ 16257 (
 
-:checklogin
-    set /P c="Login Name entered was '%PYLAB_LOGIN%' Correct? ([Y]es/[N]o): "
+      set /P c="Raspberry Pi Network Address [101;93m%PYLAB_IPADDRESS%[0m, login name [101;93m%PYLAB_LOGIN%[0m. Correct? ([Y]es,[N]o,[Q]uit): "
+
+    ) else (
+
+      set /P c="Raspberry Pi Network entered was '%PYLAB_IPADDRESS%', login name '%PYLAB_LOGIN%'.  Correct? ([Y]es/[N]o): "
+
+    )
+
     if /I "%c%" EQU "Y" goto :updateconfig
+    if /I "%c%" EQU "N" goto :start
+    echo (
+    echo Rerun windows-ssh.cmd
     goto :exit
 
 :updateconfig
@@ -129,12 +135,18 @@ if ERRORLEVEL 1 (
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     echo Copying SSH Public Key to the Raspberry Pi
     echo(
-    echo Accept continue connecting: type yes
+
     rem https://gist.github.com/mlocati/fdabcaeb8071d5c75a2d51712db24011
     if %version% GEQ 10 if %build% GEQ 16257 (
-      echo [101;93mRaspberry Pi Password is raspberry [0m
+
+      echo [101;93mAccept continue connecting: type yes[0m
+      echo [101;93mThe Raspberry Pi Password is raspberry[0m
+
     ) else (
-      echo Raspberry Pi Password is raspberry
+      
+      echo Accept continue connecting: type yes
+      echo The Raspberry Pi Password is raspberry
+
     )
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     echo(
