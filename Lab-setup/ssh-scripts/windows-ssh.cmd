@@ -3,8 +3,8 @@
 setlocal
 
 echo(
-echo This utility creates an SSH key pair and then copies the public key to the Raspberry Pi.
-echo This utility is support in Windows 7, 8, and 10.
+echo Purpose: This utility creates an SSH key pair and copies the public key to the Raspberry Pi.
+echo Platform: Windows 7, 8, and 10.
 echo Version: 1.0, September 2019
 echo Author: Dave Glover, http://github.com/gloveboxes
 echo Licemce: MIT. Free to use, modify, no liability accepted
@@ -126,8 +126,10 @@ if ERRORLEVEL 1 (
 
     echo(
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    echo You will be prompted for the Raspberry Pi password
-    echo The password is raspberry
+    echo Copying SSH Public Key to the Raspberry Pi
+    echo(
+    echo Accept continue connecting: type yes
+    echo Raspberry Pi password: raspberry
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     echo(
 
