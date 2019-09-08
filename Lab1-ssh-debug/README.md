@@ -29,7 +29,7 @@ This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor a
 
 ### Install Visual Studio Code
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=pycon-blog-dglover)
+1. **Install [Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=pycon-blog-dglover)**
 
 #### Visual Studio Code Extensions
 
@@ -49,8 +49,10 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 Search and install the following two extensions published by Microsoft.
 
-1. [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)
-2. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)
+1. **[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)**
+2. **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)**
+
+![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-extension.png)
 
 <!-- Install Visual Studio Code Extensions:
 
@@ -80,7 +82,7 @@ You will need the following information from the lab instructor.
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
 
-### SSH for Windows Users
+### SSH Set up for Windows Users
 
 1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
 
@@ -165,11 +167,6 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 
 -->
 
-### Trouble Shooting SSH Client Installation
-
-- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
-- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
-
 ## Start a Remote SSH Connection
 
 1. Start Visual Studio Code
@@ -194,6 +191,10 @@ ext install ms-python.python
 See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension. -->
 
 ## Open the Lab 1 SSH Debug Project
+
+### Python Flask Web Apps
+
+In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app. Flask is a popular Web Framework, powerful, but also easy for beginners.
 
 1. From Visual Studio Code main menu: **File** >**Open Folder**
 2. Select the **PyLab** directory
@@ -233,13 +234,13 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
 
-## Stepping through code with the Debugger
+## Stepping through Code with the Debugger
 
 When a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
-![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
+The debugging toolbar (shown below) will appear in Visual Studio Code. It has the following options:
 
-The debugging toolbar (shown above) will appear in Visual Studio Code. It has the following options:
+![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
 
 1. Pause (or Continue, F5),
 1. Step Over (F10)
@@ -248,7 +249,7 @@ The debugging toolbar (shown above) will appear in Visual Studio Code. It has th
 1. Restart (Ctrl+Shift+F5),
 1. and Stop (Shift+F5).
 
-## Stepping through Code with the Debugger
+To get started with debugging:
 
 1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar.
 2. **Repeat** pressing **F10** until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
@@ -370,3 +371,8 @@ From Visual Studio Code, **Close Remote Connection**.
 - [Python](https://www.python.org/)
 - [Raspberry Pi](https://www.raspberrypi.org/)
 - [Flask](https://www.fullstackpython.com/flask.html)
+
+## Trouble Shooting SSH Client Installation
+
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=pycon-blog-dglover)
+- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client?WT.mc_id=pycon-blog-dglover)
