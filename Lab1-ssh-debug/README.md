@@ -177,7 +177,7 @@ From a Linux or macOS **Terminal Console** or from **git bash** in windows run t
 
 3. Select the **pylab-devnn** configuration
 
-    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
+    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
 
