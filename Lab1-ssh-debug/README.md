@@ -299,11 +299,11 @@ Try setting a **conditional** breakpoint
 
 ### Try the Debug Console
 
-Try the Visual Studio Code **Debug Console**. This will give you access to the [Python REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (Read, Evaluate, Print Loop), try printing or setting variables, importing libraries, etc.
+The Visual Studio Code **Debug Console** will give you access to the [Python REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (Read, Evaluate, Print Loop).
 
-1. **Switch** back to your **web browser** and click refresh
+1. **Switch** back to your **web browser** and click refresh. The web page will **not response** as the Python code has been stopped by the debugger.
 2. **Switch** back to **Visual Studio Code**
-3. The code should have stopped at the conditional breakpoint.
+3. The code will have stopped at the conditional breakpoint you previously set.
 4. Select the Visual Studio **Debug Console** window.
     ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
 5. Type the following Python code into the Input Prompt **>**
