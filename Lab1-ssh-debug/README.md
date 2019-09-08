@@ -194,7 +194,7 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ### Python Flask Web Apps
 
-In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app. Flask is a popular Python Web Framework, powerful, but also easy for beginners.
+In this lab we are going to start and debug a [Flask](https://www.fullstackpython.com/flask.html) app that reads a sensor attached to the Raspberry Pi. Flask is a popular Python Web Framework, powerful, but also easy for beginners.
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
@@ -205,7 +205,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 5. From the **Explorer** bar, open the **app<span>.py** file and review the contents
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-appy-py.png)
 
-## Run the Python Flask App
+## Start the Python Flask App
 
 1. Press **F5** to start the Python Flask app.
 2. From the Visual Studio Code **Terminal Window**, click the **running on http://...** web link.
@@ -216,7 +216,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
     ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
 
-## Set a Visual Studio Code Breakpoint
+## Debugging with Breakpoints
 
 1. Switch back to Visual Studio Code and ensure the **app<span>.py** file is open.
 2. Put the cursor on the line that reads **now = datetime.now()**
@@ -234,7 +234,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
 
-## Stepping through Code with the Debugger
+## Debugger Toolbar Options
 
 When a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
@@ -249,7 +249,7 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
 1. Restart (Ctrl+Shift+F5),
 1. and Stop (Shift+F5).
 
-To get started with debugging:
+## Start Debugging
 
 1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar.
 2. **Repeat** pressing **F10** until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
@@ -278,7 +278,7 @@ To get started with debugging:
 
 1. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code. -->
 
-### Set a Conditional Breakpoint
+### Debugging with Conditional Breakpoints
 
 Try setting a **conditional** breakpoint
 
@@ -297,7 +297,7 @@ Try setting a **conditional** breakpoint
 8. Press **F5** to continue running the code
 9. **Switch** back to your **web browser** to view the page.
 
-### Try the Debug Console
+## Interactive Debug Console
 
 The Visual Studio Code **Debug Console** will give you access to the [Python REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (Read, Evaluate, Print Loop).
 
