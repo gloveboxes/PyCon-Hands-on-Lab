@@ -33,11 +33,11 @@ This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor a
 
 #### Visual Studio Code Extensions
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.
+The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow.
 
 #### Browse for extensions
 
-You can search and install extensions from within Visual Studio Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or from the Visual Studio Code menu, select **View** > **Extensions**.
+You can search and install extensions from within Visual Studio Code. Open the Extensions view from the Visual Studio Code main menu, select **View** > **Extensions** or by clicking on the Extensions icon in the **Activity Bar** on the side of Visual Studio Code.
 
 ![Extensions view icon](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-view-icon.png)
 
