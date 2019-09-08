@@ -211,7 +211,7 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
     ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
 
-    The Flask app will read and display the temperature, air pressure, humidity from the **sensor** attached the Raspberry Pi.
+    The Flask app will read the temperature, air pressure, humidity from the **sensor** attached the Raspberry Pi and display the results in your web browser.
 
     ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
 
@@ -219,8 +219,11 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 1. Switch back to Visual Studio Code and ensure the **app.py** file is open.
 2. Set a **breakpoint** on the line that reads (**now = datetime.now()** using one of the following methods:
-    - With the cursor on that line, press F9, or,
-    - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
+    - With the cursor on that line, press **F9**
+    - With the cursor on that line, from he main menu, select **Debug** -> **Toggle Breakpoint**
+    - **Click directly** in the **margin** to the **left** of the **line number** (a faded red dot appears when hovering there)
+    
+    **The breakpoint appears as a red dot in the left margin**
 
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
@@ -231,7 +234,7 @@ See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=m
 
 ## Stepping through code with the Debugger
 
-Once a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
+When a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
 ![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
 
@@ -246,14 +249,15 @@ The debugging toolbar (shown above) will appear in Visual Studio Code. It has th
 
 ## Stepping through Code with the Debugger
 
-1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar. Repeat until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
-2. You will notice that Python variables are displayed in the **Variables Window**.
+1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar.
+2. **Repeat** pressing **F10** until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
+3. You will notice that Python variables are displayed in the **Variables Window**.
 
     ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
-1. **Right mouse click** a variable, and you will discover you can change, copy, or watch variables. Try to change the value of a variable. **Hint**, double click on a variable value.
-
-1. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
+4. **Right mouse click** a variable, and you will discover you can change, copy, or watch variables. 
+5. Try to change the value of a variable. **Hint**, double click on a variable value.
+6. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
 
 
 <!-- ### Start the Flask App
@@ -274,15 +278,14 @@ The debugging toolbar (shown above) will appear in Visual Studio Code. It has th
 
 1. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code. -->
 
-### Experiment with the Variable Window
-
-Try to change the value of a variable from the Visual Studio Code **Variable Window**.
-
 ### Set a Conditional Breakpoint
 
 Try setting a **conditional** breakpoint
 
-**Right mouse click** directly in the margin to the left of the line number 22, select **Add Conditional Breakpoint...**. The breakpoint appears as a red dot with an equals sign in the middle:
+1. **Right mouse click** directly in the margin to the left of the **line number 22**,
+2. Select **Add Conditional Breakpoint...**.
+
+The breakpoint appears as a red dot with an equals sign in the middle:
 
 ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 
