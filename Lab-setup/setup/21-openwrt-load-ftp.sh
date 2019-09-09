@@ -1,14 +1,17 @@
 #!/bin/bash
 
-rm -r -f ~/ftp/*
-mkdir -p ~/ftp/software/linux
-mkdir -p ~/ftp/software/macos
-mkdir -p ~/ftp/software/windows
-mkdir -p ~/ftp/ssh-setup
-mkdir -p ~/ftp/PyLab
+INSTALL_DIR=/mnt/sda2
+FTP_DIR=/mnt/sda2/lab
+
+rm -r -f $FTP_DIR*
+mkdir -p $FTP_DIR/software/linux
+mkdir -p $FTP_DIR/software/macos
+mkdir -p $FTP_DIR/software/windows
+mkdir -p $FTP_DIR/ssh-setup
+mkdir -p $FTP_DIR/PyLab
 
 echo 'downloading Visual Studio Code for Ubuntu starting'
-cd ~/ftp/software/linux
+cd $FTP_DIR/software/linux
 rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=760868
@@ -21,21 +24,21 @@ wget  https://go.microsoft.com/fwlink/?LinkID=620884
 mv index.html?LinkID=620884 code-stable-1567547931.tar.gz
 
 echo 'downloading Visual Studio Code for Windows starting'
-cd ~/ftp/software/windows
+cd $FTP_DIR/software/windows
 rm * -f
 
 wget  https://aka.ms/win32-x64-user-stable
 mv win32-x64-user-stable VSCodeUserSetup-x64-1.38.0.exe
 
 echo 'downloading Visual Studio Code for macOS starting'
-cd ~/ftp/software/macos
+cd $FTP_DIR/software/macos
 rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=620882
 mv index.html?LinkID=620882 VSCode-darwin-stable.zip
 
 echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/ssh-scripts/* ~/ftp/ssh-setup
+cp  ~/PyLab/Lab-setup/ssh-scripts/* $FTP_DIR/ssh-setup
 
-cp -r ~/PyLab/Lab1-ssh-debug ~/ftp/PyLab
-cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
+cp -r $INSTALL_DIR/Lab1-ssh-debug $FTP_DIR/PyLab
+cp -r $INSTALL_DIR/Lab2-docker-debug $FTP_DIR/PyLab
