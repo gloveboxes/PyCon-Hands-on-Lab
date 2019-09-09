@@ -84,28 +84,37 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
 ### SSH Set up for Windows Users
 
+The SSH utility guides you through the process of setting up a secure SSH channel for Visual Studio Code and the Raspberry Pi.
+
+You will be prompted for:
+
+- The Raspberry Pi Network IP Address,
+- The Raspberry Pi login name and password
+
 1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
 
     ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
 
 2. Copy the **windows-pylab** directory to your **desktop**
 3. Open the **windows-pylab** folder you copied to your **desktop**
-4. Double click **windows-ssh.cmd**
-
-    You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
+4. Double click the **windows-ssh.cmd**
 
 ### SSH Set up for Linux and macOS Users
 
-The following command will guide you through the process of setting up an SSH key, copying the SSH public key to the Raspberry Pi, and updating your ~/.ssh/config
+The SSH utility guides you through the process of setting up a secure SSH channel for Visual Studio Code and the Raspberry Pi
 
-1. Open Terminal
+You will be prompted for:
 
-```bash
-curl ftp://192.168.1.1/ssh-scripts/ssh-setup.sh | bash
+- The Raspberry Pi Network IP Address,
+- The Raspberry Pi login name and password
 
-read -p "Enter Raspberry Pi Network Address: " FTP_URL && \
-curl ftp://$FTP_URL/ssh-scripts/ssh-setup.sh | bash
-```
+1. Open a Terminal window
+2. Copy and paste the following command, and press **ENTER**
+
+    ```bash
+    read -p "Enter the Raspberry Pi Address: " piurl && \
+    curl ftp://$piurl/ssh-scripts/ssh-setup.sh | bash
+    ```
 
 <!--
 ### SSH for Windows 10 (1809+) Users with PowerShell
@@ -273,7 +282,7 @@ Try setting a **conditional** breakpoint
     ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 
     The breakpoint appears as a red dot with an equals sign in the middle:
-6. **Switch** back to your **web browsers** and **click refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
+6. **Switch** back to your **web browser** and **click refresh**. The web page will **not respond** as the Python code has been stopped by the debugger.
 7. **Switch** back to **Visual Studio Code** and you will see the debugger has stopped at the **conditional breakpoint**.
 8. Press **F5** to continue running the code
 9. **Switch** back to your **web browser** to view the page.
@@ -282,7 +291,7 @@ Try setting a **conditional** breakpoint
 
 The Visual Studio Code **Debug Console** will give you access to the [Python REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (Read, Evaluate, Print Loop).
 
-1. **Switch** back to your **web browser** and click refresh. The web page will **not response** as the Python code has been stopped by the debugger.
+1. **Switch** back to your **web browser** and click refresh. The web page will **not respond** as the Python code has been stopped by the debugger.
 2. **Switch** back to **Visual Studio Code**
 3. The code will have stopped at the conditional breakpoint you previously set.
 4. Select the Visual Studio **Debug Console** window.
