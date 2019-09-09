@@ -59,6 +59,10 @@ echo 'Copying SSH Public Key to the Raspberry Pi'
 echo
 echo -e '\033[30;48;5;82mAccept continue connecting: type yes \033[0m'
 echo -e '\033[30;48;5;82mThe Raspberry Pi Password is raspberry \033[0m'
+echo
+echo -e '\033[30;48;5;82mThe password will NOT display as you type it \033[0m'
+echo -e '\033[30;48;5;82mWhen you have typed the password press ENTER \033[0m'
+echo -e '\033[30;48;5;82mYou may need to press ENTER twice \033[0m'
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo
 

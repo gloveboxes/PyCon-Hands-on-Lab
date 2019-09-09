@@ -1,14 +1,19 @@
 #!/bin/bash
 
+rm -r -f ~/PyLab && \
+git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
+sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
+
 # Download Lab software
 rm -r -f ~/ftp/*
-mkdir -p /home/pi/ftp/linux-pylab
-mkdir -p /home/pi/ftp/macos-pylab
-mkdir -p /home/pi/ftp/windows-pylab
-mkdir -p /home/pi/ftp/PyLab
+mkdir -p ~/ftp/software/linux
+mkdir -p ~/ftp/software/macos
+mkdir -p ~/ftp/software/windows
+mkdir -p ~/ftp/ssh-setup
+mkdir -p ~/ftp/PyLab
 
 echo 'downloading Visual Studio Code for Ubuntu starting'
-cd /home/pi/ftp/linux-pylab
+cd ~/ftp/software/linux
 rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=760868
@@ -21,27 +26,19 @@ wget  https://go.microsoft.com/fwlink/?LinkID=620884
 mv index.html?LinkID=620884 code-stable-1567547931.tar.gz
 
 echo 'downloading Visual Studio Code for Windows starting'
-cd /home/pi/ftp/windows-pylab
+cd ~/ftp/software/windows
 rm * -f
 
 wget  https://aka.ms/win32-x64-user-stable
 mv win32-x64-user-stable VSCodeUserSetup-x64-1.38.0.exe
 
 echo 'downloading Visual Studio Code for macOS starting'
-cd /home/pi/ftp/macos-pylab
+cd ~/ftp/software/macos
 rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=620882
 mv index.html?LinkID=620882 VSCode-darwin-stable.zip
 
-echo 'Clone of PyLab starting'
-cd /home/pi/ftp
-
-echo 'Copy Lab projects to FTP Folder'
-cp -r ~/PyLab/Lab1-ssh-debug ~/ftp/PyLab
-cp -r ~/PyLab/Lab2-docker-debug ~/ftp/PyLab
-
 echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/ssh-scripts/win* ~/ftp/windows-pylab
-cp  ~/PyLab/Lab-setup/ssh-scripts/ssh-setup.sh ~/ftp/macos-pylab
-cp  ~/PyLab/Lab-setup/ssh-scripts/ssh-setup.sh ~/ftp/linux-pylab
+cp  ~/PyLab/Lab-setup/ssh-scripts/* ~/ftp/ssh-setup
+

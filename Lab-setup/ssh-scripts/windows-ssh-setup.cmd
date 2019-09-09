@@ -141,11 +141,19 @@ if ERRORLEVEL 1 (
 
       echo [101;93mAccept continue connecting: type yes[0m
       echo [101;93mThe Raspberry Pi Password is raspberry[0m
+      echo(
+      echo [101;93mThe password will NOT display as you type it[0m
+      echo [101;93mWhen you have typed the password press ENTER[0m
+      echo [101;93mYou may need to press ENTER twice[0m
 
     ) else (
       
       echo Accept continue connecting: type yes
       echo The Raspberry Pi Password is raspberry
+      echo(
+      echo The password will NOT display as you type it
+      echo When you have typed the password press ENTER
+      echo You may need to press ENTER twice
 
     )
     echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
