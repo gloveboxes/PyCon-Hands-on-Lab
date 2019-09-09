@@ -9,6 +9,12 @@ mkdir -p $FTP_DIR/software/windows
 mkdir -p $FTP_DIR/scripts
 mkdir -p $FTP_DIR/PyLab
 
+echo "Copy SSH Scripts"
+cp -r $INSTALL_DIR/PyLab/Lab-setup/scripts $FTP_DIR/
+
+cp -r $INSTALL_DIR/PyLab/Lab1-ssh-debug $FTP_DIR/PyLab
+cp -r $INSTALL_DIR/PyLab/Lab2-docker-debug $FTP_DIR/PyLab
+
 echo 'downloading Visual Studio Code for Ubuntu starting'
 cd $FTP_DIR/software/linux
 rm * -f
@@ -35,9 +41,3 @@ rm * -f
 
 wget  https://go.microsoft.com/fwlink/?LinkID=620882
 mv index.html?LinkID=620882 VSCode-darwin-stable.zip
-
-echo "Copy SSH Scripts"
-cp -r $INSTALL_DIR/PyLab/Lab-setup/scripts $FTP_DIR/
-
-cp -r $INSTALL_DIR/PyLab/Lab1-ssh-debug $FTP_DIR/PyLab
-cp -r $INSTALL_DIR/PyLab/Lab2-docker-debug $FTP_DIR/PyLab
