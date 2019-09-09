@@ -1,4 +1,3 @@
-#!/bin/bash
 
 INSTALL_DIR=/mnt/sda2
 FTP_DIR=/mnt/sda2/lab
@@ -38,7 +37,7 @@ wget  https://go.microsoft.com/fwlink/?LinkID=620882
 mv index.html?LinkID=620882 VSCode-darwin-stable.zip
 
 echo "Copy SSH Scripts"
-cp  ~/PyLab/Lab-setup/ssh-scripts/* $FTP_DIR/ssh-setup
+cp -r $INSTALL_DIR/PyLab/Lab-setup/ssh-scripts $FTP_DIR/
 
-cp -r $INSTALL_DIR/Lab1-ssh-debug $FTP_DIR/PyLab
-cp -r $INSTALL_DIR/Lab2-docker-debug $FTP_DIR/PyLab
+cp -r $INSTALL_DIR/PyLab/Lab1-ssh-debug $FTP_DIR/PyLab
+cp -r $INSTALL_DIR/PyLab/Lab2-docker-debug $FTP_DIR/PyLab

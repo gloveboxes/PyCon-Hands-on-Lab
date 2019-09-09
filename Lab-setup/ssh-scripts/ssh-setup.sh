@@ -13,9 +13,9 @@ BC=$'\033[30;48;5;82m'
 EC=$'\033[0m'
 
 while true; do
-    read -p "Enter Raspberry Pi Network IP Address: " PYLAB_IPADDRESS
-    read -p "Enter your login name: " PYLAB_LOGIN
-    read -p "Raspberry Pi Network Address ${BC}$PYLAB_IPADDRESS${EC}, login name ${BC}$PYLAB_LOGIN${EC} Correct? ([Y]es,[N]o,[Q]uit): " yn
+    read -p "Enter Raspberry Pi Network IP Address: " PYLAB_IPADDRESS < /dev/tty
+    read -p "Enter your login name: " PYLAB_LOGIN < /dev/tty
+    read -p "Raspberry Pi Network Address ${BC}$PYLAB_IPADDRESS${EC}, login name ${BC}$PYLAB_LOGIN${EC} Correct? ([Y]es,[N]o,[Q]uit): " yn < /dev/tty
     case $yn in
         [Yy]* ) break;;
         [Qq]* ) exit 1;;
@@ -51,7 +51,7 @@ echo "Generating SSH Key file ~/.ssh/id_rsa_python_lab"
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 
-ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_python_lab
+ssh-keygen -t rsa -N "" -b 4096 -f ~/.ssh/id_rsa_python_lab < /dev/tty
 
 echo
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
@@ -66,4 +66,4 @@ echo -e '\033[30;48;5;82mYou may need to press ENTER twice \033[0m'
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo
 
-ssh-copy-id -i ~/.ssh/id_rsa_python_lab $PYLAB_LOGIN@$PYLAB_IPADDRESS
+ssh-copy-id -i ~/.ssh/id_rsa_python_lab $PYLAB_LOGIN@$PYLAB_IPADDRESS < /dev/tty
