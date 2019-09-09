@@ -112,8 +112,8 @@ You will be prompted for:
 2. Copy and paste the following command, and press **ENTER**
 
     ```bash
-    read -p "Enter the Raspberry Pi Address: " piurl && \
-    curl ftp://$piurl/ssh-scripts/ssh-setup.sh | bash
+    read -p "Enter the Raspberry Pi Address: " pyurl && \
+    curl ftp://$pyurl/scripts/ssh-setup.sh | bash
     ```
 
 <!--

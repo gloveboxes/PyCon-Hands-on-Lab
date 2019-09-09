@@ -2,7 +2,7 @@
 
 echo
 echo 'Purpose: This utility creates an SSH key, copies the public key to the Raspberry Pi, and updates the OpenSSH config file.'
-echo 'Platform: Windows 7, 8, and 10.'
+echo 'Platform: Linux and macOS'
 echo 'Version: 1.0, September 2019'
 echo 'Author: Dave Glover, http://github.com/gloveboxes'
 echo 'Licemce: MIT. Free to use, modify, no liability accepted'
