@@ -94,37 +94,17 @@ Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Sec
 
     You will be guided through the process of setting up an SSH key and copying the SSH public key to the Raspberry Pi.
 
-### SSH for Linux and macOS Users
+### SSH Set up for Linux and macOS Users
 
-From a Linux or macOS **Terminal Console** or from **git bash** in windows run the following commands:
+The following command will guide you through the process of setting up an SSH key, copying the SSH public key to the Raspberry Pi, and updating your ~/.ssh/config
 
-1. Create your key. This is typically a one-time operation. **Take the default options**.
+1. Open Terminal
 
-    ```bash
-    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_python_lab
-    ```
+```bash
+curl ftp://192.168.1.1/ssh-scripts/ssh-setup.sh | bash
 
-2. Copy the public key to the Raspberry Pi.
-
-    ```bash
-    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
-    ```
-
-    For example:
-
-    ```bash
-    ssh-copy-id -i ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
-    ```
-
-3. Test the SSH Authentication Key
-
-    ```bash
-    ssh -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
-    ```
-
-    A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
-
-4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
+read -p "Enter Raspberry Pi Network Address: " FTP_URL && curl ftp://$FTP_URL/ssh-scripts/ssh-setup.sh | bash
+```
 
 <!--
 ### SSH for Windows 10 (1809+) Users with PowerShell
