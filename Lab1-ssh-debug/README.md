@@ -95,9 +95,9 @@ You will be prompted for:
 
     ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
 
-2. Copy the **windows-pylab** directory to your **desktop**
-3. Open the **windows-pylab** folder you copied to your **desktop**
-4. Double click the **windows-ssh.cmd**
+2. Copy the **ssh-scripts** directory to your **desktop**
+3. Open the **ssh-scripts** folder you copied to your **desktop**
+4. Double click the **windows-setup-ssh.cmd**
 
 ### SSH Set up for Linux and macOS Users
 
