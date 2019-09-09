@@ -111,7 +111,7 @@ if ERRORLEVEL 1 (
     echo(
 
     rem Next command does not work inside a conditional block
-    for /F "tokens=* USEBACKQ" %%F in (`where git`) do ( set gitpath=%%F )
+    for /F "tokens=* USEBACKQ" %%F in (`where git`) do ( set gitpath=%%F ) 2>nul
 
     if %usegit% == "true" (
 
