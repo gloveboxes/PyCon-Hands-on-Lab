@@ -103,7 +103,8 @@ The following command will guide you through the process of setting up an SSH ke
 ```bash
 curl ftp://192.168.1.1/ssh-scripts/ssh-setup.sh | bash
 
-read -p "Enter Raspberry Pi Network Address: " FTP_URL && curl ftp://$FTP_URL/ssh-scripts/ssh-setup.sh | bash
+read -p "Enter Raspberry Pi Network Address: " FTP_URL && \
+curl ftp://$FTP_URL/ssh-scripts/ssh-setup.sh | bash
 ```
 
 <!--
