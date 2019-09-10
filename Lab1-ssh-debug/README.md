@@ -210,6 +210,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
+
     <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
     <br>
