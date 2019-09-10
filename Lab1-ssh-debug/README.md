@@ -210,12 +210,16 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
-
+    <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
+    <br>
 3. Next select the **Lab1-ssh-debug** directory
+    <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-Lab1.png)
+    <br>
 4. Click **OK** to Open the directory
 5. From the **Explorer** bar, open the **app<span>.py** file and review the contents
+    <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-appy-py.png)
 
 ## Start the Python Flask App
@@ -239,12 +243,12 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 1. Switch back to Visual Studio Code and ensure the **app<span>.py** file is open.
 2. Put the cursor on the line that reads **now = datetime.now()**
 3. Press **F9** to set a breakpoint. A red dot will appear on the line to indicate a breakpoint has been set.
-
+    <br>
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
-
+    <br>
 4. Switch back to the **Web Browser** and click **Refresh**. The web page will **not respond** as the debugger has stopped at the breakpoint you set.
 5. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
-
+    <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
 
 ## Debugger Toolbar Options
@@ -302,10 +306,12 @@ Try setting a **conditional** breakpoint
 1. Clear the existing breakpoints. From the main menu select **Debug** > **Remove all breakpoints**.
 2. Ensure the **app<span>.py** file open.
 3. **Right mouse click** directly in the margin to the **left** of the line number **22**.
+    <br>
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-add-conditional-breakpoint.png)
+    <br>
 4. Select **Add Conditional Breakpoint...**
 5. Set the condition to **temperature > 25**, then press **ENTER**
-
+    <br>
     ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 
     The breakpoint appears as a red dot with an equals sign in the middle:
@@ -322,7 +328,9 @@ The Visual Studio Code **Debug Console** will give you access to the [Python REP
 2. **Switch** back to **Visual Studio Code**
 3. The code will have stopped at the conditional breakpoint you previously set.
 4. Select the Visual Studio **Debug Console** window.
+    <br>
     ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
+    <br>
 5. Type the following Python code into the Input Prompt **>**
 
     ```python
@@ -359,9 +367,9 @@ Things to try:
 ## Review the Debug **Launch** Settings
 
 1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
-
+    <br>
     ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
-
+    <br>
 1. Click the **Settings** button which will open the **launch.json** file.
 1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
 
@@ -372,8 +380,8 @@ Things to try:
 From Visual Studio Code, **Close Remote Connection**.
 
 1. Click the **Remote SSH** button in the **bottom left-hand corner** and select **Close Remote Connection** from the dropdown list.
-
-![close Remote SSH](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-close-ssh-session.png)
+    <br>
+    ![close Remote SSH](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-close-ssh-session.png)
 
 ## Finished
 
