@@ -6,7 +6,7 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 ## PDF Lab Guide
 
-You may find it easier to download and follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.pdf) hands-on lab guide.
+You may find it easier to download and follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/blob/master/README.pdf) hands-on lab guide.
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
