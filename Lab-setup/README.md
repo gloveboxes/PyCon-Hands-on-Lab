@@ -83,8 +83,9 @@ Login to the Raspberry Pi and run the following commands.
 
 ```bash
 rm -r -f ~/PyLab && \
-git clone https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
-sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
+git clone --depth=1 https://github.com/gloveboxes/PyCon-Hands-on-Lab.git ~/PyLab && \
+sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh && \
+cd ~/PyLab/Lab-setup/setup
 ```
 
 ## End to End Set Up
@@ -92,7 +93,7 @@ sudo chmod +x ~/PyLab/Lab-setup/setup/*.sh
 Running this script will set up the PyLab lab **except** for the Remote SSH Components that must be installed separately (see next step).
 
 ```bash
-~/PyLab/Lab-setup/setup/0-setup.sh
+~/PyLab/Lab-setup/setup/10-setup.sh
 ```
 
 ## Install Remote SSH on the Raspberry Pi
@@ -101,7 +102,7 @@ It is critical that Lab attendees install the same version of VS Code (from the 
 
 From your desktop:
 
-1. From your internet browser, link to **ftp://\<raspberry pi name>.local**, download and install Visual Studio Code.
+1. From your internet browser, link to **FTP://\<raspberry pi name>.local**, download and install Visual Studio Code.
 
 2. Install Remote SSH and Python Extensions
 
@@ -113,7 +114,7 @@ From your desktop:
 3. Start Visual Studio Code
 4. Start Remote SSH to the Raspberry Pi. This will install the Remote SSH Components on the Raspberry Pi. Add an SSH config:
 
-    ```
+    ```bash
     Host raspberrypi
         HostName <Raspberry Pi Name>.local
         User pi
@@ -138,25 +139,43 @@ You can also run each component manually.
 ### Install Core Libraries
 
 ```bash
-~/PyLab/Lab-setup/setup/1-install-core.sh
+~/PyLab/Lab-setup/setup/11-install-core.sh
+```
+
+### Refresh PyLab Content
+
+```bash
+~/PyLab/Lab-setup/setup/12-refresh-PyLab.sh
+```
+
+### Reload FTP Server
+
+```bash
+~/PyLab/Lab-setup/setup/13-load-ftp.sh
 ```
 
 ### Create Users
 
 ```bash
-~/PyLab/Lab-setup/setup/2-create-users.sh
+~/PyLab/Lab-setup/setup/14-create-users.sh
 ```
 
 ### Deploy Lab Content to all users
 
 ```bash
-~/PyLab/Lab-setup/setup/3-copy-lab.sh
+~/PyLab/Lab-setup/setup/15-copy-lab.sh
 ```
 
 ### Build Lab Docker Images
 
 ```bash
-~/PyLab/Lab-setup/setup/4-build-images.sh
+~/PyLab/Lab-setup/setup/16-build-images.sh
+```
+
+### Copy Remote SSH Libraries
+
+```bash
+~/PyLab/Lab-setup/setup/17-copy-remote-ssh.sh
 ```
 
 ### Clean Up Lab
@@ -164,38 +183,5 @@ You can also run each component manually.
 Delete all devNN users and remove files and reset nopasswd
 
 ```bash
-~/PyLab/Lab-setup/setup/6-cleanup-lab.sh
-```
-
-## Useful Commands
-
-### Raspberry Pi CPU Temperature
-
-```bash
-watch vcgencmd measure_temp
-
-```
-
-### Holding back VS Code Insiders Updates
-
-[How to prevent updating of a specific package?](https://askubuntu.com/questions/18654/how-to-prevent-updating-of-a-specific-package)
-
-**apt**
-
-Hold a package:
-
-```bash
-sudo apt-mark hold code-insiders
-```
-
-Remove the hold:
-
-```bash
-sudo apt-mark unhold code-insiders
-```
-
-Show all packages on hold:
-
-```bash
-sudo apt-mark showhold
+~/PyLab/Lab-setup/setup/18-cleanup-lab.sh
 ```
