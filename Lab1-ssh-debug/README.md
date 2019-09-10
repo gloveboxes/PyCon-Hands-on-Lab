@@ -1,6 +1,12 @@
-# Lab 1: Debugging a Raspberry Pi Internet of Things Flask Application
+# Lab 1: Debugging a Python Internet of Things Application
+
+Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 ![banner](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/python-loves-vscode-raspberrypi.jpg)
+
+## PDF Lab Guide
+
+You may find it easier to download and follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.pdf) hands-on lab guide.
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
@@ -10,12 +16,6 @@
 |**USB3 SSD Drive**| To support up to 20 users per Raspberry Pi you need a **fast** USB3 SSD Drive to run Raspbian Buster Linux on. A 120 USB3 SSD drive will be more than sufficient. These are readily available from online stores.
 |Language| Python|
 |Date|As of September, 2019|
-
-Follow me on Twitter [@dglover](https://twitter.com/dglover)
-
-## PDF Lab Guide
-
-You may find it easier to download and follow the PDF version of the [Debugging Raspberry Pi Internet of Things Flask App](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab1-ssh-debug/README.pdf) hands-on lab guide.
 
 ## Introduction
 
