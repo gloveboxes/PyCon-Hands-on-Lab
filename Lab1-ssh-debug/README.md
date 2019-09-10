@@ -1,5 +1,7 @@
 # Lab 1: Debugging a Raspberry Pi Internet of Things Flask Application
 
+![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/python-loves-vscode-raspberrypi.jpg)
+
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
