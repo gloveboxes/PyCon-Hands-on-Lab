@@ -1,5 +1,5 @@
 a:link {
-    color: red;
+    color: #cb4e44;
     background-color: transparent;
     text-decoration: none;
     font-size: x-large;
@@ -7,19 +7,19 @@ a:link {
 }
 
 a:visited {
-    color: red;
+    color: #cb4e44;
     background-color: transparent;
     text-decoration: none;
 }
 
 a:hover {
-    color: red;
+    color: #cb4e44;
     background-color: transparent;
     text-decoration: underline;
 }
 
 a:active {
-    color: red;
+    color: #cb4e44;
     background-color: transparent;
     text-decoration: underline;
 }
