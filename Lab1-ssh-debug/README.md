@@ -275,7 +275,7 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
     If the Variable Window is not visible click **Debug** in the activity bar.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-activity-bar-debug.png)
-
+    <br>
     ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
     <br>
 4. Try to change the **temperature** variable to **50**. Hint, **right mouse** click on the temperature variable and select **Set Value**, or double click on a **temperature** variable.
@@ -386,7 +386,7 @@ From Visual Studio Code, **Close Remote Connection**.
 
 ## Finished
 
-![finished](resources/finished.jpg)
+![finished](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/finished.jpg)
 
 ## References
 
