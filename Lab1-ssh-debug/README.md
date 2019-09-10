@@ -91,11 +91,15 @@ You will be prompted for:
 - The Raspberry Pi Network IP Address,
 - The Raspberry Pi login name and password
 
-1. From Windows File Explorer, open **f<span>tp://\<Raspberry Pi Address>**
+1. From **Windows File Explorer**, open **f<span>tp://\<Raspberry Pi Address>**
+
+    ![](resources/windows-file-manager-address-bar.png)
+
+2. Copy the **scripts** directory to your **desktop**
 
     ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
 
-2. Copy the **scripts** directory to your **desktop**
+
 3. Open the **scripts** folder you copied to your **desktop**
 4. Double click the **windows-setup-ssh.cmd**
 
@@ -157,7 +161,7 @@ You will be prompted for:
 
 -->
 
-## Start a Visual Studio Code Remote SSH Connection
+## Start a Remote SSH Connection
 
 1. **Start Visual Studio Code**
 2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
@@ -166,7 +170,11 @@ You will be prompted for:
 
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
 
-    It will take a moment to connect to the Raspberry Pi.
+4. Check the Remote SSH has connected. 
+
+    It will take a moment to connect, then the SSH Status in the bottom left hand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login in name.
+
+    ![](resources/vs-code-remote-ssh-connected.png)
 
 <!-- ## Install the Python Visual Studio Code Extension
 
@@ -210,16 +218,11 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. Switch back to Visual Studio Code and ensure the **app<span>.py** file is open.
 2. Put the cursor on the line that reads **now = datetime.now()**
-3. Use one of the following methods to set a breakpoint.
-    - Press **F9**
-    - From the main menu, select **Debug** > **Toggle Breakpoint**
-    - **Click directly** in the **margin to the left** of the line number (a faded red dot appears when hovering there)
-    
-    **The breakpoint appears as a red dot in the left margin**
+3. Press **F9** to set a breakpoint. A red dot will appear on the line to indicate a breakpoint has been set.
 
     ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
 
-4. Switch back to the **Web Browser** and click **Refresh**. The web page will **not response** as the Python code has been stopped by the debugger.
+4. Switch back to the **Web Browser** and click **Refresh**. The web page will **not respond** as the debugger has stopped at the breakpoint you set.
 5. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
@@ -244,6 +247,10 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
 1. Step through the code by pressing (**F10**) or clicking **Step Over** on the debugging toolbar.
 2. **Repeat** pressing **F10** until you reach the line that reads **if -40 <= temperature <= 60 and 0 <= pressure <= 1500 and 0 <= humidity <= 100:**
 3. You will notice that Python variables are displayed in the **Variables Window**.
+
+    If the Variable Window is not visible click **Debug** in the activity bar.
+
+    ![](resources/vs-code-activity-bar-debug.png)
 
     ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
@@ -282,7 +289,7 @@ Try setting a **conditional** breakpoint
     ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
 
     The breakpoint appears as a red dot with an equals sign in the middle:
-6. **Switch** back to your **web browser** and **click refresh**. The web page will **not respond** as the Python code has been stopped by the debugger.
+6. Switch back to the **Web Browser** and click **Refresh**. The web page will **not respond** as the debugger has stopped at the breakpoint you set.
 7. **Switch** back to **Visual Studio Code** and you will see the debugger has stopped at the **conditional breakpoint**.
 8. Press **F5** to continue running the code
 9. **Switch** back to your **web browser** to view the page.
@@ -329,7 +336,7 @@ Things to try:
 1. Review the [Python Flask tutorial](https://vscode-westeu.azurewebsites.net/docs/python/tutorial-flask)
 1. Review the [Visual Studio Code Debugging Tutorial](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=pycon-blog-dglover)
 
-## Review the **debug** options
+## Review the Debug **Launch** Settings
 
 1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
 

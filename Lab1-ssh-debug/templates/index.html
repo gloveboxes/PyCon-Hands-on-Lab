@@ -1,32 +1,47 @@
 <html>
 
 <head>
+    <link rel="shortcut icon" type="image/png" href="/static/vscode.png">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
     <title>{{ title }}</title>
 </head>
 
-<body>
+<body style="font-family: Arial, Helvetica, sans-serif">
     <h1>{{ title }}</h1>
-    <h2>Raspberry Pi Sense HAT Telemetry</h2>
-    <table style="width:30%">
+    <a href="https://www.raspberrypi.org/products/sense-hat/" target="_blank">Raspberry Pi Sense HAT</a>
+    <br>
+    <br>
+    <table>
         <tr>
-            <th align="left">Telemetry</th>
-            <th align="left">Value</th>
-        </tr>
-        <tr>
-            <td>Temperature</td>
-            <td>{{ temperature }} C</td>
-        </tr>
-        <tr>
-            <td>Humidity</td>
-            <td>{{ humidity }} %</td>
-        </tr>
-        <tr>
-            <td>Pressure</td>
-            <td>{{ pressure }} hPa</td>
-        </tr>
-        <tr>
-        <td>CPU Temperature</td>
-            <td>{{ cputemperature }} C</td>
+            <td>
+                <img src="/static/weather.png" alt="thermometer">
+            </td>
+            <td>
+                <table>
+                    <col width="180" align="left">
+                    <col width="100" align="left">
+                    <tr>
+                        <th align="left">Telemetry</th>
+                        <th align="left">Value</th>
+                    </tr>
+                    <tr>
+                        <td>Temperature</td>
+                        <td>{{ temperature }} C</td>
+                    </tr>
+                    <tr>
+                        <td>Humidity</td>
+                        <td>{{ humidity }} %</td>
+                    </tr>
+                    <tr>
+                        <td>Pressure</td>
+                        <td>{{ pressure }} hPa</td>
+                    </tr>
+                    <tr>
+                        <td>CPU Temperature</td>
+                        <td>{{ cputemperature }} C</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
     </table>
 </body>
