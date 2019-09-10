@@ -93,7 +93,7 @@ You will be prompted for:
 
 1. From **Windows File Explorer**, open **f<span>tp://\<Raspberry Pi Address>**
 
-    ![](resources/windows-file-manager-address-bar.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager-address-bar.png)
 
 2. Copy the **scripts** directory to your **desktop**
 
@@ -174,7 +174,7 @@ You will be prompted for:
 
     It will take a moment to connect, then the SSH Status in the bottom left hand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login in name.
 
-    ![](resources/vs-code-remote-ssh-connected.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-remote-ssh-connected.png)
 
 <!-- ## Install the Python Visual Studio Code Extension
 
@@ -250,7 +250,7 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
 
     If the Variable Window is not visible click **Debug** in the activity bar.
 
-    ![](resources/vs-code-activity-bar-debug.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-activity-bar-debug.png)
 
     ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
 
