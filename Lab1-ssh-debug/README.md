@@ -1,8 +1,8 @@
-# Lab 1: Debugging a Python Internet of Things Application
+# PyLab 1: Debugging a Python Internet of Things Application
 
 Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
-![banner](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/python-loves-vscode-raspberrypi.jpg)
+![banner](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/python-loves-vscode-raspberrypi.jpg)
 
 ## PDF Lab Guide
 
@@ -21,11 +21,11 @@ You may find it easier to download and follow the PDF version of the [Debugging 
 
 In this hands-on lab, you will learn how to create and debug a Python web application on a Raspberry Pi with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover) and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover) extension. The web app will read the temperature, humidity, and air pressure telemetry from a sensor connected to the Raspberry Pi.
 
-![Sense HAT for Raspberry Pi](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/rpi4-pi-sense-hat.jpg)
+![Sense HAT for Raspberry Pi](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/rpi4-pi-sense-hat.jpg)
 
 ## Software Installation
 
-![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/setup.jpg)
+![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/setup.jpg)
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on [GitHub](https://github.com/microsoft/vscode). It runs on Linux, macOS, and Windows.
 
@@ -41,13 +41,13 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 You can search and install extensions from within Visual Studio Code. Open the Extensions view from the Visual Studio Code main menu, select **View** > **Extensions** or by clicking on the Extensions icon in the **Activity Bar** on the side of Visual Studio Code.
 
-![Extensions view icon](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-view-icon.png)
+![Extensions view icon](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/extensions-view-icon.png)
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode?WT.mc_id=pycon-blog-dglover).
 
-<!-- ![popular extensions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/extensions-popular.png) -->
+<!-- ![popular extensions](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/extensions-popular.png) -->
 
-![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-extension.png)
+![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-install-extension.png)
 
 ### Install the Python and Remote SSH Extensions
 
@@ -67,7 +67,7 @@ code --install-extension ms-python.python
 
 The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of Visual Studio Code.
 
-![Architecture Diagram](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/architecture-ssh.png)
+![Architecture Diagram](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/architecture-ssh.png)
 
 ## Raspberry Pi Hardware
 
@@ -80,7 +80,7 @@ You will need the following information from the lab instructor.
 
 ## SSH Authentication with private/public keys
 
-![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
+![ssh login](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/ssh-login.jpg)
 
 Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
 
@@ -97,7 +97,7 @@ You will be prompted for:
 
     <br>
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager-address-bar.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/windows-file-manager-address-bar.png)
 
     <br>
 
@@ -105,7 +105,7 @@ You will be prompted for:
 
     <br>
 
-    ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
+    ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/windows-file-manager.png)
 
     <br>
 
@@ -179,7 +179,7 @@ You will be prompted for:
 
     <br>
 
-    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
+    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-ssh-connection.png)
 
     <br>
 4. Check the Remote SSH has connected. 
@@ -188,11 +188,11 @@ You will be prompted for:
 
     <br>
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-remote-ssh-connected.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-remote-ssh-connected.png)
 
 <!-- ## Install the Python Visual Studio Code Extension
 
-![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-install-python.png)
+![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-install-python.png)
 
 Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
 
@@ -211,23 +211,23 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
     <br>
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-folder-PyCon.png)
     <br>
 3. Next select the **Lab1-ssh-debug** directory
     <br>
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-Lab1.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-folder-Lab1.png)
     <br>
 4. Click **OK** to Open the directory
 5. From the **Explorer** bar, open the **app<span>.py** file and review the contents
     <br>
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-appy-py.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-appy-py.png)
 
 ## Start the Python Flask App
 
 1. Press **F5** to start the Python Flask app.
 2. From the Visual Studio Code **Terminal Window**, click the **running on http://...** web link.
     <br>
-    ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
+    ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-start-web-browser.png)
 
     <br>
 3. This will launch your desktop Web Browser.
@@ -236,7 +236,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
     <br>
 
-    ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
+    ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/flask-web-page.png)
 
 ## Debugging with Breakpoints
 
@@ -244,12 +244,12 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 2. Put the cursor on the line that reads **now = datetime.now()**
 3. Press **F9** to set a breakpoint. A red dot will appear on the line to indicate a breakpoint has been set.
     <br>
-    ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-flask-app.png)
+    ![Start the flask web application](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-flask-app.png)
     <br>
 4. Switch back to the **Web Browser** and click **Refresh**. The web page will **not respond** as the debugger has stopped at the breakpoint you set.
 5. Switch back to **Visual Studio Code**. You will see that the code has stopped running at the **breakpoint**.
     <br>
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-stop-at-breakpoint.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-stop-at-breakpoint.png)
 
 ## Debugger Toolbar Options
 
@@ -257,7 +257,7 @@ When a debug session starts, the **Debug toolbar** will appear at the top of the
 
 The debugging toolbar (shown below) will appear in Visual Studio Code. It has the following options:
 
-![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/toolbar.png)
+![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/toolbar.png)
 
 1. Pause (or Continue, F5),
 1. Step Over (F10)
@@ -274,9 +274,9 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
 
     If the Variable Window is not visible click **Debug** in the activity bar.
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-activity-bar-debug.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-activity-bar-debug.png)
     <br>
-    ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-stepping-code-variable-window.png)
+    ![Variable window](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-stepping-code-variable-window.png)
     <br>
 4. Try to change the **temperature** variable to **50**. Hint, **right mouse** click on the temperature variable and select **Set Value**, or double click on a **temperature** variable.
 5. Press **F5** to resume the Flask App, then **switch back to your web browser** and you will see the temperature, humidity, and pressure Sensor data displayed on the web page.
@@ -285,17 +285,17 @@ The debugging toolbar (shown below) will appear in Visual Studio Code. It has th
 
 1. Press F5 (or click the Run icon) to launch the **Python: Flask** debug configuration. This will start the Web Application on the Raspberry Pi in debug mode.
 
-    ![Launch the Python: Flask Task](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-launch-debugger.png)
+    ![Launch the Python: Flask Task](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-launch-debugger.png)
 
 1. Ctrl+click the Flask Web link in the Visual Studio Terminal Window. This will launch your desktop Web Browser.
 
-    ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
+    ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-start-web-browser.png)
 
 1. Next switch back to Visual Studio Code. The code execution has stopped at the breakpoint you set.
 
 
 
-    ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
+    ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/flask-web-page.png)
 
 1. Press the **Refresh** button on your web browser. The Flask app will again stop at the breakpoint in Visual Studio Code. -->
 
@@ -307,12 +307,12 @@ Try setting a **conditional** breakpoint
 2. Ensure the **app<span>.py** file open.
 3. **Right mouse click** directly in the margin to the **left** of the line number **22**.
     <br>
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-add-conditional-breakpoint.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-add-conditional-breakpoint.png)
     <br>
 4. Select **Add Conditional Breakpoint...**
 5. Set the condition to **temperature > 25**, then press **ENTER**
     <br>
-    ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-conditional-breakpoint.png)
+    ![Conditional BreakPoint in Visual Studio Code](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-conditional-breakpoint.png)
 
     The breakpoint appears as a red dot with an equals sign in the middle
     <br>
@@ -330,7 +330,7 @@ The Visual Studio Code **Debug Console** will give you access to the [Python REP
 3. The code will have stopped at the conditional breakpoint you previously set.
 4. Select the Visual Studio **Debug Console** window.
     <br>
-    ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-debug-console-print.png)
+    ![visual studio debug console](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-debug-console-print.png)
     <br>
 5. Type the following Python code into the Input Prompt **>**
 
@@ -369,7 +369,7 @@ Things to try:
 
 1. Switch to Debug view in Visual Studio Code (using the left-side activity bar).
     <br>
-    ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-launch-json.png)
+    ![open launch json file](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-launch-json.png)
     <br>
 1. Click the **Settings** button which will open the **launch.json** file.
 1. The **launch.json** file defines how the Flask app will start, and what [Flask Command Line](https://flask.palletsprojects.com/en/1.0.x/cli/) parameters to pass at startup.
@@ -382,11 +382,11 @@ From Visual Studio Code, **Close Remote Connection**.
 
 1. Click the **Remote SSH** button in the **bottom left-hand corner** and select **Close Remote Connection** from the dropdown list.
     <br>
-    ![close Remote SSH](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-close-ssh-session.png)
+    ![close Remote SSH](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-close-ssh-session.png)
 
 ## Finished
 
-![finished](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/finished.jpg)
+![finished](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/finished.jpg)
 
 ## References
 
