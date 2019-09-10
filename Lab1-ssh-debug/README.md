@@ -386,7 +386,7 @@ From Visual Studio Code, **Close Remote Connection**.
 
 ## Finished
 
-![finished](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/congratulations.jpg)
+![finished](resources/finished.jpg)
 
 ## References
 
