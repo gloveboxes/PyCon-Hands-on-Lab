@@ -1,6 +1,6 @@
 # Lab 1: Debugging a Raspberry Pi Internet of Things Flask Application
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/python-loves-vscode-raspberrypi.jpg)
+![banner](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/python-loves-vscode-raspberrypi.jpg)
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
@@ -95,12 +95,19 @@ You will be prompted for:
 
 1. From **Windows File Explorer**, open **f<span>tp://\<Raspberry Pi Address>**
 
+    <br>
+
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager-address-bar.png)
+
+    <br>
 
 2. Copy the **scripts** directory to your **desktop**
 
+    <br>
+
     ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/windows-file-manager.png)
 
+    <br>
 
 3. Open the **scripts** folder you copied to your **desktop**
 4. Double click the **windows-setup-ssh.cmd**
@@ -170,11 +177,16 @@ You will be prompted for:
 
 3. Select the **pylab-devnn** configuration
 
+    <br>
+
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-ssh-connection.png)
 
+    <br>
 4. Check the Remote SSH has connected. 
 
     It will take a moment to connect, then the SSH Status in the bottom left hand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login in name.
+
+    <br>
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-remote-ssh-connected.png)
 
@@ -198,6 +210,7 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
+
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-PyCon.png)
 3. Next select the **Lab1-ssh-debug** directory
     ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-open-folder-Lab1.png)
@@ -209,10 +222,15 @@ In this lab we are going to start and debug a [Flask](https://www.fullstackpytho
 
 1. Press **F5** to start the Python Flask app.
 2. From the Visual Studio Code **Terminal Window**, click the **running on http://...** web link.
+    <br>
     ![Open web browser from VS Code](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/vs-code-start-web-browser.png)
+
+    <br>
 3. This will launch your desktop Web Browser.
 
     -  The Flask app will read the temperature, air pressure, humidity from the **sensor** attached the Raspberry Pi and display the results in your web browser.
+
+    <br>
 
     ![Flask Web Page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/flask-web-page.png)
 
