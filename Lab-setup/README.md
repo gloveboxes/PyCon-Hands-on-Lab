@@ -93,7 +93,7 @@ cd ~/PyLab/Lab-setup/setup
 Running this script will set up the PyLab lab **except** for the Remote SSH Components that must be installed separately (see next step).
 
 ```bash
-~/PyLab/Lab-setup/setup/10-setup.sh
+~/PyLab/Lab-setup/setup/00-setup-multiuser.sh
 ```
 
 ## Install Remote SSH on the Raspberry Pi
